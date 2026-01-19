@@ -7,10 +7,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Optional: for connection pooling (Neon, Supabase)
 }
 
-// Note: SQLite doesn't support enums, using strings with constraints instead
+// Using strings for status/role fields for flexibility
 
 // Location hierarchy models
 model Country {
