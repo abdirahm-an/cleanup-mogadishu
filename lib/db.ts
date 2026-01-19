@@ -1,13 +1,3 @@
-import { PrismaClient } from "@/lib/generated/prisma"
-
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
-}
-
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: ["query"],
-  })
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db
+// Re-export the prisma client from the main prisma module
+// This ensures all database access uses the correctly configured client with adapter
+export { prisma as db } from './prisma'
