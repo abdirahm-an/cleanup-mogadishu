@@ -83,14 +83,15 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  posts          Post[]
-  events         Event[]
-  interests      UserInterest[]
-  postInterests  PostInterest[]
-  eventAttendee  EventAttendee[]
-  accounts       Account[]
-  sessions       Session[]
-  flags          Flag[]
+  posts            Post[]
+  events           Event[]
+  interests        UserInterest[]
+  postInterests    PostInterest[]
+  eventAttendee    EventAttendee[]
+  accounts         Account[]
+  sessions         Session[]
+  flags            Flag[]
+  moderatorActions ModeratorAction[]
 
   @@map("users")
 }
@@ -152,12 +153,13 @@ model Post {
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 
-  author       User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
-  neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
-  interests    PostInterest[]
-  events       Event[]
-  flags        Flag[]
+  author           User             @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  district         District?        @relation(fields: [districtId], references: [id], onDelete: SetNull)
+  neighborhood     Neighborhood?    @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+  interests        PostInterest[]
+  events           Event[]
+  flags            Flag[]
+  moderatorActions ModeratorAction[]
 
   @@map("posts")
 }
@@ -249,12 +251,30 @@ model Flag {
   userId    String
   reason    String   // "spam", "inappropriate", "misleading", "other"
   comment   String?  // Optional additional context
+  status    String   @default("PENDING") // "PENDING", "DISMISSED", "RESOLVED"
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post             Post             @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  moderatorActions ModeratorAction[]
 
   @@unique([postId, userId]) // Ensures one flag per user per post
   @@map("flags")
+}
+
+model ModeratorAction {
+  id          String   @id @default(cuid())
+  flagId      String?  // Optional - link to flag if action was taken on a flag
+  postId      String?  // Optional - link to post if action was taken on a post
+  moderatorId String
+  action      String   // "DISMISS_FLAG", "HIDE_POST", "DELETE_POST", "NOTIFY_AUTHOR"
+  reason      String?  // Optional reason for the action
+  createdAt   DateTime @default(now())
+
+  moderator User  @relation(fields: [moderatorId], references: [id], onDelete: Cascade)
+  flag      Flag? @relation(fields: [flagId], references: [id], onDelete: SetNull)
+  post      Post? @relation(fields: [postId], references: [id], onDelete: SetNull)
+
+  @@map("moderator_actions")
 }
