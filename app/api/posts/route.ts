@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { z } from 'zod';
 
@@ -15,7 +16,7 @@ const createPostSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     // Check authentication
-    const session = await auth();
+    const session = await getServerSession(authOptions);
     if (!session?.user?.id) {
       return NextResponse.json(
         { error: 'Authentication required' },
@@ -110,12 +111,18 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10');
     const districtId = searchParams.get('districtId');
     const neighborhoodId = searchParams.get('neighborhoodId');
+    const status = searchParams.get('status');
     
     const skip = (page - 1) * limit;
 
-    const where: any = {
-      status: 'PUBLISHED',
-    };
+    const where: any = {};
+    
+    // Default to showing non-draft posts if no status specified
+    if (status) {
+      where.status = status;
+    } else {
+      where.status = { not: 'DRAFT' }; // Show all non-draft posts
+    }
     
     if (districtId) {
       where.districtId = districtId;

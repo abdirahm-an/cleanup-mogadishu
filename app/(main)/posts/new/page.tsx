@@ -1,4 +1,5 @@
-import { auth } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import PostForm from '@/components/posts/PostForm';
 
@@ -9,7 +10,7 @@ export const metadata = {
 
 export default async function NewPostPage() {
   // Require authentication
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   
   if (!session?.user) {
     redirect('/login?callbackUrl=/posts/new');
