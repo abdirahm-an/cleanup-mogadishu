@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { Button } from '@/components/ui/Button';
-import { PostGrid } from '@/components/posts/PostGrid';
+import { PostsViewToggle } from '@/components/posts/PostsViewToggle';
 import PostFilters from '@/components/posts/PostFilters';
 import { Plus } from 'lucide-react';
 
@@ -12,6 +12,7 @@ interface PostsPageProps {
     neighborhood?: string;
     status?: string;
     search?: string;
+    view?: 'list' | 'map';
   }>;
 }
 
@@ -141,8 +142,13 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
 
   const currentPage = parseInt(params.page || '1');
   const { posts, pagination } = data;
+  const currentView = (params.view as 'list' | 'map') || 'list';
 
-  // Status options and getStatusColor moved to PostFilters component
+  // Transform posts to include photos as array (they come as JSON string)
+  const transformedPosts = posts.map((post: any) => ({
+    ...post,
+    photos: JSON.parse(post.photos || '[]'),
+  }));
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -167,13 +173,14 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
           </div>
 
           {/* Filters */}
-          <PostFilters className="mb-8" />
+          <div className="mb-8">
+            <PostFilters />
+          </div>
 
-          {/* Posts Grid */}
-          <PostGrid 
-            posts={posts}
-            emptyMessage="No posts found matching your filters"
-            showEmpty={true}
+          {/* Posts View Toggle (Map/List) */}
+          <PostsViewToggle 
+            posts={transformedPosts} 
+            initialView={currentView}
           />
 
           {/* Pagination */}

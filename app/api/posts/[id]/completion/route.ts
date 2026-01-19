@@ -11,7 +11,7 @@ const completionSchema = z.object({
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
@@ -35,7 +35,7 @@ export async function POST(
     }
 
     const { beforePhoto, afterPhoto } = result.data;
-    const postId = params.id;
+    const { id: postId } = await params;
 
     // Check if post exists and user is the author
     const post = await db.post.findUnique({
