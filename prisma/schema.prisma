@@ -8,28 +8,10 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
-// Enums
-enum UserRole {
-  USER
-  MODERATOR
-}
-
-enum PostStatus {
-  DRAFT
-  PUBLISHED
-  UNDER_REVIEW
-  COMPLETED
-  ARCHIVED
-}
-
-enum EventStatus {
-  PLANNED
-  ACTIVE
-  COMPLETED
-  CANCELLED
-}
+// Note: SQLite doesn't support enums, using strings with constraints instead
 
 // Location hierarchy models
 model Country {
@@ -91,20 +73,70 @@ model Neighborhood {
 
 // Core models
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String
-  phone     String?
-  role      UserRole @default(USER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  phone         String?
+  password      String?   // For credentials auth
+  role          String    @default("USER") // USER, MODERATOR
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
   posts         Post[]
   events        Event[]
   interests     UserInterest[]
   eventAttendee EventAttendee[]
+  accounts      Account[]
+  sessions      Session[]
 
   @@map("users")
+}
+
+// NextAuth models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
 }
 
 model Post {
@@ -112,7 +144,7 @@ model Post {
   title          String
   description    String
   photos         String? // JSON array of photo URLs/paths
-  status         PostStatus @default(DRAFT)
+  status         String     @default("DRAFT") // DRAFT, PUBLISHED, UNDER_REVIEW, COMPLETED, ARCHIVED
   districtId     String?
   neighborhoodId String?
   authorId       String
@@ -158,7 +190,7 @@ model Event {
   description    String
   startDate      DateTime
   endDate        DateTime?
-  status         EventStatus @default(PLANNED)
+  status         String      @default("PLANNED") // PLANNED, ACTIVE, COMPLETED, CANCELLED
   maxAttendees   Int?
   districtId     String?
   neighborhoodId String?
