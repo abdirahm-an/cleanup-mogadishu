@@ -6,7 +6,9 @@
     "seed": "tsx prisma/seed.ts"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--max-old-space-size=1536' next dev",
+    "dev:clean": "pkill -f 'next dev' 2>/dev/null; NODE_OPTIONS='--max-old-space-size=1536' next dev",
+    "dev:prod": "NODE_OPTIONS='--max-old-space-size=1536' next start",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
