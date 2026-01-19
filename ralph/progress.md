@@ -40,3 +40,52 @@ _(Entries added by orchestrator after each agent run)_
 - TypeScript strict mode already enabled by create-next-app
 
 ---
+
+## 2026-01-19 09:03 UTC - US-002 ✅ COMPLETED
+**Agent**: ralph-US-002 (Sonnet)
+**Branch**: ralph/US-002
+
+### Implemented:
+- Prisma installed and configured with SQLite
+- Complete database schema: User, Post, Location hierarchy, Event, Interest
+- Prisma client generated
+- DB scripts added to package.json
+
+### Learnings:
+- Prisma 7 uses separate config file (prisma.config.ts)
+- SQLite doesn't support arrays, use JSON string instead
+
+---
+
+## 2026-01-19 09:03 UTC - US-004 ✅ COMPLETED
+**Agent**: ralph-US-004 (Sonnet)
+**Branch**: ralph/US-004
+
+### Implemented:
+- UI components: Button, Input, Card
+- Layout components: Header, Footer, Navigation
+- Loading and error states
+- Environmental green theme in Tailwind config
+
+### Learnings:
+- clsx + tailwind-merge pattern for className utilities
+- Mobile-first responsive design approach
+
+---
+
+## 2026-01-19 09:04 UTC - US-006 ✅ COMPLETED
+**Agent**: ralph-US-006 (Sonnet)
+**Branch**: ralph/US-006
+
+### Implemented:
+- ImageDropzone with drag-and-drop
+- ImagePreview with remove functionality
+- UploadProgress indicator
+- API route for file uploads
+- Image compression with browser-image-compression
+
+### Learnings:
+- react-dropzone for drag-and-drop
+- Local storage in public/uploads/ for dev
+
+---
