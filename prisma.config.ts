@@ -1,7 +1,14 @@
 import path from 'node:path'
 import { defineConfig } from 'prisma/config'
 
+const databaseUrl = process.env.DATABASE_URL || ''
+
 export default defineConfig({
   schema: path.join(__dirname, 'prisma', 'schema.prisma'),
-  url: process.env.DATABASE_URL, // For prisma migrate deploy - property name is 'url', not 'datasourceUrl'
+  datasource: {
+    url: databaseUrl,
+  },
+  migrations: {
+    seed: 'npx tsx prisma/seed.ts',
+  },
 })
