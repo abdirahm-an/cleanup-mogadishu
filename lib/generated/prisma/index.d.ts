@@ -89,10 +89,10 @@ export type EventAttendee = $Result.DefaultSelection<Prisma.$EventAttendeePayloa
  */
 export type Flag = $Result.DefaultSelection<Prisma.$FlagPayload>
 /**
- * Model ModeratorAction
+ * Model ModerationAction
  * 
  */
-export type ModeratorAction = $Result.DefaultSelection<Prisma.$ModeratorActionPayload>
+export type ModerationAction = $Result.DefaultSelection<Prisma.$ModerationActionPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -362,14 +362,14 @@ export class PrismaClient<
   get flag(): Prisma.FlagDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.moderatorAction`: Exposes CRUD operations for the **ModeratorAction** model.
+   * `prisma.moderationAction`: Exposes CRUD operations for the **ModerationAction** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ModeratorActions
-    * const moderatorActions = await prisma.moderatorAction.findMany()
+    * // Fetch zero or more ModerationActions
+    * const moderationActions = await prisma.moderationAction.findMany()
     * ```
     */
-  get moderatorAction(): Prisma.ModeratorActionDelegate<ExtArgs, ClientOptions>;
+  get moderationAction(): Prisma.ModerationActionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -819,7 +819,7 @@ export namespace Prisma {
     Event: 'Event',
     EventAttendee: 'EventAttendee',
     Flag: 'Flag',
-    ModeratorAction: 'ModeratorAction'
+    ModerationAction: 'ModerationAction'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -835,7 +835,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "country" | "city" | "district" | "neighborhood" | "user" | "account" | "session" | "verificationToken" | "post" | "postInterest" | "interest" | "userInterest" | "event" | "eventAttendee" | "flag" | "moderatorAction"
+      modelProps: "country" | "city" | "district" | "neighborhood" | "user" | "account" | "session" | "verificationToken" | "post" | "postInterest" | "interest" | "userInterest" | "event" | "eventAttendee" | "flag" | "moderationAction"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1949,77 +1949,77 @@ export namespace Prisma {
           }
         }
       }
-      ModeratorAction: {
-        payload: Prisma.$ModeratorActionPayload<ExtArgs>
-        fields: Prisma.ModeratorActionFieldRefs
+      ModerationAction: {
+        payload: Prisma.$ModerationActionPayload<ExtArgs>
+        fields: Prisma.ModerationActionFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ModeratorActionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload> | null
+            args: Prisma.ModerationActionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ModeratorActionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           findFirst: {
-            args: Prisma.ModeratorActionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload> | null
+            args: Prisma.ModerationActionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ModeratorActionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           findMany: {
-            args: Prisma.ModeratorActionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>[]
+            args: Prisma.ModerationActionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>[]
           }
           create: {
-            args: Prisma.ModeratorActionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           createMany: {
-            args: Prisma.ModeratorActionCreateManyArgs<ExtArgs>
+            args: Prisma.ModerationActionCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.ModeratorActionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>[]
+            args: Prisma.ModerationActionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>[]
           }
           delete: {
-            args: Prisma.ModeratorActionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           update: {
-            args: Prisma.ModeratorActionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           deleteMany: {
-            args: Prisma.ModeratorActionDeleteManyArgs<ExtArgs>
+            args: Prisma.ModerationActionDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ModeratorActionUpdateManyArgs<ExtArgs>
+            args: Prisma.ModerationActionUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.ModeratorActionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>[]
+            args: Prisma.ModerationActionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>[]
           }
           upsert: {
-            args: Prisma.ModeratorActionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ModeratorActionPayload>
+            args: Prisma.ModerationActionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModerationActionPayload>
           }
           aggregate: {
-            args: Prisma.ModeratorActionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateModeratorAction>
+            args: Prisma.ModerationActionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateModerationAction>
           }
           groupBy: {
-            args: Prisma.ModeratorActionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ModeratorActionGroupByOutputType>[]
+            args: Prisma.ModerationActionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ModerationActionGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ModeratorActionCountArgs<ExtArgs>
-            result: $Utils.Optional<ModeratorActionCountAggregateOutputType> | number
+            args: Prisma.ModerationActionCountArgs<ExtArgs>
+            result: $Utils.Optional<ModerationActionCountAggregateOutputType> | number
           }
         }
       }
@@ -2146,7 +2146,7 @@ export namespace Prisma {
     event?: EventOmit
     eventAttendee?: EventAttendeeOmit
     flag?: FlagOmit
-    moderatorAction?: ModeratorActionOmit
+    moderationAction?: ModerationActionOmit
   }
 
   /* Types for Logging */
@@ -2386,7 +2386,8 @@ export namespace Prisma {
     accounts: number
     sessions: number
     flags: number
-    moderatorActions: number
+    moderationActionsAsTarget: number
+    moderationActionsAsModerator: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2398,7 +2399,8 @@ export namespace Prisma {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     flags?: boolean | UserCountOutputTypeCountFlagsArgs
-    moderatorActions?: boolean | UserCountOutputTypeCountModeratorActionsArgs
+    moderationActionsAsTarget?: boolean | UserCountOutputTypeCountModerationActionsAsTargetArgs
+    moderationActionsAsModerator?: boolean | UserCountOutputTypeCountModerationActionsAsModeratorArgs
   }
 
   // Custom InputTypes
@@ -2471,8 +2473,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountModeratorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ModeratorActionWhereInput
+  export type UserCountOutputTypeCountModerationActionsAsTargetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModerationActionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountModerationActionsAsModeratorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModerationActionWhereInput
   }
 
 
@@ -2484,14 +2493,12 @@ export namespace Prisma {
     interests: number
     events: number
     flags: number
-    moderatorActions: number
   }
 
   export type PostCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     interests?: boolean | PostCountOutputTypeCountInterestsArgs
     events?: boolean | PostCountOutputTypeCountEventsArgs
     flags?: boolean | PostCountOutputTypeCountFlagsArgs
-    moderatorActions?: boolean | PostCountOutputTypeCountModeratorActionsArgs
   }
 
   // Custom InputTypes
@@ -2524,13 +2531,6 @@ export namespace Prisma {
    */
   export type PostCountOutputTypeCountFlagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FlagWhereInput
-  }
-
-  /**
-   * PostCountOutputType without action
-   */
-  export type PostCountOutputTypeCountModeratorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ModeratorActionWhereInput
   }
 
 
@@ -2602,37 +2602,6 @@ export namespace Prisma {
    */
   export type EventCountOutputTypeCountAttendeesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EventAttendeeWhereInput
-  }
-
-
-  /**
-   * Count Type FlagCountOutputType
-   */
-
-  export type FlagCountOutputType = {
-    moderatorActions: number
-  }
-
-  export type FlagCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    moderatorActions?: boolean | FlagCountOutputTypeCountModeratorActionsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * FlagCountOutputType without action
-   */
-  export type FlagCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FlagCountOutputType
-     */
-    select?: FlagCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * FlagCountOutputType without action
-   */
-  export type FlagCountOutputTypeCountModeratorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ModeratorActionWhereInput
   }
 
 
@@ -7067,6 +7036,7 @@ export namespace Prisma {
     phone: string | null
     password: string | null
     role: string | null
+    status: string | null
     emailVerified: Date | null
     image: string | null
     createdAt: Date | null
@@ -7080,6 +7050,7 @@ export namespace Prisma {
     phone: string | null
     password: string | null
     role: string | null
+    status: string | null
     emailVerified: Date | null
     image: string | null
     createdAt: Date | null
@@ -7093,6 +7064,7 @@ export namespace Prisma {
     phone: number
     password: number
     role: number
+    status: number
     emailVerified: number
     image: number
     createdAt: number
@@ -7108,6 +7080,7 @@ export namespace Prisma {
     phone?: true
     password?: true
     role?: true
+    status?: true
     emailVerified?: true
     image?: true
     createdAt?: true
@@ -7121,6 +7094,7 @@ export namespace Prisma {
     phone?: true
     password?: true
     role?: true
+    status?: true
     emailVerified?: true
     image?: true
     createdAt?: true
@@ -7134,6 +7108,7 @@ export namespace Prisma {
     phone?: true
     password?: true
     role?: true
+    status?: true
     emailVerified?: true
     image?: true
     createdAt?: true
@@ -7220,6 +7195,7 @@ export namespace Prisma {
     phone: string | null
     password: string | null
     role: string
+    status: string
     emailVerified: Date | null
     image: string | null
     createdAt: Date
@@ -7250,6 +7226,7 @@ export namespace Prisma {
     phone?: boolean
     password?: boolean
     role?: boolean
+    status?: boolean
     emailVerified?: boolean
     image?: boolean
     createdAt?: boolean
@@ -7262,7 +7239,8 @@ export namespace Prisma {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     flags?: boolean | User$flagsArgs<ExtArgs>
-    moderatorActions?: boolean | User$moderatorActionsArgs<ExtArgs>
+    moderationActionsAsTarget?: boolean | User$moderationActionsAsTargetArgs<ExtArgs>
+    moderationActionsAsModerator?: boolean | User$moderationActionsAsModeratorArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -7273,6 +7251,7 @@ export namespace Prisma {
     phone?: boolean
     password?: boolean
     role?: boolean
+    status?: boolean
     emailVerified?: boolean
     image?: boolean
     createdAt?: boolean
@@ -7286,6 +7265,7 @@ export namespace Prisma {
     phone?: boolean
     password?: boolean
     role?: boolean
+    status?: boolean
     emailVerified?: boolean
     image?: boolean
     createdAt?: boolean
@@ -7299,13 +7279,14 @@ export namespace Prisma {
     phone?: boolean
     password?: boolean
     role?: boolean
+    status?: boolean
     emailVerified?: boolean
     image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "phone" | "password" | "role" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "phone" | "password" | "role" | "status" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     posts?: boolean | User$postsArgs<ExtArgs>
     events?: boolean | User$eventsArgs<ExtArgs>
@@ -7315,7 +7296,8 @@ export namespace Prisma {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     flags?: boolean | User$flagsArgs<ExtArgs>
-    moderatorActions?: boolean | User$moderatorActionsArgs<ExtArgs>
+    moderationActionsAsTarget?: boolean | User$moderationActionsAsTargetArgs<ExtArgs>
+    moderationActionsAsModerator?: boolean | User$moderationActionsAsModeratorArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7332,7 +7314,8 @@ export namespace Prisma {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       flags: Prisma.$FlagPayload<ExtArgs>[]
-      moderatorActions: Prisma.$ModeratorActionPayload<ExtArgs>[]
+      moderationActionsAsTarget: Prisma.$ModerationActionPayload<ExtArgs>[]
+      moderationActionsAsModerator: Prisma.$ModerationActionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7341,6 +7324,7 @@ export namespace Prisma {
       phone: string | null
       password: string | null
       role: string
+      status: string
       emailVerified: Date | null
       image: string | null
       createdAt: Date
@@ -7747,7 +7731,8 @@ export namespace Prisma {
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     flags<T extends User$flagsArgs<ExtArgs> = {}>(args?: Subset<T, User$flagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FlagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    moderatorActions<T extends User$moderatorActionsArgs<ExtArgs> = {}>(args?: Subset<T, User$moderatorActionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    moderationActionsAsTarget<T extends User$moderationActionsAsTargetArgs<ExtArgs> = {}>(args?: Subset<T, User$moderationActionsAsTargetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    moderationActionsAsModerator<T extends User$moderationActionsAsModeratorArgs<ExtArgs> = {}>(args?: Subset<T, User$moderationActionsAsModeratorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7783,6 +7768,7 @@ export namespace Prisma {
     readonly phone: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
+    readonly status: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
@@ -8365,27 +8351,51 @@ export namespace Prisma {
   }
 
   /**
-   * User.moderatorActions
+   * User.moderationActionsAsTarget
    */
-  export type User$moderatorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$moderationActionsAsTargetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
-    where?: ModeratorActionWhereInput
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
-    cursor?: ModeratorActionWhereUniqueInput
+    include?: ModerationActionInclude<ExtArgs> | null
+    where?: ModerationActionWhereInput
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
+    cursor?: ModerationActionWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
+  }
+
+  /**
+   * User.moderationActionsAsModerator
+   */
+  export type User$moderationActionsAsModeratorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModerationAction
+     */
+    select?: ModerationActionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModerationAction
+     */
+    omit?: ModerationActionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModerationActionInclude<ExtArgs> | null
+    where?: ModerationActionWhereInput
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
+    cursor?: ModerationActionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
   }
 
   /**
@@ -11860,7 +11870,6 @@ export namespace Prisma {
     interests?: boolean | Post$interestsArgs<ExtArgs>
     events?: boolean | Post$eventsArgs<ExtArgs>
     flags?: boolean | Post$flagsArgs<ExtArgs>
-    moderatorActions?: boolean | Post$moderatorActionsArgs<ExtArgs>
     _count?: boolean | PostCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["post"]>
 
@@ -11917,7 +11926,6 @@ export namespace Prisma {
     interests?: boolean | Post$interestsArgs<ExtArgs>
     events?: boolean | Post$eventsArgs<ExtArgs>
     flags?: boolean | Post$flagsArgs<ExtArgs>
-    moderatorActions?: boolean | Post$moderatorActionsArgs<ExtArgs>
     _count?: boolean | PostCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11940,7 +11948,6 @@ export namespace Prisma {
       interests: Prisma.$PostInterestPayload<ExtArgs>[]
       events: Prisma.$EventPayload<ExtArgs>[]
       flags: Prisma.$FlagPayload<ExtArgs>[]
-      moderatorActions: Prisma.$ModeratorActionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12353,7 +12360,6 @@ export namespace Prisma {
     interests<T extends Post$interestsArgs<ExtArgs> = {}>(args?: Subset<T, Post$interestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostInterestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     events<T extends Post$eventsArgs<ExtArgs> = {}>(args?: Subset<T, Post$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     flags<T extends Post$flagsArgs<ExtArgs> = {}>(args?: Subset<T, Post$flagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FlagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    moderatorActions<T extends Post$moderatorActionsArgs<ExtArgs> = {}>(args?: Subset<T, Post$moderatorActionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12894,30 +12900,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FlagScalarFieldEnum | FlagScalarFieldEnum[]
-  }
-
-  /**
-   * Post.moderatorActions
-   */
-  export type Post$moderatorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ModeratorAction
-     */
-    select?: ModeratorActionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ModeratorAction
-     */
-    omit?: ModeratorActionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ModeratorActionInclude<ExtArgs> | null
-    where?: ModeratorActionWhereInput
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
-    cursor?: ModeratorActionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
   }
 
   /**
@@ -18588,7 +18570,6 @@ export namespace Prisma {
     userId: string | null
     reason: string | null
     comment: string | null
-    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18599,7 +18580,6 @@ export namespace Prisma {
     userId: string | null
     reason: string | null
     comment: string | null
-    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18610,7 +18590,6 @@ export namespace Prisma {
     userId: number
     reason: number
     comment: number
-    status: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -18623,7 +18602,6 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18634,7 +18612,6 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18645,7 +18622,6 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -18729,7 +18705,6 @@ export namespace Prisma {
     userId: string
     reason: string
     comment: string | null
-    status: string
     createdAt: Date
     updatedAt: Date
     _count: FlagCountAggregateOutputType | null
@@ -18757,13 +18732,10 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    moderatorActions?: boolean | Flag$moderatorActionsArgs<ExtArgs>
-    _count?: boolean | FlagCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["flag"]>
 
   export type FlagSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -18772,7 +18744,6 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18785,7 +18756,6 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18798,17 +18768,14 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FlagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "reason" | "comment" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["flag"]>
+  export type FlagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "reason" | "comment" | "createdAt" | "updatedAt", ExtArgs["result"]["flag"]>
   export type FlagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     post?: boolean | PostDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    moderatorActions?: boolean | Flag$moderatorActionsArgs<ExtArgs>
-    _count?: boolean | FlagCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FlagIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18824,7 +18791,6 @@ export namespace Prisma {
     objects: {
       post: Prisma.$PostPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
-      moderatorActions: Prisma.$ModeratorActionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -18832,7 +18798,6 @@ export namespace Prisma {
       userId: string
       reason: string
       comment: string | null
-      status: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["flag"]>
@@ -19231,7 +19196,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     post<T extends PostDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PostDefaultArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    moderatorActions<T extends Flag$moderatorActionsArgs<ExtArgs> = {}>(args?: Subset<T, Flag$moderatorActionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19266,7 +19230,6 @@ export namespace Prisma {
     readonly userId: FieldRef<"Flag", 'String'>
     readonly reason: FieldRef<"Flag", 'String'>
     readonly comment: FieldRef<"Flag", 'String'>
-    readonly status: FieldRef<"Flag", 'String'>
     readonly createdAt: FieldRef<"Flag", 'DateTime'>
     readonly updatedAt: FieldRef<"Flag", 'DateTime'>
   }
@@ -19663,30 +19626,6 @@ export namespace Prisma {
   }
 
   /**
-   * Flag.moderatorActions
-   */
-  export type Flag$moderatorActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ModeratorAction
-     */
-    select?: ModeratorActionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ModeratorAction
-     */
-    omit?: ModeratorActionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ModeratorActionInclude<ExtArgs> | null
-    where?: ModeratorActionWhereInput
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
-    cursor?: ModeratorActionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
-  }
-
-  /**
    * Flag without action
    */
   export type FlagDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19706,39 +19645,36 @@ export namespace Prisma {
 
 
   /**
-   * Model ModeratorAction
+   * Model ModerationAction
    */
 
-  export type AggregateModeratorAction = {
-    _count: ModeratorActionCountAggregateOutputType | null
-    _min: ModeratorActionMinAggregateOutputType | null
-    _max: ModeratorActionMaxAggregateOutputType | null
+  export type AggregateModerationAction = {
+    _count: ModerationActionCountAggregateOutputType | null
+    _min: ModerationActionMinAggregateOutputType | null
+    _max: ModerationActionMaxAggregateOutputType | null
   }
 
-  export type ModeratorActionMinAggregateOutputType = {
+  export type ModerationActionMinAggregateOutputType = {
     id: string | null
-    flagId: string | null
-    postId: string | null
+    targetId: string | null
     moderatorId: string | null
     action: string | null
     reason: string | null
     createdAt: Date | null
   }
 
-  export type ModeratorActionMaxAggregateOutputType = {
+  export type ModerationActionMaxAggregateOutputType = {
     id: string | null
-    flagId: string | null
-    postId: string | null
+    targetId: string | null
     moderatorId: string | null
     action: string | null
     reason: string | null
     createdAt: Date | null
   }
 
-  export type ModeratorActionCountAggregateOutputType = {
+  export type ModerationActionCountAggregateOutputType = {
     id: number
-    flagId: number
-    postId: number
+    targetId: number
     moderatorId: number
     action: number
     reason: number
@@ -19747,30 +19683,27 @@ export namespace Prisma {
   }
 
 
-  export type ModeratorActionMinAggregateInputType = {
+  export type ModerationActionMinAggregateInputType = {
     id?: true
-    flagId?: true
-    postId?: true
+    targetId?: true
     moderatorId?: true
     action?: true
     reason?: true
     createdAt?: true
   }
 
-  export type ModeratorActionMaxAggregateInputType = {
+  export type ModerationActionMaxAggregateInputType = {
     id?: true
-    flagId?: true
-    postId?: true
+    targetId?: true
     moderatorId?: true
     action?: true
     reason?: true
     createdAt?: true
   }
 
-  export type ModeratorActionCountAggregateInputType = {
+  export type ModerationActionCountAggregateInputType = {
     id?: true
-    flagId?: true
-    postId?: true
+    targetId?: true
     moderatorId?: true
     action?: true
     reason?: true
@@ -19778,316 +19711,303 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type ModeratorActionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ModeratorAction to aggregate.
+     * Filter which ModerationAction to aggregate.
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ModeratorActions to fetch.
+     * Determine the order of ModerationActions to fetch.
      */
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ModeratorActionWhereUniqueInput
+    cursor?: ModerationActionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ModeratorActions from the position of the cursor.
+     * Take `±n` ModerationActions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ModeratorActions.
+     * Skip the first `n` ModerationActions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ModeratorActions
+     * Count returned ModerationActions
     **/
-    _count?: true | ModeratorActionCountAggregateInputType
+    _count?: true | ModerationActionCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ModeratorActionMinAggregateInputType
+    _min?: ModerationActionMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ModeratorActionMaxAggregateInputType
+    _max?: ModerationActionMaxAggregateInputType
   }
 
-  export type GetModeratorActionAggregateType<T extends ModeratorActionAggregateArgs> = {
-        [P in keyof T & keyof AggregateModeratorAction]: P extends '_count' | 'count'
+  export type GetModerationActionAggregateType<T extends ModerationActionAggregateArgs> = {
+        [P in keyof T & keyof AggregateModerationAction]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateModeratorAction[P]>
-      : GetScalarType<T[P], AggregateModeratorAction[P]>
+        : GetScalarType<T[P], AggregateModerationAction[P]>
+      : GetScalarType<T[P], AggregateModerationAction[P]>
   }
 
 
 
 
-  export type ModeratorActionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ModeratorActionWhereInput
-    orderBy?: ModeratorActionOrderByWithAggregationInput | ModeratorActionOrderByWithAggregationInput[]
-    by: ModeratorActionScalarFieldEnum[] | ModeratorActionScalarFieldEnum
-    having?: ModeratorActionScalarWhereWithAggregatesInput
+  export type ModerationActionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModerationActionWhereInput
+    orderBy?: ModerationActionOrderByWithAggregationInput | ModerationActionOrderByWithAggregationInput[]
+    by: ModerationActionScalarFieldEnum[] | ModerationActionScalarFieldEnum
+    having?: ModerationActionScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ModeratorActionCountAggregateInputType | true
-    _min?: ModeratorActionMinAggregateInputType
-    _max?: ModeratorActionMaxAggregateInputType
+    _count?: ModerationActionCountAggregateInputType | true
+    _min?: ModerationActionMinAggregateInputType
+    _max?: ModerationActionMaxAggregateInputType
   }
 
-  export type ModeratorActionGroupByOutputType = {
+  export type ModerationActionGroupByOutputType = {
     id: string
-    flagId: string | null
-    postId: string | null
+    targetId: string
     moderatorId: string
     action: string
     reason: string | null
     createdAt: Date
-    _count: ModeratorActionCountAggregateOutputType | null
-    _min: ModeratorActionMinAggregateOutputType | null
-    _max: ModeratorActionMaxAggregateOutputType | null
+    _count: ModerationActionCountAggregateOutputType | null
+    _min: ModerationActionMinAggregateOutputType | null
+    _max: ModerationActionMaxAggregateOutputType | null
   }
 
-  type GetModeratorActionGroupByPayload<T extends ModeratorActionGroupByArgs> = Prisma.PrismaPromise<
+  type GetModerationActionGroupByPayload<T extends ModerationActionGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ModeratorActionGroupByOutputType, T['by']> &
+      PickEnumerable<ModerationActionGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ModeratorActionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ModerationActionGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ModeratorActionGroupByOutputType[P]>
-            : GetScalarType<T[P], ModeratorActionGroupByOutputType[P]>
+              : GetScalarType<T[P], ModerationActionGroupByOutputType[P]>
+            : GetScalarType<T[P], ModerationActionGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ModeratorActionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ModerationActionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    flagId?: boolean
-    postId?: boolean
+    targetId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
-  }, ExtArgs["result"]["moderatorAction"]>
+  }, ExtArgs["result"]["moderationAction"]>
 
-  export type ModeratorActionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ModerationActionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    flagId?: boolean
-    postId?: boolean
+    targetId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
-  }, ExtArgs["result"]["moderatorAction"]>
+  }, ExtArgs["result"]["moderationAction"]>
 
-  export type ModeratorActionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ModerationActionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    flagId?: boolean
-    postId?: boolean
+    targetId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
-  }, ExtArgs["result"]["moderatorAction"]>
+  }, ExtArgs["result"]["moderationAction"]>
 
-  export type ModeratorActionSelectScalar = {
+  export type ModerationActionSelectScalar = {
     id?: boolean
-    flagId?: boolean
-    postId?: boolean
+    targetId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
   }
 
-  export type ModeratorActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "flagId" | "postId" | "moderatorId" | "action" | "reason" | "createdAt", ExtArgs["result"]["moderatorAction"]>
-  export type ModeratorActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetId" | "moderatorId" | "action" | "reason" | "createdAt", ExtArgs["result"]["moderationAction"]>
+  export type ModerationActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
   }
-  export type ModeratorActionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
   }
-  export type ModeratorActionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    target?: boolean | UserDefaultArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
-    flag?: boolean | ModeratorAction$flagArgs<ExtArgs>
-    post?: boolean | ModeratorAction$postArgs<ExtArgs>
   }
 
-  export type $ModeratorActionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ModeratorAction"
+  export type $ModerationActionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ModerationAction"
     objects: {
+      target: Prisma.$UserPayload<ExtArgs>
       moderator: Prisma.$UserPayload<ExtArgs>
-      flag: Prisma.$FlagPayload<ExtArgs> | null
-      post: Prisma.$PostPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      flagId: string | null
-      postId: string | null
+      targetId: string
       moderatorId: string
       action: string
       reason: string | null
       createdAt: Date
-    }, ExtArgs["result"]["moderatorAction"]>
+    }, ExtArgs["result"]["moderationAction"]>
     composites: {}
   }
 
-  type ModeratorActionGetPayload<S extends boolean | null | undefined | ModeratorActionDefaultArgs> = $Result.GetResult<Prisma.$ModeratorActionPayload, S>
+  type ModerationActionGetPayload<S extends boolean | null | undefined | ModerationActionDefaultArgs> = $Result.GetResult<Prisma.$ModerationActionPayload, S>
 
-  type ModeratorActionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ModeratorActionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ModeratorActionCountAggregateInputType | true
+  type ModerationActionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ModerationActionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ModerationActionCountAggregateInputType | true
     }
 
-  export interface ModeratorActionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ModeratorAction'], meta: { name: 'ModeratorAction' } }
+  export interface ModerationActionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ModerationAction'], meta: { name: 'ModerationAction' } }
     /**
-     * Find zero or one ModeratorAction that matches the filter.
-     * @param {ModeratorActionFindUniqueArgs} args - Arguments to find a ModeratorAction
+     * Find zero or one ModerationAction that matches the filter.
+     * @param {ModerationActionFindUniqueArgs} args - Arguments to find a ModerationAction
      * @example
-     * // Get one ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.findUnique({
+     * // Get one ModerationAction
+     * const moderationAction = await prisma.moderationAction.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ModeratorActionFindUniqueArgs>(args: SelectSubset<T, ModeratorActionFindUniqueArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ModerationActionFindUniqueArgs>(args: SelectSubset<T, ModerationActionFindUniqueArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one ModeratorAction that matches the filter or throw an error with `error.code='P2025'`
+     * Find one ModerationAction that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ModeratorActionFindUniqueOrThrowArgs} args - Arguments to find a ModeratorAction
+     * @param {ModerationActionFindUniqueOrThrowArgs} args - Arguments to find a ModerationAction
      * @example
-     * // Get one ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.findUniqueOrThrow({
+     * // Get one ModerationAction
+     * const moderationAction = await prisma.moderationAction.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ModeratorActionFindUniqueOrThrowArgs>(args: SelectSubset<T, ModeratorActionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ModerationActionFindUniqueOrThrowArgs>(args: SelectSubset<T, ModerationActionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ModeratorAction that matches the filter.
+     * Find the first ModerationAction that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionFindFirstArgs} args - Arguments to find a ModeratorAction
+     * @param {ModerationActionFindFirstArgs} args - Arguments to find a ModerationAction
      * @example
-     * // Get one ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.findFirst({
+     * // Get one ModerationAction
+     * const moderationAction = await prisma.moderationAction.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ModeratorActionFindFirstArgs>(args?: SelectSubset<T, ModeratorActionFindFirstArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ModerationActionFindFirstArgs>(args?: SelectSubset<T, ModerationActionFindFirstArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ModeratorAction that matches the filter or
+     * Find the first ModerationAction that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionFindFirstOrThrowArgs} args - Arguments to find a ModeratorAction
+     * @param {ModerationActionFindFirstOrThrowArgs} args - Arguments to find a ModerationAction
      * @example
-     * // Get one ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.findFirstOrThrow({
+     * // Get one ModerationAction
+     * const moderationAction = await prisma.moderationAction.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ModeratorActionFindFirstOrThrowArgs>(args?: SelectSubset<T, ModeratorActionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ModerationActionFindFirstOrThrowArgs>(args?: SelectSubset<T, ModerationActionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more ModeratorActions that matches the filter.
+     * Find zero or more ModerationActions that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ModerationActionFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ModeratorActions
-     * const moderatorActions = await prisma.moderatorAction.findMany()
+     * // Get all ModerationActions
+     * const moderationActions = await prisma.moderationAction.findMany()
      * 
-     * // Get first 10 ModeratorActions
-     * const moderatorActions = await prisma.moderatorAction.findMany({ take: 10 })
+     * // Get first 10 ModerationActions
+     * const moderationActions = await prisma.moderationAction.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const moderatorActionWithIdOnly = await prisma.moderatorAction.findMany({ select: { id: true } })
+     * const moderationActionWithIdOnly = await prisma.moderationAction.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ModeratorActionFindManyArgs>(args?: SelectSubset<T, ModeratorActionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ModerationActionFindManyArgs>(args?: SelectSubset<T, ModerationActionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a ModeratorAction.
-     * @param {ModeratorActionCreateArgs} args - Arguments to create a ModeratorAction.
+     * Create a ModerationAction.
+     * @param {ModerationActionCreateArgs} args - Arguments to create a ModerationAction.
      * @example
-     * // Create one ModeratorAction
-     * const ModeratorAction = await prisma.moderatorAction.create({
+     * // Create one ModerationAction
+     * const ModerationAction = await prisma.moderationAction.create({
      *   data: {
-     *     // ... data to create a ModeratorAction
+     *     // ... data to create a ModerationAction
      *   }
      * })
      * 
      */
-    create<T extends ModeratorActionCreateArgs>(args: SelectSubset<T, ModeratorActionCreateArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ModerationActionCreateArgs>(args: SelectSubset<T, ModerationActionCreateArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many ModeratorActions.
-     * @param {ModeratorActionCreateManyArgs} args - Arguments to create many ModeratorActions.
+     * Create many ModerationActions.
+     * @param {ModerationActionCreateManyArgs} args - Arguments to create many ModerationActions.
      * @example
-     * // Create many ModeratorActions
-     * const moderatorAction = await prisma.moderatorAction.createMany({
+     * // Create many ModerationActions
+     * const moderationAction = await prisma.moderationAction.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ModeratorActionCreateManyArgs>(args?: SelectSubset<T, ModeratorActionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ModerationActionCreateManyArgs>(args?: SelectSubset<T, ModerationActionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many ModeratorActions and returns the data saved in the database.
-     * @param {ModeratorActionCreateManyAndReturnArgs} args - Arguments to create many ModeratorActions.
+     * Create many ModerationActions and returns the data saved in the database.
+     * @param {ModerationActionCreateManyAndReturnArgs} args - Arguments to create many ModerationActions.
      * @example
-     * // Create many ModeratorActions
-     * const moderatorAction = await prisma.moderatorAction.createManyAndReturn({
+     * // Create many ModerationActions
+     * const moderationAction = await prisma.moderationAction.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many ModeratorActions and only return the `id`
-     * const moderatorActionWithIdOnly = await prisma.moderatorAction.createManyAndReturn({
+     * // Create many ModerationActions and only return the `id`
+     * const moderationActionWithIdOnly = await prisma.moderationAction.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -20097,28 +20017,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends ModeratorActionCreateManyAndReturnArgs>(args?: SelectSubset<T, ModeratorActionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ModerationActionCreateManyAndReturnArgs>(args?: SelectSubset<T, ModerationActionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a ModeratorAction.
-     * @param {ModeratorActionDeleteArgs} args - Arguments to delete one ModeratorAction.
+     * Delete a ModerationAction.
+     * @param {ModerationActionDeleteArgs} args - Arguments to delete one ModerationAction.
      * @example
-     * // Delete one ModeratorAction
-     * const ModeratorAction = await prisma.moderatorAction.delete({
+     * // Delete one ModerationAction
+     * const ModerationAction = await prisma.moderationAction.delete({
      *   where: {
-     *     // ... filter to delete one ModeratorAction
+     *     // ... filter to delete one ModerationAction
      *   }
      * })
      * 
      */
-    delete<T extends ModeratorActionDeleteArgs>(args: SelectSubset<T, ModeratorActionDeleteArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ModerationActionDeleteArgs>(args: SelectSubset<T, ModerationActionDeleteArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one ModeratorAction.
-     * @param {ModeratorActionUpdateArgs} args - Arguments to update one ModeratorAction.
+     * Update one ModerationAction.
+     * @param {ModerationActionUpdateArgs} args - Arguments to update one ModerationAction.
      * @example
-     * // Update one ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.update({
+     * // Update one ModerationAction
+     * const moderationAction = await prisma.moderationAction.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20128,30 +20048,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ModeratorActionUpdateArgs>(args: SelectSubset<T, ModeratorActionUpdateArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ModerationActionUpdateArgs>(args: SelectSubset<T, ModerationActionUpdateArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more ModeratorActions.
-     * @param {ModeratorActionDeleteManyArgs} args - Arguments to filter ModeratorActions to delete.
+     * Delete zero or more ModerationActions.
+     * @param {ModerationActionDeleteManyArgs} args - Arguments to filter ModerationActions to delete.
      * @example
-     * // Delete a few ModeratorActions
-     * const { count } = await prisma.moderatorAction.deleteMany({
+     * // Delete a few ModerationActions
+     * const { count } = await prisma.moderationAction.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ModeratorActionDeleteManyArgs>(args?: SelectSubset<T, ModeratorActionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ModerationActionDeleteManyArgs>(args?: SelectSubset<T, ModerationActionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ModeratorActions.
+     * Update zero or more ModerationActions.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ModerationActionUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ModeratorActions
-     * const moderatorAction = await prisma.moderatorAction.updateMany({
+     * // Update many ModerationActions
+     * const moderationAction = await prisma.moderationAction.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20161,14 +20081,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ModeratorActionUpdateManyArgs>(args: SelectSubset<T, ModeratorActionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ModerationActionUpdateManyArgs>(args: SelectSubset<T, ModerationActionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ModeratorActions and returns the data updated in the database.
-     * @param {ModeratorActionUpdateManyAndReturnArgs} args - Arguments to update many ModeratorActions.
+     * Update zero or more ModerationActions and returns the data updated in the database.
+     * @param {ModerationActionUpdateManyAndReturnArgs} args - Arguments to update many ModerationActions.
      * @example
-     * // Update many ModeratorActions
-     * const moderatorAction = await prisma.moderatorAction.updateManyAndReturn({
+     * // Update many ModerationActions
+     * const moderationAction = await prisma.moderationAction.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20177,8 +20097,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ModeratorActions and only return the `id`
-     * const moderatorActionWithIdOnly = await prisma.moderatorAction.updateManyAndReturn({
+     * // Update zero or more ModerationActions and only return the `id`
+     * const moderationActionWithIdOnly = await prisma.moderationAction.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -20191,56 +20111,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends ModeratorActionUpdateManyAndReturnArgs>(args: SelectSubset<T, ModeratorActionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ModerationActionUpdateManyAndReturnArgs>(args: SelectSubset<T, ModerationActionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one ModeratorAction.
-     * @param {ModeratorActionUpsertArgs} args - Arguments to update or create a ModeratorAction.
+     * Create or update one ModerationAction.
+     * @param {ModerationActionUpsertArgs} args - Arguments to update or create a ModerationAction.
      * @example
-     * // Update or create a ModeratorAction
-     * const moderatorAction = await prisma.moderatorAction.upsert({
+     * // Update or create a ModerationAction
+     * const moderationAction = await prisma.moderationAction.upsert({
      *   create: {
-     *     // ... data to create a ModeratorAction
+     *     // ... data to create a ModerationAction
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ModeratorAction we want to update
+     *     // ... the filter for the ModerationAction we want to update
      *   }
      * })
      */
-    upsert<T extends ModeratorActionUpsertArgs>(args: SelectSubset<T, ModeratorActionUpsertArgs<ExtArgs>>): Prisma__ModeratorActionClient<$Result.GetResult<Prisma.$ModeratorActionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ModerationActionUpsertArgs>(args: SelectSubset<T, ModerationActionUpsertArgs<ExtArgs>>): Prisma__ModerationActionClient<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of ModeratorActions.
+     * Count the number of ModerationActions.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionCountArgs} args - Arguments to filter ModeratorActions to count.
+     * @param {ModerationActionCountArgs} args - Arguments to filter ModerationActions to count.
      * @example
-     * // Count the number of ModeratorActions
-     * const count = await prisma.moderatorAction.count({
+     * // Count the number of ModerationActions
+     * const count = await prisma.moderationAction.count({
      *   where: {
-     *     // ... the filter for the ModeratorActions we want to count
+     *     // ... the filter for the ModerationActions we want to count
      *   }
      * })
     **/
-    count<T extends ModeratorActionCountArgs>(
-      args?: Subset<T, ModeratorActionCountArgs>,
+    count<T extends ModerationActionCountArgs>(
+      args?: Subset<T, ModerationActionCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ModeratorActionCountAggregateOutputType>
+          : GetScalarType<T['select'], ModerationActionCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ModeratorAction.
+     * Allows you to perform aggregations operations on a ModerationAction.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ModerationActionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -20260,13 +20180,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ModeratorActionAggregateArgs>(args: Subset<T, ModeratorActionAggregateArgs>): Prisma.PrismaPromise<GetModeratorActionAggregateType<T>>
+    aggregate<T extends ModerationActionAggregateArgs>(args: Subset<T, ModerationActionAggregateArgs>): Prisma.PrismaPromise<GetModerationActionAggregateType<T>>
 
     /**
-     * Group by ModeratorAction.
+     * Group by ModerationAction.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ModeratorActionGroupByArgs} args - Group by arguments.
+     * @param {ModerationActionGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -20281,14 +20201,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ModeratorActionGroupByArgs,
+      T extends ModerationActionGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ModeratorActionGroupByArgs['orderBy'] }
-        : { orderBy?: ModeratorActionGroupByArgs['orderBy'] },
+        ? { orderBy: ModerationActionGroupByArgs['orderBy'] }
+        : { orderBy?: ModerationActionGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -20337,24 +20257,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ModeratorActionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModeratorActionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ModerationActionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModerationActionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ModeratorAction model
+   * Fields of the ModerationAction model
    */
-  readonly fields: ModeratorActionFieldRefs;
+  readonly fields: ModerationActionFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ModeratorAction.
+   * The delegate class that acts as a "Promise-like" for ModerationAction.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ModeratorActionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ModerationActionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    target<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     moderator<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    flag<T extends ModeratorAction$flagArgs<ExtArgs> = {}>(args?: Subset<T, ModeratorAction$flagArgs<ExtArgs>>): Prisma__FlagClient<$Result.GetResult<Prisma.$FlagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    post<T extends ModeratorAction$postArgs<ExtArgs> = {}>(args?: Subset<T, ModeratorAction$postArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20381,463 +20300,424 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ModeratorAction model
+   * Fields of the ModerationAction model
    */
-  interface ModeratorActionFieldRefs {
-    readonly id: FieldRef<"ModeratorAction", 'String'>
-    readonly flagId: FieldRef<"ModeratorAction", 'String'>
-    readonly postId: FieldRef<"ModeratorAction", 'String'>
-    readonly moderatorId: FieldRef<"ModeratorAction", 'String'>
-    readonly action: FieldRef<"ModeratorAction", 'String'>
-    readonly reason: FieldRef<"ModeratorAction", 'String'>
-    readonly createdAt: FieldRef<"ModeratorAction", 'DateTime'>
+  interface ModerationActionFieldRefs {
+    readonly id: FieldRef<"ModerationAction", 'String'>
+    readonly targetId: FieldRef<"ModerationAction", 'String'>
+    readonly moderatorId: FieldRef<"ModerationAction", 'String'>
+    readonly action: FieldRef<"ModerationAction", 'String'>
+    readonly reason: FieldRef<"ModerationAction", 'String'>
+    readonly createdAt: FieldRef<"ModerationAction", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * ModeratorAction findUnique
+   * ModerationAction findUnique
    */
-  export type ModeratorActionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter, which ModeratorAction to fetch.
+     * Filter, which ModerationAction to fetch.
      */
-    where: ModeratorActionWhereUniqueInput
+    where: ModerationActionWhereUniqueInput
   }
 
   /**
-   * ModeratorAction findUniqueOrThrow
+   * ModerationAction findUniqueOrThrow
    */
-  export type ModeratorActionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter, which ModeratorAction to fetch.
+     * Filter, which ModerationAction to fetch.
      */
-    where: ModeratorActionWhereUniqueInput
+    where: ModerationActionWhereUniqueInput
   }
 
   /**
-   * ModeratorAction findFirst
+   * ModerationAction findFirst
    */
-  export type ModeratorActionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter, which ModeratorAction to fetch.
+     * Filter, which ModerationAction to fetch.
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ModeratorActions to fetch.
+     * Determine the order of ModerationActions to fetch.
      */
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ModeratorActions.
+     * Sets the position for searching for ModerationActions.
      */
-    cursor?: ModeratorActionWhereUniqueInput
+    cursor?: ModerationActionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ModeratorActions from the position of the cursor.
+     * Take `±n` ModerationActions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ModeratorActions.
+     * Skip the first `n` ModerationActions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ModeratorActions.
+     * Filter by unique combinations of ModerationActions.
      */
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
   }
 
   /**
-   * ModeratorAction findFirstOrThrow
+   * ModerationAction findFirstOrThrow
    */
-  export type ModeratorActionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter, which ModeratorAction to fetch.
+     * Filter, which ModerationAction to fetch.
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ModeratorActions to fetch.
+     * Determine the order of ModerationActions to fetch.
      */
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ModeratorActions.
+     * Sets the position for searching for ModerationActions.
      */
-    cursor?: ModeratorActionWhereUniqueInput
+    cursor?: ModerationActionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ModeratorActions from the position of the cursor.
+     * Take `±n` ModerationActions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ModeratorActions.
+     * Skip the first `n` ModerationActions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ModeratorActions.
+     * Filter by unique combinations of ModerationActions.
      */
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
   }
 
   /**
-   * ModeratorAction findMany
+   * ModerationAction findMany
    */
-  export type ModeratorActionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter, which ModeratorActions to fetch.
+     * Filter, which ModerationActions to fetch.
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ModeratorActions to fetch.
+     * Determine the order of ModerationActions to fetch.
      */
-    orderBy?: ModeratorActionOrderByWithRelationInput | ModeratorActionOrderByWithRelationInput[]
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ModeratorActions.
+     * Sets the position for listing ModerationActions.
      */
-    cursor?: ModeratorActionWhereUniqueInput
+    cursor?: ModerationActionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ModeratorActions from the position of the cursor.
+     * Take `±n` ModerationActions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ModeratorActions.
+     * Skip the first `n` ModerationActions.
      */
     skip?: number
-    distinct?: ModeratorActionScalarFieldEnum | ModeratorActionScalarFieldEnum[]
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
   }
 
   /**
-   * ModeratorAction create
+   * ModerationAction create
    */
-  export type ModeratorActionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * The data needed to create a ModeratorAction.
+     * The data needed to create a ModerationAction.
      */
-    data: XOR<ModeratorActionCreateInput, ModeratorActionUncheckedCreateInput>
+    data: XOR<ModerationActionCreateInput, ModerationActionUncheckedCreateInput>
   }
 
   /**
-   * ModeratorAction createMany
+   * ModerationAction createMany
    */
-  export type ModeratorActionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ModeratorActions.
+     * The data used to create many ModerationActions.
      */
-    data: ModeratorActionCreateManyInput | ModeratorActionCreateManyInput[]
+    data: ModerationActionCreateManyInput | ModerationActionCreateManyInput[]
   }
 
   /**
-   * ModeratorAction createManyAndReturn
+   * ModerationAction createManyAndReturn
    */
-  export type ModeratorActionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ModerationActionSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
-     * The data used to create many ModeratorActions.
+     * The data used to create many ModerationActions.
      */
-    data: ModeratorActionCreateManyInput | ModeratorActionCreateManyInput[]
+    data: ModerationActionCreateManyInput | ModerationActionCreateManyInput[]
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: ModerationActionIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * ModeratorAction update
+   * ModerationAction update
    */
-  export type ModeratorActionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * The data needed to update a ModeratorAction.
+     * The data needed to update a ModerationAction.
      */
-    data: XOR<ModeratorActionUpdateInput, ModeratorActionUncheckedUpdateInput>
+    data: XOR<ModerationActionUpdateInput, ModerationActionUncheckedUpdateInput>
     /**
-     * Choose, which ModeratorAction to update.
+     * Choose, which ModerationAction to update.
      */
-    where: ModeratorActionWhereUniqueInput
+    where: ModerationActionWhereUniqueInput
   }
 
   /**
-   * ModeratorAction updateMany
+   * ModerationAction updateMany
    */
-  export type ModeratorActionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ModeratorActions.
+     * The data used to update ModerationActions.
      */
-    data: XOR<ModeratorActionUpdateManyMutationInput, ModeratorActionUncheckedUpdateManyInput>
+    data: XOR<ModerationActionUpdateManyMutationInput, ModerationActionUncheckedUpdateManyInput>
     /**
-     * Filter which ModeratorActions to update
+     * Filter which ModerationActions to update
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
-     * Limit how many ModeratorActions to update.
+     * Limit how many ModerationActions to update.
      */
     limit?: number
   }
 
   /**
-   * ModeratorAction updateManyAndReturn
+   * ModerationAction updateManyAndReturn
    */
-  export type ModeratorActionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ModerationActionSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
-     * The data used to update ModeratorActions.
+     * The data used to update ModerationActions.
      */
-    data: XOR<ModeratorActionUpdateManyMutationInput, ModeratorActionUncheckedUpdateManyInput>
+    data: XOR<ModerationActionUpdateManyMutationInput, ModerationActionUncheckedUpdateManyInput>
     /**
-     * Filter which ModeratorActions to update
+     * Filter which ModerationActions to update
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
-     * Limit how many ModeratorActions to update.
+     * Limit how many ModerationActions to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: ModerationActionIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * ModeratorAction upsert
+   * ModerationAction upsert
    */
-  export type ModeratorActionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * The filter to search for the ModeratorAction to update in case it exists.
+     * The filter to search for the ModerationAction to update in case it exists.
      */
-    where: ModeratorActionWhereUniqueInput
+    where: ModerationActionWhereUniqueInput
     /**
-     * In case the ModeratorAction found by the `where` argument doesn't exist, create a new ModeratorAction with this data.
+     * In case the ModerationAction found by the `where` argument doesn't exist, create a new ModerationAction with this data.
      */
-    create: XOR<ModeratorActionCreateInput, ModeratorActionUncheckedCreateInput>
+    create: XOR<ModerationActionCreateInput, ModerationActionUncheckedCreateInput>
     /**
-     * In case the ModeratorAction was found with the provided `where` argument, update it with this data.
+     * In case the ModerationAction was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ModeratorActionUpdateInput, ModeratorActionUncheckedUpdateInput>
+    update: XOR<ModerationActionUpdateInput, ModerationActionUncheckedUpdateInput>
   }
 
   /**
-   * ModeratorAction delete
+   * ModerationAction delete
    */
-  export type ModeratorActionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ModeratorAction
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: ModeratorActionSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ModeratorAction
+     * Omit specific fields from the ModerationAction
      */
-    omit?: ModeratorActionOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
     /**
-     * Filter which ModeratorAction to delete.
+     * Filter which ModerationAction to delete.
      */
-    where: ModeratorActionWhereUniqueInput
+    where: ModerationActionWhereUniqueInput
   }
 
   /**
-   * ModeratorAction deleteMany
+   * ModerationAction deleteMany
    */
-  export type ModeratorActionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ModeratorActions to delete
+     * Filter which ModerationActions to delete
      */
-    where?: ModeratorActionWhereInput
+    where?: ModerationActionWhereInput
     /**
-     * Limit how many ModeratorActions to delete.
+     * Limit how many ModerationActions to delete.
      */
     limit?: number
   }
 
   /**
-   * ModeratorAction.flag
+   * ModerationAction without action
    */
-  export type ModeratorAction$flagArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ModerationActionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Flag
+     * Select specific fields to fetch from the ModerationAction
      */
-    select?: FlagSelect<ExtArgs> | null
+    select?: ModerationActionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Flag
+     * Omit specific fields from the ModerationAction
      */
-    omit?: FlagOmit<ExtArgs> | null
+    omit?: ModerationActionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FlagInclude<ExtArgs> | null
-    where?: FlagWhereInput
-  }
-
-  /**
-   * ModeratorAction.post
-   */
-  export type ModeratorAction$postArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    where?: PostWhereInput
-  }
-
-  /**
-   * ModeratorAction without action
-   */
-  export type ModeratorActionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ModeratorAction
-     */
-    select?: ModeratorActionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ModeratorAction
-     */
-    omit?: ModeratorActionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ModeratorActionInclude<ExtArgs> | null
+    include?: ModerationActionInclude<ExtArgs> | null
   }
 
 
@@ -20903,6 +20783,7 @@ export namespace Prisma {
     phone: 'phone',
     password: 'password',
     role: 'role',
+    status: 'status',
     emailVerified: 'emailVerified',
     image: 'image',
     createdAt: 'createdAt',
@@ -21039,7 +20920,6 @@ export namespace Prisma {
     userId: 'userId',
     reason: 'reason',
     comment: 'comment',
-    status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -21047,17 +20927,16 @@ export namespace Prisma {
   export type FlagScalarFieldEnum = (typeof FlagScalarFieldEnum)[keyof typeof FlagScalarFieldEnum]
 
 
-  export const ModeratorActionScalarFieldEnum: {
+  export const ModerationActionScalarFieldEnum: {
     id: 'id',
-    flagId: 'flagId',
-    postId: 'postId',
+    targetId: 'targetId',
     moderatorId: 'moderatorId',
     action: 'action',
     reason: 'reason',
     createdAt: 'createdAt'
   };
 
-  export type ModeratorActionScalarFieldEnum = (typeof ModeratorActionScalarFieldEnum)[keyof typeof ModeratorActionScalarFieldEnum]
+  export type ModerationActionScalarFieldEnum = (typeof ModerationActionScalarFieldEnum)[keyof typeof ModerationActionScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -21370,6 +21249,7 @@ export namespace Prisma {
     phone?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
     role?: StringFilter<"User"> | string
+    status?: StringFilter<"User"> | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -21382,7 +21262,8 @@ export namespace Prisma {
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     flags?: FlagListRelationFilter
-    moderatorActions?: ModeratorActionListRelationFilter
+    moderationActionsAsTarget?: ModerationActionListRelationFilter
+    moderationActionsAsModerator?: ModerationActionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -21392,6 +21273,7 @@ export namespace Prisma {
     phone?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     role?: SortOrder
+    status?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -21404,7 +21286,8 @@ export namespace Prisma {
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     flags?: FlagOrderByRelationAggregateInput
-    moderatorActions?: ModeratorActionOrderByRelationAggregateInput
+    moderationActionsAsTarget?: ModerationActionOrderByRelationAggregateInput
+    moderationActionsAsModerator?: ModerationActionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -21417,6 +21300,7 @@ export namespace Prisma {
     phone?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
     role?: StringFilter<"User"> | string
+    status?: StringFilter<"User"> | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -21429,7 +21313,8 @@ export namespace Prisma {
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     flags?: FlagListRelationFilter
-    moderatorActions?: ModeratorActionListRelationFilter
+    moderationActionsAsTarget?: ModerationActionListRelationFilter
+    moderationActionsAsModerator?: ModerationActionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -21439,6 +21324,7 @@ export namespace Prisma {
     phone?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     role?: SortOrder
+    status?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -21458,6 +21344,7 @@ export namespace Prisma {
     phone?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: StringWithAggregatesFilter<"User"> | string
+    status?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -21690,7 +21577,6 @@ export namespace Prisma {
     interests?: PostInterestListRelationFilter
     events?: EventListRelationFilter
     flags?: FlagListRelationFilter
-    moderatorActions?: ModeratorActionListRelationFilter
   }
 
   export type PostOrderByWithRelationInput = {
@@ -21710,7 +21596,6 @@ export namespace Prisma {
     interests?: PostInterestOrderByRelationAggregateInput
     events?: EventOrderByRelationAggregateInput
     flags?: FlagOrderByRelationAggregateInput
-    moderatorActions?: ModeratorActionOrderByRelationAggregateInput
   }
 
   export type PostWhereUniqueInput = Prisma.AtLeast<{
@@ -21733,7 +21618,6 @@ export namespace Prisma {
     interests?: PostInterestListRelationFilter
     events?: EventListRelationFilter
     flags?: FlagListRelationFilter
-    moderatorActions?: ModeratorActionListRelationFilter
   }, "id">
 
   export type PostOrderByWithAggregationInput = {
@@ -22129,12 +22013,10 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
-    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
     post?: XOR<PostScalarRelationFilter, PostWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    moderatorActions?: ModeratorActionListRelationFilter
   }
 
   export type FlagOrderByWithRelationInput = {
@@ -22143,12 +22025,10 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrderInput | SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     post?: PostOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    moderatorActions?: ModeratorActionOrderByRelationAggregateInput
   }
 
   export type FlagWhereUniqueInput = Prisma.AtLeast<{
@@ -22161,12 +22041,10 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
-    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
     post?: XOR<PostScalarRelationFilter, PostWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    moderatorActions?: ModeratorActionListRelationFilter
   }, "id" | "postId_userId">
 
   export type FlagOrderByWithAggregationInput = {
@@ -22175,7 +22053,6 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrderInput | SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FlagCountOrderByAggregateInput
@@ -22192,80 +22069,71 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Flag"> | string
     reason?: StringWithAggregatesFilter<"Flag"> | string
     comment?: StringNullableWithAggregatesFilter<"Flag"> | string | null
-    status?: StringWithAggregatesFilter<"Flag"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Flag"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Flag"> | Date | string
   }
 
-  export type ModeratorActionWhereInput = {
-    AND?: ModeratorActionWhereInput | ModeratorActionWhereInput[]
-    OR?: ModeratorActionWhereInput[]
-    NOT?: ModeratorActionWhereInput | ModeratorActionWhereInput[]
-    id?: StringFilter<"ModeratorAction"> | string
-    flagId?: StringNullableFilter<"ModeratorAction"> | string | null
-    postId?: StringNullableFilter<"ModeratorAction"> | string | null
-    moderatorId?: StringFilter<"ModeratorAction"> | string
-    action?: StringFilter<"ModeratorAction"> | string
-    reason?: StringNullableFilter<"ModeratorAction"> | string | null
-    createdAt?: DateTimeFilter<"ModeratorAction"> | Date | string
+  export type ModerationActionWhereInput = {
+    AND?: ModerationActionWhereInput | ModerationActionWhereInput[]
+    OR?: ModerationActionWhereInput[]
+    NOT?: ModerationActionWhereInput | ModerationActionWhereInput[]
+    id?: StringFilter<"ModerationAction"> | string
+    targetId?: StringFilter<"ModerationAction"> | string
+    moderatorId?: StringFilter<"ModerationAction"> | string
+    action?: StringFilter<"ModerationAction"> | string
+    reason?: StringNullableFilter<"ModerationAction"> | string | null
+    createdAt?: DateTimeFilter<"ModerationAction"> | Date | string
+    target?: XOR<UserScalarRelationFilter, UserWhereInput>
     moderator?: XOR<UserScalarRelationFilter, UserWhereInput>
-    flag?: XOR<FlagNullableScalarRelationFilter, FlagWhereInput> | null
-    post?: XOR<PostNullableScalarRelationFilter, PostWhereInput> | null
   }
 
-  export type ModeratorActionOrderByWithRelationInput = {
+  export type ModerationActionOrderByWithRelationInput = {
     id?: SortOrder
-    flagId?: SortOrderInput | SortOrder
-    postId?: SortOrderInput | SortOrder
+    targetId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    target?: UserOrderByWithRelationInput
     moderator?: UserOrderByWithRelationInput
-    flag?: FlagOrderByWithRelationInput
-    post?: PostOrderByWithRelationInput
   }
 
-  export type ModeratorActionWhereUniqueInput = Prisma.AtLeast<{
+  export type ModerationActionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: ModeratorActionWhereInput | ModeratorActionWhereInput[]
-    OR?: ModeratorActionWhereInput[]
-    NOT?: ModeratorActionWhereInput | ModeratorActionWhereInput[]
-    flagId?: StringNullableFilter<"ModeratorAction"> | string | null
-    postId?: StringNullableFilter<"ModeratorAction"> | string | null
-    moderatorId?: StringFilter<"ModeratorAction"> | string
-    action?: StringFilter<"ModeratorAction"> | string
-    reason?: StringNullableFilter<"ModeratorAction"> | string | null
-    createdAt?: DateTimeFilter<"ModeratorAction"> | Date | string
+    AND?: ModerationActionWhereInput | ModerationActionWhereInput[]
+    OR?: ModerationActionWhereInput[]
+    NOT?: ModerationActionWhereInput | ModerationActionWhereInput[]
+    targetId?: StringFilter<"ModerationAction"> | string
+    moderatorId?: StringFilter<"ModerationAction"> | string
+    action?: StringFilter<"ModerationAction"> | string
+    reason?: StringNullableFilter<"ModerationAction"> | string | null
+    createdAt?: DateTimeFilter<"ModerationAction"> | Date | string
+    target?: XOR<UserScalarRelationFilter, UserWhereInput>
     moderator?: XOR<UserScalarRelationFilter, UserWhereInput>
-    flag?: XOR<FlagNullableScalarRelationFilter, FlagWhereInput> | null
-    post?: XOR<PostNullableScalarRelationFilter, PostWhereInput> | null
   }, "id">
 
-  export type ModeratorActionOrderByWithAggregationInput = {
+  export type ModerationActionOrderByWithAggregationInput = {
     id?: SortOrder
-    flagId?: SortOrderInput | SortOrder
-    postId?: SortOrderInput | SortOrder
+    targetId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    _count?: ModeratorActionCountOrderByAggregateInput
-    _max?: ModeratorActionMaxOrderByAggregateInput
-    _min?: ModeratorActionMinOrderByAggregateInput
+    _count?: ModerationActionCountOrderByAggregateInput
+    _max?: ModerationActionMaxOrderByAggregateInput
+    _min?: ModerationActionMinOrderByAggregateInput
   }
 
-  export type ModeratorActionScalarWhereWithAggregatesInput = {
-    AND?: ModeratorActionScalarWhereWithAggregatesInput | ModeratorActionScalarWhereWithAggregatesInput[]
-    OR?: ModeratorActionScalarWhereWithAggregatesInput[]
-    NOT?: ModeratorActionScalarWhereWithAggregatesInput | ModeratorActionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"ModeratorAction"> | string
-    flagId?: StringNullableWithAggregatesFilter<"ModeratorAction"> | string | null
-    postId?: StringNullableWithAggregatesFilter<"ModeratorAction"> | string | null
-    moderatorId?: StringWithAggregatesFilter<"ModeratorAction"> | string
-    action?: StringWithAggregatesFilter<"ModeratorAction"> | string
-    reason?: StringNullableWithAggregatesFilter<"ModeratorAction"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"ModeratorAction"> | Date | string
+  export type ModerationActionScalarWhereWithAggregatesInput = {
+    AND?: ModerationActionScalarWhereWithAggregatesInput | ModerationActionScalarWhereWithAggregatesInput[]
+    OR?: ModerationActionScalarWhereWithAggregatesInput[]
+    NOT?: ModerationActionScalarWhereWithAggregatesInput | ModerationActionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ModerationAction"> | string
+    targetId?: StringWithAggregatesFilter<"ModerationAction"> | string
+    moderatorId?: StringWithAggregatesFilter<"ModerationAction"> | string
+    action?: StringWithAggregatesFilter<"ModerationAction"> | string
+    reason?: StringNullableWithAggregatesFilter<"ModerationAction"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ModerationAction"> | Date | string
   }
 
   export type CountryCreateInput = {
@@ -22524,6 +22392,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -22536,7 +22405,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -22546,6 +22416,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -22558,7 +22429,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUpdateInput = {
@@ -22568,6 +22440,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22580,7 +22453,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -22590,6 +22464,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22602,7 +22477,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -22612,6 +22488,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -22625,6 +22502,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22638,6 +22516,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22880,7 +22759,6 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateInput = {
@@ -22897,7 +22775,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostUpdateInput = {
@@ -22914,7 +22791,6 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateInput = {
@@ -22931,7 +22807,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostCreateManyInput = {
@@ -23318,12 +23193,10 @@ export namespace Prisma {
     id?: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     post: PostCreateNestedOneWithoutFlagsInput
     user: UserCreateNestedOneWithoutFlagsInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutFlagInput
   }
 
   export type FlagUncheckedCreateInput = {
@@ -23332,22 +23205,18 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutFlagInput
   }
 
   export type FlagUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: PostUpdateOneRequiredWithoutFlagsNestedInput
     user?: UserUpdateOneRequiredWithoutFlagsNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagUncheckedUpdateInput = {
@@ -23356,10 +23225,8 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagCreateManyInput = {
@@ -23368,7 +23235,6 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23377,7 +23243,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23388,72 +23253,65 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModeratorActionCreateInput = {
+  export type ModerationActionCreateInput = {
     id?: string
     action: string
     reason?: string | null
     createdAt?: Date | string
-    moderator: UserCreateNestedOneWithoutModeratorActionsInput
-    flag?: FlagCreateNestedOneWithoutModeratorActionsInput
-    post?: PostCreateNestedOneWithoutModeratorActionsInput
+    target: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    moderator: UserCreateNestedOneWithoutModerationActionsAsModeratorInput
   }
 
-  export type ModeratorActionUncheckedCreateInput = {
+  export type ModerationActionUncheckedCreateInput = {
     id?: string
-    flagId?: string | null
-    postId?: string | null
+    targetId: string
     moderatorId: string
     action: string
     reason?: string | null
     createdAt?: Date | string
   }
 
-  export type ModeratorActionUpdateInput = {
+  export type ModerationActionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderator?: UserUpdateOneRequiredWithoutModeratorActionsNestedInput
-    flag?: FlagUpdateOneWithoutModeratorActionsNestedInput
-    post?: PostUpdateOneWithoutModeratorActionsNestedInput
+    target?: UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput
+    moderator?: UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput
   }
 
-  export type ModeratorActionUncheckedUpdateInput = {
+  export type ModerationActionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
+    targetId?: StringFieldUpdateOperationsInput | string
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModeratorActionCreateManyInput = {
+  export type ModerationActionCreateManyInput = {
     id?: string
-    flagId?: string | null
-    postId?: string | null
+    targetId: string
     moderatorId: string
     action: string
     reason?: string | null
     createdAt?: Date | string
   }
 
-  export type ModeratorActionUpdateManyMutationInput = {
+  export type ModerationActionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModeratorActionUncheckedUpdateManyInput = {
+  export type ModerationActionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
+    targetId?: StringFieldUpdateOperationsInput | string
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23753,10 +23611,10 @@ export namespace Prisma {
     none?: FlagWhereInput
   }
 
-  export type ModeratorActionListRelationFilter = {
-    every?: ModeratorActionWhereInput
-    some?: ModeratorActionWhereInput
-    none?: ModeratorActionWhereInput
+  export type ModerationActionListRelationFilter = {
+    every?: ModerationActionWhereInput
+    some?: ModerationActionWhereInput
+    none?: ModerationActionWhereInput
   }
 
   export type SortOrderInput = {
@@ -23788,7 +23646,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ModeratorActionOrderByRelationAggregateInput = {
+  export type ModerationActionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -23799,6 +23657,7 @@ export namespace Prisma {
     phone?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    status?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
     createdAt?: SortOrder
@@ -23812,6 +23671,7 @@ export namespace Prisma {
     phone?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    status?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
     createdAt?: SortOrder
@@ -23825,6 +23685,7 @@ export namespace Prisma {
     phone?: SortOrder
     password?: SortOrder
     role?: SortOrder
+    status?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
     createdAt?: SortOrder
@@ -24276,7 +24137,6 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24287,7 +24147,6 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24298,40 +24157,31 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type FlagNullableScalarRelationFilter = {
-    is?: FlagWhereInput | null
-    isNot?: FlagWhereInput | null
-  }
-
-  export type ModeratorActionCountOrderByAggregateInput = {
+  export type ModerationActionCountOrderByAggregateInput = {
     id?: SortOrder
-    flagId?: SortOrder
-    postId?: SortOrder
+    targetId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type ModeratorActionMaxOrderByAggregateInput = {
+  export type ModerationActionMaxOrderByAggregateInput = {
     id?: SortOrder
-    flagId?: SortOrder
-    postId?: SortOrder
+    targetId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type ModeratorActionMinOrderByAggregateInput = {
+  export type ModerationActionMinOrderByAggregateInput = {
     id?: SortOrder
-    flagId?: SortOrder
-    postId?: SortOrder
+    targetId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
@@ -24738,11 +24588,18 @@ export namespace Prisma {
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
   }
 
-  export type ModeratorActionCreateNestedManyWithoutModeratorInput = {
-    create?: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput> | ModeratorActionCreateWithoutModeratorInput[] | ModeratorActionUncheckedCreateWithoutModeratorInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutModeratorInput | ModeratorActionCreateOrConnectWithoutModeratorInput[]
-    createMany?: ModeratorActionCreateManyModeratorInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
+  export type ModerationActionCreateNestedManyWithoutTargetInput = {
+    create?: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput> | ModerationActionCreateWithoutTargetInput[] | ModerationActionUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutTargetInput | ModerationActionCreateOrConnectWithoutTargetInput[]
+    createMany?: ModerationActionCreateManyTargetInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+  }
+
+  export type ModerationActionCreateNestedManyWithoutModeratorInput = {
+    create?: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput> | ModerationActionCreateWithoutModeratorInput[] | ModerationActionUncheckedCreateWithoutModeratorInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutModeratorInput | ModerationActionCreateOrConnectWithoutModeratorInput[]
+    createMany?: ModerationActionCreateManyModeratorInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
   }
 
   export type PostUncheckedCreateNestedManyWithoutAuthorInput = {
@@ -24801,11 +24658,18 @@ export namespace Prisma {
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
   }
 
-  export type ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput = {
-    create?: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput> | ModeratorActionCreateWithoutModeratorInput[] | ModeratorActionUncheckedCreateWithoutModeratorInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutModeratorInput | ModeratorActionCreateOrConnectWithoutModeratorInput[]
-    createMany?: ModeratorActionCreateManyModeratorInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
+  export type ModerationActionUncheckedCreateNestedManyWithoutTargetInput = {
+    create?: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput> | ModerationActionCreateWithoutTargetInput[] | ModerationActionUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutTargetInput | ModerationActionCreateOrConnectWithoutTargetInput[]
+    createMany?: ModerationActionCreateManyTargetInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+  }
+
+  export type ModerationActionUncheckedCreateNestedManyWithoutModeratorInput = {
+    create?: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput> | ModerationActionCreateWithoutModeratorInput[] | ModerationActionUncheckedCreateWithoutModeratorInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutModeratorInput | ModerationActionCreateOrConnectWithoutModeratorInput[]
+    createMany?: ModerationActionCreateManyModeratorInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -24928,18 +24792,32 @@ export namespace Prisma {
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
   }
 
-  export type ModeratorActionUpdateManyWithoutModeratorNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput> | ModeratorActionCreateWithoutModeratorInput[] | ModeratorActionUncheckedCreateWithoutModeratorInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutModeratorInput | ModeratorActionCreateOrConnectWithoutModeratorInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutModeratorInput | ModeratorActionUpsertWithWhereUniqueWithoutModeratorInput[]
-    createMany?: ModeratorActionCreateManyModeratorInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutModeratorInput | ModeratorActionUpdateWithWhereUniqueWithoutModeratorInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutModeratorInput | ModeratorActionUpdateManyWithWhereWithoutModeratorInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
+  export type ModerationActionUpdateManyWithoutTargetNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput> | ModerationActionCreateWithoutTargetInput[] | ModerationActionUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutTargetInput | ModerationActionCreateOrConnectWithoutTargetInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutTargetInput | ModerationActionUpsertWithWhereUniqueWithoutTargetInput[]
+    createMany?: ModerationActionCreateManyTargetInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutTargetInput | ModerationActionUpdateWithWhereUniqueWithoutTargetInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutTargetInput | ModerationActionUpdateManyWithWhereWithoutTargetInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
+  }
+
+  export type ModerationActionUpdateManyWithoutModeratorNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput> | ModerationActionCreateWithoutModeratorInput[] | ModerationActionUncheckedCreateWithoutModeratorInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutModeratorInput | ModerationActionCreateOrConnectWithoutModeratorInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutModeratorInput | ModerationActionUpsertWithWhereUniqueWithoutModeratorInput[]
+    createMany?: ModerationActionCreateManyModeratorInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutModeratorInput | ModerationActionUpdateWithWhereUniqueWithoutModeratorInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutModeratorInput | ModerationActionUpdateManyWithWhereWithoutModeratorInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
   }
 
   export type PostUncheckedUpdateManyWithoutAuthorNestedInput = {
@@ -25054,18 +24932,32 @@ export namespace Prisma {
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
   }
 
-  export type ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput> | ModeratorActionCreateWithoutModeratorInput[] | ModeratorActionUncheckedCreateWithoutModeratorInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutModeratorInput | ModeratorActionCreateOrConnectWithoutModeratorInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutModeratorInput | ModeratorActionUpsertWithWhereUniqueWithoutModeratorInput[]
-    createMany?: ModeratorActionCreateManyModeratorInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutModeratorInput | ModeratorActionUpdateWithWhereUniqueWithoutModeratorInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutModeratorInput | ModeratorActionUpdateManyWithWhereWithoutModeratorInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
+  export type ModerationActionUncheckedUpdateManyWithoutTargetNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput> | ModerationActionCreateWithoutTargetInput[] | ModerationActionUncheckedCreateWithoutTargetInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutTargetInput | ModerationActionCreateOrConnectWithoutTargetInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutTargetInput | ModerationActionUpsertWithWhereUniqueWithoutTargetInput[]
+    createMany?: ModerationActionCreateManyTargetInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutTargetInput | ModerationActionUpdateWithWhereUniqueWithoutTargetInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutTargetInput | ModerationActionUpdateManyWithWhereWithoutTargetInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
+  }
+
+  export type ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput> | ModerationActionCreateWithoutModeratorInput[] | ModerationActionUncheckedCreateWithoutModeratorInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutModeratorInput | ModerationActionCreateOrConnectWithoutModeratorInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutModeratorInput | ModerationActionUpsertWithWhereUniqueWithoutModeratorInput[]
+    createMany?: ModerationActionCreateManyModeratorInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutModeratorInput | ModerationActionUpdateWithWhereUniqueWithoutModeratorInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutModeratorInput | ModerationActionUpdateManyWithWhereWithoutModeratorInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
@@ -25143,13 +25035,6 @@ export namespace Prisma {
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
   }
 
-  export type ModeratorActionCreateNestedManyWithoutPostInput = {
-    create?: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput> | ModeratorActionCreateWithoutPostInput[] | ModeratorActionUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutPostInput | ModeratorActionCreateOrConnectWithoutPostInput[]
-    createMany?: ModeratorActionCreateManyPostInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-  }
-
   export type PostInterestUncheckedCreateNestedManyWithoutPostInput = {
     create?: XOR<PostInterestCreateWithoutPostInput, PostInterestUncheckedCreateWithoutPostInput> | PostInterestCreateWithoutPostInput[] | PostInterestUncheckedCreateWithoutPostInput[]
     connectOrCreate?: PostInterestCreateOrConnectWithoutPostInput | PostInterestCreateOrConnectWithoutPostInput[]
@@ -25169,13 +25054,6 @@ export namespace Prisma {
     connectOrCreate?: FlagCreateOrConnectWithoutPostInput | FlagCreateOrConnectWithoutPostInput[]
     createMany?: FlagCreateManyPostInputEnvelope
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
-  }
-
-  export type ModeratorActionUncheckedCreateNestedManyWithoutPostInput = {
-    create?: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput> | ModeratorActionCreateWithoutPostInput[] | ModeratorActionUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutPostInput | ModeratorActionCreateOrConnectWithoutPostInput[]
-    createMany?: ModeratorActionCreateManyPostInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
   }
 
   export type UserUpdateOneRequiredWithoutPostsNestedInput = {
@@ -25248,20 +25126,6 @@ export namespace Prisma {
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
   }
 
-  export type ModeratorActionUpdateManyWithoutPostNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput> | ModeratorActionCreateWithoutPostInput[] | ModeratorActionUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutPostInput | ModeratorActionCreateOrConnectWithoutPostInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutPostInput | ModeratorActionUpsertWithWhereUniqueWithoutPostInput[]
-    createMany?: ModeratorActionCreateManyPostInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutPostInput | ModeratorActionUpdateWithWhereUniqueWithoutPostInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutPostInput | ModeratorActionUpdateManyWithWhereWithoutPostInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
-  }
-
   export type PostInterestUncheckedUpdateManyWithoutPostNestedInput = {
     create?: XOR<PostInterestCreateWithoutPostInput, PostInterestUncheckedCreateWithoutPostInput> | PostInterestCreateWithoutPostInput[] | PostInterestUncheckedCreateWithoutPostInput[]
     connectOrCreate?: PostInterestCreateOrConnectWithoutPostInput | PostInterestCreateOrConnectWithoutPostInput[]
@@ -25302,20 +25166,6 @@ export namespace Prisma {
     update?: FlagUpdateWithWhereUniqueWithoutPostInput | FlagUpdateWithWhereUniqueWithoutPostInput[]
     updateMany?: FlagUpdateManyWithWhereWithoutPostInput | FlagUpdateManyWithWhereWithoutPostInput[]
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
-  }
-
-  export type ModeratorActionUncheckedUpdateManyWithoutPostNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput> | ModeratorActionCreateWithoutPostInput[] | ModeratorActionUncheckedCreateWithoutPostInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutPostInput | ModeratorActionCreateOrConnectWithoutPostInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutPostInput | ModeratorActionUpsertWithWhereUniqueWithoutPostInput[]
-    createMany?: ModeratorActionCreateManyPostInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutPostInput | ModeratorActionUpdateWithWhereUniqueWithoutPostInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutPostInput | ModeratorActionUpdateManyWithWhereWithoutPostInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutPostInterestsInput = {
@@ -25622,20 +25472,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type ModeratorActionCreateNestedManyWithoutFlagInput = {
-    create?: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput> | ModeratorActionCreateWithoutFlagInput[] | ModeratorActionUncheckedCreateWithoutFlagInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutFlagInput | ModeratorActionCreateOrConnectWithoutFlagInput[]
-    createMany?: ModeratorActionCreateManyFlagInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-  }
-
-  export type ModeratorActionUncheckedCreateNestedManyWithoutFlagInput = {
-    create?: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput> | ModeratorActionCreateWithoutFlagInput[] | ModeratorActionUncheckedCreateWithoutFlagInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutFlagInput | ModeratorActionCreateOrConnectWithoutFlagInput[]
-    createMany?: ModeratorActionCreateManyFlagInputEnvelope
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-  }
-
   export type PostUpdateOneRequiredWithoutFlagsNestedInput = {
     create?: XOR<PostCreateWithoutFlagsInput, PostUncheckedCreateWithoutFlagsInput>
     connectOrCreate?: PostCreateOrConnectWithoutFlagsInput
@@ -25652,78 +25488,32 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFlagsInput, UserUpdateWithoutFlagsInput>, UserUncheckedUpdateWithoutFlagsInput>
   }
 
-  export type ModeratorActionUpdateManyWithoutFlagNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput> | ModeratorActionCreateWithoutFlagInput[] | ModeratorActionUncheckedCreateWithoutFlagInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutFlagInput | ModeratorActionCreateOrConnectWithoutFlagInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutFlagInput | ModeratorActionUpsertWithWhereUniqueWithoutFlagInput[]
-    createMany?: ModeratorActionCreateManyFlagInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutFlagInput | ModeratorActionUpdateWithWhereUniqueWithoutFlagInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutFlagInput | ModeratorActionUpdateManyWithWhereWithoutFlagInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
-  }
-
-  export type ModeratorActionUncheckedUpdateManyWithoutFlagNestedInput = {
-    create?: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput> | ModeratorActionCreateWithoutFlagInput[] | ModeratorActionUncheckedCreateWithoutFlagInput[]
-    connectOrCreate?: ModeratorActionCreateOrConnectWithoutFlagInput | ModeratorActionCreateOrConnectWithoutFlagInput[]
-    upsert?: ModeratorActionUpsertWithWhereUniqueWithoutFlagInput | ModeratorActionUpsertWithWhereUniqueWithoutFlagInput[]
-    createMany?: ModeratorActionCreateManyFlagInputEnvelope
-    set?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    disconnect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    delete?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    connect?: ModeratorActionWhereUniqueInput | ModeratorActionWhereUniqueInput[]
-    update?: ModeratorActionUpdateWithWhereUniqueWithoutFlagInput | ModeratorActionUpdateWithWhereUniqueWithoutFlagInput[]
-    updateMany?: ModeratorActionUpdateManyWithWhereWithoutFlagInput | ModeratorActionUpdateManyWithWhereWithoutFlagInput[]
-    deleteMany?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutModeratorActionsInput = {
-    create?: XOR<UserCreateWithoutModeratorActionsInput, UserUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutModeratorActionsInput
+  export type UserCreateNestedOneWithoutModerationActionsAsTargetInput = {
+    create?: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsTargetInput
     connect?: UserWhereUniqueInput
   }
 
-  export type FlagCreateNestedOneWithoutModeratorActionsInput = {
-    create?: XOR<FlagCreateWithoutModeratorActionsInput, FlagUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: FlagCreateOrConnectWithoutModeratorActionsInput
-    connect?: FlagWhereUniqueInput
-  }
-
-  export type PostCreateNestedOneWithoutModeratorActionsInput = {
-    create?: XOR<PostCreateWithoutModeratorActionsInput, PostUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: PostCreateOrConnectWithoutModeratorActionsInput
-    connect?: PostWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutModeratorActionsNestedInput = {
-    create?: XOR<UserCreateWithoutModeratorActionsInput, UserUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutModeratorActionsInput
-    upsert?: UserUpsertWithoutModeratorActionsInput
+  export type UserCreateNestedOneWithoutModerationActionsAsModeratorInput = {
+    create?: XOR<UserCreateWithoutModerationActionsAsModeratorInput, UserUncheckedCreateWithoutModerationActionsAsModeratorInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsModeratorInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModeratorActionsInput, UserUpdateWithoutModeratorActionsInput>, UserUncheckedUpdateWithoutModeratorActionsInput>
   }
 
-  export type FlagUpdateOneWithoutModeratorActionsNestedInput = {
-    create?: XOR<FlagCreateWithoutModeratorActionsInput, FlagUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: FlagCreateOrConnectWithoutModeratorActionsInput
-    upsert?: FlagUpsertWithoutModeratorActionsInput
-    disconnect?: FlagWhereInput | boolean
-    delete?: FlagWhereInput | boolean
-    connect?: FlagWhereUniqueInput
-    update?: XOR<XOR<FlagUpdateToOneWithWhereWithoutModeratorActionsInput, FlagUpdateWithoutModeratorActionsInput>, FlagUncheckedUpdateWithoutModeratorActionsInput>
+  export type UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput = {
+    create?: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsTargetInput
+    upsert?: UserUpsertWithoutModerationActionsAsTargetInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModerationActionsAsTargetInput, UserUpdateWithoutModerationActionsAsTargetInput>, UserUncheckedUpdateWithoutModerationActionsAsTargetInput>
   }
 
-  export type PostUpdateOneWithoutModeratorActionsNestedInput = {
-    create?: XOR<PostCreateWithoutModeratorActionsInput, PostUncheckedCreateWithoutModeratorActionsInput>
-    connectOrCreate?: PostCreateOrConnectWithoutModeratorActionsInput
-    upsert?: PostUpsertWithoutModeratorActionsInput
-    disconnect?: PostWhereInput | boolean
-    delete?: PostWhereInput | boolean
-    connect?: PostWhereUniqueInput
-    update?: XOR<XOR<PostUpdateToOneWithWhereWithoutModeratorActionsInput, PostUpdateWithoutModeratorActionsInput>, PostUncheckedUpdateWithoutModeratorActionsInput>
+  export type UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput = {
+    create?: XOR<UserCreateWithoutModerationActionsAsModeratorInput, UserUncheckedCreateWithoutModerationActionsAsModeratorInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsModeratorInput
+    upsert?: UserUpsertWithoutModerationActionsAsModeratorInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModerationActionsAsModeratorInput, UserUpdateWithoutModerationActionsAsModeratorInput>, UserUncheckedUpdateWithoutModerationActionsAsModeratorInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -26117,7 +25907,6 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutDistrictInput = {
@@ -26133,7 +25922,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutDistrictInput = {
@@ -26351,7 +26139,6 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutNeighborhoodInput = {
@@ -26367,7 +26154,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutNeighborhoodInput = {
@@ -26500,7 +26286,6 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutAuthorInput = {
@@ -26516,7 +26301,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutAuthorInput = {
@@ -26710,11 +26494,9 @@ export namespace Prisma {
     id?: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     post: PostCreateNestedOneWithoutFlagsInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutFlagInput
   }
 
   export type FlagUncheckedCreateWithoutUserInput = {
@@ -26722,10 +26504,8 @@ export namespace Prisma {
     postId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutFlagInput
   }
 
   export type FlagCreateOrConnectWithoutUserInput = {
@@ -26737,31 +26517,54 @@ export namespace Prisma {
     data: FlagCreateManyUserInput | FlagCreateManyUserInput[]
   }
 
-  export type ModeratorActionCreateWithoutModeratorInput = {
+  export type ModerationActionCreateWithoutTargetInput = {
     id?: string
     action: string
     reason?: string | null
     createdAt?: Date | string
-    flag?: FlagCreateNestedOneWithoutModeratorActionsInput
-    post?: PostCreateNestedOneWithoutModeratorActionsInput
+    moderator: UserCreateNestedOneWithoutModerationActionsAsModeratorInput
   }
 
-  export type ModeratorActionUncheckedCreateWithoutModeratorInput = {
+  export type ModerationActionUncheckedCreateWithoutTargetInput = {
     id?: string
-    flagId?: string | null
-    postId?: string | null
+    moderatorId: string
     action: string
     reason?: string | null
     createdAt?: Date | string
   }
 
-  export type ModeratorActionCreateOrConnectWithoutModeratorInput = {
-    where: ModeratorActionWhereUniqueInput
-    create: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput>
+  export type ModerationActionCreateOrConnectWithoutTargetInput = {
+    where: ModerationActionWhereUniqueInput
+    create: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput>
   }
 
-  export type ModeratorActionCreateManyModeratorInputEnvelope = {
-    data: ModeratorActionCreateManyModeratorInput | ModeratorActionCreateManyModeratorInput[]
+  export type ModerationActionCreateManyTargetInputEnvelope = {
+    data: ModerationActionCreateManyTargetInput | ModerationActionCreateManyTargetInput[]
+  }
+
+  export type ModerationActionCreateWithoutModeratorInput = {
+    id?: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
+    target: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+  }
+
+  export type ModerationActionUncheckedCreateWithoutModeratorInput = {
+    id?: string
+    targetId: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ModerationActionCreateOrConnectWithoutModeratorInput = {
+    where: ModerationActionWhereUniqueInput
+    create: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput>
+  }
+
+  export type ModerationActionCreateManyModeratorInputEnvelope = {
+    data: ModerationActionCreateManyModeratorInput | ModerationActionCreateManyModeratorInput[]
   }
 
   export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
@@ -26965,38 +26768,52 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
-    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
   }
 
-  export type ModeratorActionUpsertWithWhereUniqueWithoutModeratorInput = {
-    where: ModeratorActionWhereUniqueInput
-    update: XOR<ModeratorActionUpdateWithoutModeratorInput, ModeratorActionUncheckedUpdateWithoutModeratorInput>
-    create: XOR<ModeratorActionCreateWithoutModeratorInput, ModeratorActionUncheckedCreateWithoutModeratorInput>
+  export type ModerationActionUpsertWithWhereUniqueWithoutTargetInput = {
+    where: ModerationActionWhereUniqueInput
+    update: XOR<ModerationActionUpdateWithoutTargetInput, ModerationActionUncheckedUpdateWithoutTargetInput>
+    create: XOR<ModerationActionCreateWithoutTargetInput, ModerationActionUncheckedCreateWithoutTargetInput>
   }
 
-  export type ModeratorActionUpdateWithWhereUniqueWithoutModeratorInput = {
-    where: ModeratorActionWhereUniqueInput
-    data: XOR<ModeratorActionUpdateWithoutModeratorInput, ModeratorActionUncheckedUpdateWithoutModeratorInput>
+  export type ModerationActionUpdateWithWhereUniqueWithoutTargetInput = {
+    where: ModerationActionWhereUniqueInput
+    data: XOR<ModerationActionUpdateWithoutTargetInput, ModerationActionUncheckedUpdateWithoutTargetInput>
   }
 
-  export type ModeratorActionUpdateManyWithWhereWithoutModeratorInput = {
-    where: ModeratorActionScalarWhereInput
-    data: XOR<ModeratorActionUpdateManyMutationInput, ModeratorActionUncheckedUpdateManyWithoutModeratorInput>
+  export type ModerationActionUpdateManyWithWhereWithoutTargetInput = {
+    where: ModerationActionScalarWhereInput
+    data: XOR<ModerationActionUpdateManyMutationInput, ModerationActionUncheckedUpdateManyWithoutTargetInput>
   }
 
-  export type ModeratorActionScalarWhereInput = {
-    AND?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
-    OR?: ModeratorActionScalarWhereInput[]
-    NOT?: ModeratorActionScalarWhereInput | ModeratorActionScalarWhereInput[]
-    id?: StringFilter<"ModeratorAction"> | string
-    flagId?: StringNullableFilter<"ModeratorAction"> | string | null
-    postId?: StringNullableFilter<"ModeratorAction"> | string | null
-    moderatorId?: StringFilter<"ModeratorAction"> | string
-    action?: StringFilter<"ModeratorAction"> | string
-    reason?: StringNullableFilter<"ModeratorAction"> | string | null
-    createdAt?: DateTimeFilter<"ModeratorAction"> | Date | string
+  export type ModerationActionScalarWhereInput = {
+    AND?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
+    OR?: ModerationActionScalarWhereInput[]
+    NOT?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
+    id?: StringFilter<"ModerationAction"> | string
+    targetId?: StringFilter<"ModerationAction"> | string
+    moderatorId?: StringFilter<"ModerationAction"> | string
+    action?: StringFilter<"ModerationAction"> | string
+    reason?: StringNullableFilter<"ModerationAction"> | string | null
+    createdAt?: DateTimeFilter<"ModerationAction"> | Date | string
+  }
+
+  export type ModerationActionUpsertWithWhereUniqueWithoutModeratorInput = {
+    where: ModerationActionWhereUniqueInput
+    update: XOR<ModerationActionUpdateWithoutModeratorInput, ModerationActionUncheckedUpdateWithoutModeratorInput>
+    create: XOR<ModerationActionCreateWithoutModeratorInput, ModerationActionUncheckedCreateWithoutModeratorInput>
+  }
+
+  export type ModerationActionUpdateWithWhereUniqueWithoutModeratorInput = {
+    where: ModerationActionWhereUniqueInput
+    data: XOR<ModerationActionUpdateWithoutModeratorInput, ModerationActionUncheckedUpdateWithoutModeratorInput>
+  }
+
+  export type ModerationActionUpdateManyWithWhereWithoutModeratorInput = {
+    where: ModerationActionScalarWhereInput
+    data: XOR<ModerationActionUpdateManyMutationInput, ModerationActionUncheckedUpdateManyWithoutModeratorInput>
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -27006,6 +26823,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27017,7 +26835,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -27027,6 +26846,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27038,7 +26858,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -27064,6 +26885,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27075,7 +26897,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -27085,6 +26908,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27096,7 +26920,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -27106,6 +26931,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27117,7 +26943,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -27127,6 +26954,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27138,7 +26966,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -27164,6 +26993,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27175,7 +27005,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -27185,6 +27016,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27196,7 +27028,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserCreateWithoutPostsInput = {
@@ -27206,6 +27039,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27217,7 +27051,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -27227,6 +27062,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27238,7 +27074,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -27368,11 +27205,9 @@ export namespace Prisma {
     id?: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFlagsInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutFlagInput
   }
 
   export type FlagUncheckedCreateWithoutPostInput = {
@@ -27380,10 +27215,8 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutFlagInput
   }
 
   export type FlagCreateOrConnectWithoutPostInput = {
@@ -27393,33 +27226,6 @@ export namespace Prisma {
 
   export type FlagCreateManyPostInputEnvelope = {
     data: FlagCreateManyPostInput | FlagCreateManyPostInput[]
-  }
-
-  export type ModeratorActionCreateWithoutPostInput = {
-    id?: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
-    moderator: UserCreateNestedOneWithoutModeratorActionsInput
-    flag?: FlagCreateNestedOneWithoutModeratorActionsInput
-  }
-
-  export type ModeratorActionUncheckedCreateWithoutPostInput = {
-    id?: string
-    flagId?: string | null
-    moderatorId: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ModeratorActionCreateOrConnectWithoutPostInput = {
-    where: ModeratorActionWhereUniqueInput
-    create: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput>
-  }
-
-  export type ModeratorActionCreateManyPostInputEnvelope = {
-    data: ModeratorActionCreateManyPostInput | ModeratorActionCreateManyPostInput[]
   }
 
   export type UserUpsertWithoutPostsInput = {
@@ -27440,6 +27246,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27451,7 +27258,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -27461,6 +27269,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27472,7 +27281,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type DistrictUpsertWithoutPostsInput = {
@@ -27583,22 +27393,6 @@ export namespace Prisma {
     data: XOR<FlagUpdateManyMutationInput, FlagUncheckedUpdateManyWithoutPostInput>
   }
 
-  export type ModeratorActionUpsertWithWhereUniqueWithoutPostInput = {
-    where: ModeratorActionWhereUniqueInput
-    update: XOR<ModeratorActionUpdateWithoutPostInput, ModeratorActionUncheckedUpdateWithoutPostInput>
-    create: XOR<ModeratorActionCreateWithoutPostInput, ModeratorActionUncheckedCreateWithoutPostInput>
-  }
-
-  export type ModeratorActionUpdateWithWhereUniqueWithoutPostInput = {
-    where: ModeratorActionWhereUniqueInput
-    data: XOR<ModeratorActionUpdateWithoutPostInput, ModeratorActionUncheckedUpdateWithoutPostInput>
-  }
-
-  export type ModeratorActionUpdateManyWithWhereWithoutPostInput = {
-    where: ModeratorActionScalarWhereInput
-    data: XOR<ModeratorActionUpdateManyMutationInput, ModeratorActionUncheckedUpdateManyWithoutPostInput>
-  }
-
   export type UserCreateWithoutPostInterestsInput = {
     id?: string
     email: string
@@ -27606,6 +27400,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27617,7 +27412,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutPostInterestsInput = {
@@ -27627,6 +27423,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27638,7 +27435,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutPostInterestsInput = {
@@ -27659,7 +27457,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutInterestsInput = {
@@ -27675,7 +27472,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutInterestsInput = {
@@ -27701,6 +27497,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27712,7 +27509,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostInterestsInput = {
@@ -27722,6 +27520,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27733,7 +27532,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type PostUpsertWithoutInterestsInput = {
@@ -27760,7 +27560,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutInterestsInput = {
@@ -27776,7 +27575,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type UserInterestCreateWithoutInterestInput = {
@@ -27884,6 +27682,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27895,7 +27694,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutInterestsInput = {
@@ -27905,6 +27705,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -27916,7 +27717,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutInterestsInput = {
@@ -27965,6 +27767,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27976,7 +27779,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutInterestsInput = {
@@ -27986,6 +27790,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27997,7 +27802,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type InterestUpsertWithoutUserInterestsInput = {
@@ -28036,6 +27842,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28047,7 +27854,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutEventsInput = {
@@ -28057,6 +27865,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28068,7 +27877,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutEventsInput = {
@@ -28160,7 +27970,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     interests?: PostInterestCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutEventsInput = {
@@ -28176,7 +27985,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutEventsInput = {
@@ -28223,6 +28031,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28234,7 +28043,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEventsInput = {
@@ -28244,6 +28054,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28255,7 +28066,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type DistrictUpsertWithoutEventsInput = {
@@ -28371,7 +28183,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutEventsInput = {
@@ -28387,7 +28198,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type EventAttendeeUpsertWithWhereUniqueWithoutEventInput = {
@@ -28454,6 +28264,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28465,7 +28276,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutEventAttendeeInput = {
@@ -28475,6 +28287,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28486,7 +28299,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutEventAttendeeInput = {
@@ -28559,6 +28373,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28570,7 +28385,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutEventAttendeeInput = {
@@ -28580,6 +28396,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28591,7 +28408,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
   export type PostCreateWithoutFlagsInput = {
@@ -28607,7 +28425,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutFlagsInput = {
@@ -28623,7 +28440,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutFlagsInput = {
@@ -28638,6 +28454,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28649,7 +28466,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
   export type UserUncheckedCreateWithoutFlagsInput = {
@@ -28659,6 +28477,7 @@ export namespace Prisma {
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28670,39 +28489,13 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    moderatorActions?: ModeratorActionUncheckedCreateNestedManyWithoutModeratorInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
   export type UserCreateOrConnectWithoutFlagsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFlagsInput, UserUncheckedCreateWithoutFlagsInput>
-  }
-
-  export type ModeratorActionCreateWithoutFlagInput = {
-    id?: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
-    moderator: UserCreateNestedOneWithoutModeratorActionsInput
-    post?: PostCreateNestedOneWithoutModeratorActionsInput
-  }
-
-  export type ModeratorActionUncheckedCreateWithoutFlagInput = {
-    id?: string
-    postId?: string | null
-    moderatorId: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ModeratorActionCreateOrConnectWithoutFlagInput = {
-    where: ModeratorActionWhereUniqueInput
-    create: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput>
-  }
-
-  export type ModeratorActionCreateManyFlagInputEnvelope = {
-    data: ModeratorActionCreateManyFlagInput | ModeratorActionCreateManyFlagInput[]
   }
 
   export type PostUpsertWithoutFlagsInput = {
@@ -28729,7 +28522,6 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutFlagsInput = {
@@ -28745,7 +28537,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type UserUpsertWithoutFlagsInput = {
@@ -28766,6 +28557,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28777,7 +28569,8 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFlagsInput = {
@@ -28787,6 +28580,7 @@ export namespace Prisma {
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28798,32 +28592,18 @@ export namespace Prisma {
     eventAttendee?: EventAttendeeUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutModeratorNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
-  export type ModeratorActionUpsertWithWhereUniqueWithoutFlagInput = {
-    where: ModeratorActionWhereUniqueInput
-    update: XOR<ModeratorActionUpdateWithoutFlagInput, ModeratorActionUncheckedUpdateWithoutFlagInput>
-    create: XOR<ModeratorActionCreateWithoutFlagInput, ModeratorActionUncheckedCreateWithoutFlagInput>
-  }
-
-  export type ModeratorActionUpdateWithWhereUniqueWithoutFlagInput = {
-    where: ModeratorActionWhereUniqueInput
-    data: XOR<ModeratorActionUpdateWithoutFlagInput, ModeratorActionUncheckedUpdateWithoutFlagInput>
-  }
-
-  export type ModeratorActionUpdateManyWithWhereWithoutFlagInput = {
-    where: ModeratorActionScalarWhereInput
-    data: XOR<ModeratorActionUpdateManyMutationInput, ModeratorActionUncheckedUpdateManyWithoutFlagInput>
-  }
-
-  export type UserCreateWithoutModeratorActionsInput = {
+  export type UserCreateWithoutModerationActionsAsTargetInput = {
     id?: string
     email: string
     name: string
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28836,15 +28616,17 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     flags?: FlagCreateNestedManyWithoutUserInput
+    moderationActionsAsModerator?: ModerationActionCreateNestedManyWithoutModeratorInput
   }
 
-  export type UserUncheckedCreateWithoutModeratorActionsInput = {
+  export type UserUncheckedCreateWithoutModerationActionsAsTargetInput = {
     id?: string
     email: string
     name: string
     phone?: string | null
     password?: string | null
     role?: string
+    status?: string
     emailVerified?: Date | string | null
     image?: string | null
     createdAt?: Date | string
@@ -28857,95 +28639,84 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     flags?: FlagUncheckedCreateNestedManyWithoutUserInput
+    moderationActionsAsModerator?: ModerationActionUncheckedCreateNestedManyWithoutModeratorInput
   }
 
-  export type UserCreateOrConnectWithoutModeratorActionsInput = {
+  export type UserCreateOrConnectWithoutModerationActionsAsTargetInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutModeratorActionsInput, UserUncheckedCreateWithoutModeratorActionsInput>
+    create: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
   }
 
-  export type FlagCreateWithoutModeratorActionsInput = {
+  export type UserCreateWithoutModerationActionsAsModeratorInput = {
     id?: string
-    reason: string
-    comment?: string | null
+    email: string
+    name: string
+    phone?: string | null
+    password?: string | null
+    role?: string
     status?: string
+    emailVerified?: Date | string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    post: PostCreateNestedOneWithoutFlagsInput
-    user: UserCreateNestedOneWithoutFlagsInput
+    posts?: PostCreateNestedManyWithoutAuthorInput
+    events?: EventCreateNestedManyWithoutOrganizerInput
+    interests?: UserInterestCreateNestedManyWithoutUserInput
+    postInterests?: PostInterestCreateNestedManyWithoutUserInput
+    eventAttendee?: EventAttendeeCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    flags?: FlagCreateNestedManyWithoutUserInput
+    moderationActionsAsTarget?: ModerationActionCreateNestedManyWithoutTargetInput
   }
 
-  export type FlagUncheckedCreateWithoutModeratorActionsInput = {
+  export type UserUncheckedCreateWithoutModerationActionsAsModeratorInput = {
     id?: string
-    postId: string
-    userId: string
-    reason: string
-    comment?: string | null
+    email: string
+    name: string
+    phone?: string | null
+    password?: string | null
+    role?: string
     status?: string
+    emailVerified?: Date | string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    events?: EventUncheckedCreateNestedManyWithoutOrganizerInput
+    interests?: UserInterestUncheckedCreateNestedManyWithoutUserInput
+    postInterests?: PostInterestUncheckedCreateNestedManyWithoutUserInput
+    eventAttendee?: EventAttendeeUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    flags?: FlagUncheckedCreateNestedManyWithoutUserInput
+    moderationActionsAsTarget?: ModerationActionUncheckedCreateNestedManyWithoutTargetInput
   }
 
-  export type FlagCreateOrConnectWithoutModeratorActionsInput = {
-    where: FlagWhereUniqueInput
-    create: XOR<FlagCreateWithoutModeratorActionsInput, FlagUncheckedCreateWithoutModeratorActionsInput>
+  export type UserCreateOrConnectWithoutModerationActionsAsModeratorInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutModerationActionsAsModeratorInput, UserUncheckedCreateWithoutModerationActionsAsModeratorInput>
   }
 
-  export type PostCreateWithoutModeratorActionsInput = {
-    id?: string
-    title: string
-    description: string
-    photos?: string | null
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    author: UserCreateNestedOneWithoutPostsInput
-    district?: DistrictCreateNestedOneWithoutPostsInput
-    neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
-    interests?: PostInterestCreateNestedManyWithoutPostInput
-    events?: EventCreateNestedManyWithoutPostInput
-    flags?: FlagCreateNestedManyWithoutPostInput
-  }
-
-  export type PostUncheckedCreateWithoutModeratorActionsInput = {
-    id?: string
-    title: string
-    description: string
-    photos?: string | null
-    status?: string
-    districtId?: string | null
-    neighborhoodId?: string | null
-    authorId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
-    events?: EventUncheckedCreateNestedManyWithoutPostInput
-    flags?: FlagUncheckedCreateNestedManyWithoutPostInput
-  }
-
-  export type PostCreateOrConnectWithoutModeratorActionsInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutModeratorActionsInput, PostUncheckedCreateWithoutModeratorActionsInput>
-  }
-
-  export type UserUpsertWithoutModeratorActionsInput = {
-    update: XOR<UserUpdateWithoutModeratorActionsInput, UserUncheckedUpdateWithoutModeratorActionsInput>
-    create: XOR<UserCreateWithoutModeratorActionsInput, UserUncheckedCreateWithoutModeratorActionsInput>
+  export type UserUpsertWithoutModerationActionsAsTargetInput = {
+    update: XOR<UserUpdateWithoutModerationActionsAsTargetInput, UserUncheckedUpdateWithoutModerationActionsAsTargetInput>
+    create: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutModeratorActionsInput = {
+  export type UserUpdateToOneWithWhereWithoutModerationActionsAsTargetInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutModeratorActionsInput, UserUncheckedUpdateWithoutModeratorActionsInput>
+    data: XOR<UserUpdateWithoutModerationActionsAsTargetInput, UserUncheckedUpdateWithoutModerationActionsAsTargetInput>
   }
 
-  export type UserUpdateWithoutModeratorActionsInput = {
+  export type UserUpdateWithoutModerationActionsAsTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28958,15 +28729,17 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     flags?: FlagUpdateManyWithoutUserNestedInput
+    moderationActionsAsModerator?: ModerationActionUpdateManyWithoutModeratorNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutModeratorActionsInput = {
+  export type UserUncheckedUpdateWithoutModerationActionsAsTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28979,82 +28752,64 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
+    moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
   }
 
-  export type FlagUpsertWithoutModeratorActionsInput = {
-    update: XOR<FlagUpdateWithoutModeratorActionsInput, FlagUncheckedUpdateWithoutModeratorActionsInput>
-    create: XOR<FlagCreateWithoutModeratorActionsInput, FlagUncheckedCreateWithoutModeratorActionsInput>
-    where?: FlagWhereInput
+  export type UserUpsertWithoutModerationActionsAsModeratorInput = {
+    update: XOR<UserUpdateWithoutModerationActionsAsModeratorInput, UserUncheckedUpdateWithoutModerationActionsAsModeratorInput>
+    create: XOR<UserCreateWithoutModerationActionsAsModeratorInput, UserUncheckedCreateWithoutModerationActionsAsModeratorInput>
+    where?: UserWhereInput
   }
 
-  export type FlagUpdateToOneWithWhereWithoutModeratorActionsInput = {
-    where?: FlagWhereInput
-    data: XOR<FlagUpdateWithoutModeratorActionsInput, FlagUncheckedUpdateWithoutModeratorActionsInput>
+  export type UserUpdateToOneWithWhereWithoutModerationActionsAsModeratorInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutModerationActionsAsModeratorInput, UserUncheckedUpdateWithoutModerationActionsAsModeratorInput>
   }
 
-  export type FlagUpdateWithoutModeratorActionsInput = {
+  export type UserUpdateWithoutModerationActionsAsModeratorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    reason?: StringFieldUpdateOperationsInput | string
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    post?: PostUpdateOneRequiredWithoutFlagsNestedInput
-    user?: UserUpdateOneRequiredWithoutFlagsNestedInput
+    posts?: PostUpdateManyWithoutAuthorNestedInput
+    events?: EventUpdateManyWithoutOrganizerNestedInput
+    interests?: UserInterestUpdateManyWithoutUserNestedInput
+    postInterests?: PostInterestUpdateManyWithoutUserNestedInput
+    eventAttendee?: EventAttendeeUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    flags?: FlagUpdateManyWithoutUserNestedInput
+    moderationActionsAsTarget?: ModerationActionUpdateManyWithoutTargetNestedInput
   }
 
-  export type FlagUncheckedUpdateWithoutModeratorActionsInput = {
+  export type UserUncheckedUpdateWithoutModerationActionsAsModeratorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    postId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    reason?: StringFieldUpdateOperationsInput | string
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PostUpsertWithoutModeratorActionsInput = {
-    update: XOR<PostUpdateWithoutModeratorActionsInput, PostUncheckedUpdateWithoutModeratorActionsInput>
-    create: XOR<PostCreateWithoutModeratorActionsInput, PostUncheckedCreateWithoutModeratorActionsInput>
-    where?: PostWhereInput
-  }
-
-  export type PostUpdateToOneWithWhereWithoutModeratorActionsInput = {
-    where?: PostWhereInput
-    data: XOR<PostUpdateWithoutModeratorActionsInput, PostUncheckedUpdateWithoutModeratorActionsInput>
-  }
-
-  export type PostUpdateWithoutModeratorActionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    photos?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    author?: UserUpdateOneRequiredWithoutPostsNestedInput
-    district?: DistrictUpdateOneWithoutPostsNestedInput
-    neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
-    interests?: PostInterestUpdateManyWithoutPostNestedInput
-    events?: EventUpdateManyWithoutPostNestedInput
-    flags?: FlagUpdateManyWithoutPostNestedInput
-  }
-
-  export type PostUncheckedUpdateWithoutModeratorActionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    photos?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    districtId?: NullableStringFieldUpdateOperationsInput | string | null
-    neighborhoodId?: NullableStringFieldUpdateOperationsInput | string | null
-    authorId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
-    events?: EventUncheckedUpdateManyWithoutPostNestedInput
-    flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    events?: EventUncheckedUpdateManyWithoutOrganizerNestedInput
+    interests?: UserInterestUncheckedUpdateManyWithoutUserNestedInput
+    postInterests?: PostInterestUncheckedUpdateManyWithoutUserNestedInput
+    eventAttendee?: EventAttendeeUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
+    moderationActionsAsTarget?: ModerationActionUncheckedUpdateManyWithoutTargetNestedInput
   }
 
   export type CityCreateManyCountryInput = {
@@ -29195,7 +28950,6 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutDistrictInput = {
@@ -29211,7 +28965,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutDistrictInput = {
@@ -29321,7 +29074,6 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutNeighborhoodInput = {
@@ -29337,7 +29089,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutNeighborhoodInput = {
@@ -29483,15 +29234,21 @@ export namespace Prisma {
     postId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type ModeratorActionCreateManyModeratorInput = {
+  export type ModerationActionCreateManyTargetInput = {
     id?: string
-    flagId?: string | null
-    postId?: string | null
+    moderatorId: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ModerationActionCreateManyModeratorInput = {
+    id?: string
+    targetId: string
     action: string
     reason?: string | null
     createdAt?: Date | string
@@ -29510,7 +29267,6 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutAuthorInput = {
@@ -29526,7 +29282,6 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutAuthorInput = {
@@ -29730,11 +29485,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: PostUpdateOneRequiredWithoutFlagsNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagUncheckedUpdateWithoutUserInput = {
@@ -29742,10 +29495,8 @@ export namespace Prisma {
     postId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagUncheckedUpdateManyWithoutUserInput = {
@@ -29753,33 +29504,53 @@ export namespace Prisma {
     postId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModeratorActionUpdateWithoutModeratorInput = {
+  export type ModerationActionUpdateWithoutTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    flag?: FlagUpdateOneWithoutModeratorActionsNestedInput
-    post?: PostUpdateOneWithoutModeratorActionsNestedInput
+    moderator?: UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput
   }
 
-  export type ModeratorActionUncheckedUpdateWithoutModeratorInput = {
+  export type ModerationActionUncheckedUpdateWithoutTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
+    moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ModeratorActionUncheckedUpdateManyWithoutModeratorInput = {
+  export type ModerationActionUncheckedUpdateManyWithoutTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
+    moderatorId?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModerationActionUpdateWithoutModeratorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    target?: UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput
+  }
+
+  export type ModerationActionUncheckedUpdateWithoutModeratorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModerationActionUncheckedUpdateManyWithoutModeratorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    targetId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29815,18 +29586,8 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
-    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type ModeratorActionCreateManyPostInput = {
-    id?: string
-    flagId?: string | null
-    moderatorId: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
   }
 
   export type PostInterestUpdateWithoutPostInput = {
@@ -29910,11 +29671,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFlagsNestedInput
-    moderatorActions?: ModeratorActionUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagUncheckedUpdateWithoutPostInput = {
@@ -29922,10 +29681,8 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderatorActions?: ModeratorActionUncheckedUpdateManyWithoutFlagNestedInput
   }
 
   export type FlagUncheckedUpdateManyWithoutPostInput = {
@@ -29933,36 +29690,8 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ModeratorActionUpdateWithoutPostInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderator?: UserUpdateOneRequiredWithoutModeratorActionsNestedInput
-    flag?: FlagUpdateOneWithoutModeratorActionsNestedInput
-  }
-
-  export type ModeratorActionUncheckedUpdateWithoutPostInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    moderatorId?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ModeratorActionUncheckedUpdateManyWithoutPostInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    flagId?: NullableStringFieldUpdateOperationsInput | string | null
-    moderatorId?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserInterestCreateManyInterestInput = {
@@ -30080,42 +29809,6 @@ export namespace Prisma {
   export type EventAttendeeUncheckedUpdateManyWithoutEventInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ModeratorActionCreateManyFlagInput = {
-    id?: string
-    postId?: string | null
-    moderatorId: string
-    action: string
-    reason?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ModeratorActionUpdateWithoutFlagInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    moderator?: UserUpdateOneRequiredWithoutModeratorActionsNestedInput
-    post?: PostUpdateOneWithoutModeratorActionsNestedInput
-  }
-
-  export type ModeratorActionUncheckedUpdateWithoutFlagInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
-    moderatorId?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ModeratorActionUncheckedUpdateManyWithoutFlagInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    postId?: NullableStringFieldUpdateOperationsInput | string | null
-    moderatorId?: StringFieldUpdateOperationsInput | string
-    action?: StringFieldUpdateOperationsInput | string
-    reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
