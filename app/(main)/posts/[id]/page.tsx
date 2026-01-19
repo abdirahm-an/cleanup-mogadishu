@@ -6,21 +6,12 @@ import { useRouter } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { PhotoGallery } from '@/components/posts/PhotoGallery';
-<<<<<<< HEAD
-import { InterestButton } from '@/components/posts/InterestButton';
-import { InterestedUsers } from '@/components/posts/InterestedUsers';
-import Link from 'next/link';
-import { MapPin, Calendar, User, ArrowLeft, Share2, Flag } from 'lucide-react';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
-=======
 import { StatusBadge } from '@/components/posts/StatusBadge';
 import { StatusUpdater } from '@/components/posts/StatusUpdater';
 import { CompletionUpload } from '@/components/posts/CompletionUpload';
 import { CelebrationAnimation } from '@/components/posts/CelebrationAnimation';
 import Link from 'next/link';
 import { MapPin, Calendar, User, ArrowLeft, Share2, Flag, Loader2 } from 'lucide-react';
->>>>>>> origin/ralph/US-014
 
 interface Post {
   id: string;
@@ -45,38 +36,6 @@ interface Post {
   } | null;
 }
 
-<<<<<<< HEAD
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
-  const { id } = await params;
-  const session = await getServerSession(authOptions);
-  
-  const post: any = await db.post.findUnique({
-    where: { id },
-    include: {
-      author: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-        }
-      },
-      district: true,
-      neighborhood: true,
-      // interests: {
-      //   include: {
-      //     user: {
-      //       select: {
-      //         id: true,
-      //         name: true,
-      //         email: true,
-      //         phone: true,
-      //       }
-      //     }
-      //   }
-      // }
-    }
-  });
-=======
 export default function PostDetailPage({ params }: { params: { id: string } }) {
   const { data: session } = useSession();
   const router = useRouter();
@@ -115,7 +74,6 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       </div>
     );
   }
->>>>>>> origin/ralph/US-014
 
   if (!post) {
     return (

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Navigation } from './Navigation';
+import { SearchInput } from '@/components/search/SearchInput';
 
 export function Header() {
   return (
@@ -10,8 +11,14 @@ export function Header() {
           <div className="h-8 w-8 rounded-full bg-primary-600 flex items-center justify-center">
             <span className="text-white font-bold text-sm">CM</span>
           </div>
-          <span className="text-xl font-bold text-gray-900">Cleanup Mogadishu</span>
+          <span className="text-xl font-bold text-gray-900 hidden sm:block">Cleanup Mogadishu</span>
+          <span className="text-lg font-bold text-gray-900 sm:hidden">CM</span>
         </Link>
+
+        {/* Search Bar - Desktop */}
+        <div className="hidden md:flex flex-1 max-w-md mx-4">
+          <SearchInput placeholder="Search cleanup posts..." />
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex">
@@ -24,6 +31,11 @@ export function Header() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+      </div>
+      
+      {/* Mobile Search Bar */}
+      <div className="md:hidden px-4 pb-3">
+        <SearchInput placeholder="Search cleanup posts..." />
       </div>
     </header>
   );
