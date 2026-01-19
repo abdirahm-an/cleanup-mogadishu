@@ -6,8 +6,6 @@ import { useRouter } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { PhotoGallery } from '@/components/posts/PhotoGallery';
-import { InterestButton } from '@/components/posts/InterestButton';
-import { InterestedUsers } from '@/components/posts/InterestedUsers';
 import { StatusBadge } from '@/components/posts/StatusBadge';
 import { StatusUpdater } from '@/components/posts/StatusUpdater';
 import { CompletionUpload } from '@/components/posts/CompletionUpload';
@@ -36,7 +34,6 @@ interface Post {
     id: string;
     name: string;
   } | null;
-  interests?: any[];
 }
 
 export default function PostDetailPage({ params }: { params: { id: string } }) {
@@ -91,7 +88,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     );
   }
 
-  // Check if current user is interested (if interests data is available)
+  // Check if current user is interested
   const interests = post.interests || [];
   const currentUserInterest = session?.user 
     ? interests.find((interest: any) => interest.userId === session.user.id)

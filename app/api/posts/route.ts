@@ -112,6 +112,7 @@ export async function GET(request: NextRequest) {
     const districtId = searchParams.get('districtId');
     const neighborhoodId = searchParams.get('neighborhoodId');
     const status = searchParams.get('status');
+    const searchQuery = searchParams.get('q');
     
     const skip = (page - 1) * limit;
 
@@ -130,6 +131,24 @@ export async function GET(request: NextRequest) {
     
     if (neighborhoodId) {
       where.neighborhoodId = neighborhoodId;
+    }
+
+    // Add search functionality
+    if (searchQuery && searchQuery.trim()) {
+      where.OR = [
+        {
+          title: {
+            contains: searchQuery.trim(),
+            mode: 'insensitive'
+          }
+        },
+        {
+          description: {
+            contains: searchQuery.trim(),
+            mode: 'insensitive'
+          }
+        }
+      ];
     }
 
     const [posts, total] = await Promise.all([
