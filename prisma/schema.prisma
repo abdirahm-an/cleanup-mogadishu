@@ -156,6 +156,7 @@ model Post {
   district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
   neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
   interests    PostInterest[]
+  events       Event[]
 
   @@map("posts")
 }
@@ -213,6 +214,8 @@ model Event {
   neighborhoodId String?
   organizerId    String
   interestId     String?
+  postId         String?     // Link events directly to posts
+  requiredTools  String?     // Optional tools needed for the event
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
 
@@ -220,6 +223,7 @@ model Event {
   district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
   neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
   interest     Interest?     @relation(fields: [interestId], references: [id], onDelete: SetNull)
+  post         Post?         @relation(fields: [postId], references: [id], onDelete: SetNull)
   attendees    EventAttendee[]
 
   @@map("events")
