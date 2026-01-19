@@ -1,20 +1,25 @@
-import { auth } from "@/lib/auth"
+import { withAuth } from "next-auth/middleware"
 import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
 
-export default auth((req: NextRequest & { auth?: any }) => {
-  const { pathname } = req.nextUrl
-  const isAuthenticated = !!req.auth
+export default withAuth(
+  function middleware(req) {
+    const { pathname } = req.nextUrl
 
-  // Protect dashboard and profile routes
-  if (pathname.startsWith("/dashboard") || pathname.startsWith("/profile")) {
-    if (!isAuthenticated) {
-      return NextResponse.redirect(new URL("/login", req.url))
+    // Protect dashboard and profile routes
+    if (pathname.startsWith("/dashboard") || pathname.startsWith("/profile")) {
+      if (!req.nextauth.token) {
+        return NextResponse.redirect(new URL("/login", req.url))
+      }
     }
-  }
 
-  return NextResponse.next()
-})
+    return NextResponse.next()
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token,
+    },
+  }
+)
 
 export const config = {
   matcher: [
