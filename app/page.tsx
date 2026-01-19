@@ -16,8 +16,7 @@ async function getLatestPosts() {
     const data = await response.json();
     return data || [];
   } catch (error) {
-    // During build time, DATABASE_URL might not be available
-    console.warn('Failed to fetch posts during build:', error);
+    console.error('Error fetching posts:', error);
     return [];
   }
 }
