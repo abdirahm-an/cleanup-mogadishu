@@ -8,7 +8,6 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 // Note: SQLite doesn't support enums, using strings with constraints instead
@@ -91,6 +90,7 @@ model User {
   eventAttendee  EventAttendee[]
   accounts       Account[]
   sessions       Session[]
+  flags          Flag[]
 
   @@map("users")
 }
@@ -157,6 +157,7 @@ model Post {
   neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
   interests    PostInterest[]
   events       Event[]
+  flags        Flag[]
 
   @@map("posts")
 }
@@ -240,4 +241,20 @@ model EventAttendee {
 
   @@unique([eventId, userId])
   @@map("event_attendees")
+}
+
+model Flag {
+  id        String   @id @default(cuid())
+  postId    String
+  userId    String
+  reason    String   // "spam", "inappropriate", "misleading", "other"
+  comment   String?  // Optional additional context
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId]) // Ensures one flag per user per post
+  @@map("flags")
 }

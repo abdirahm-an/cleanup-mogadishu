@@ -11,7 +11,8 @@ import { StatusUpdater } from '@/components/posts/StatusUpdater';
 import { CompletionUpload } from '@/components/posts/CompletionUpload';
 import { CelebrationAnimation } from '@/components/posts/CelebrationAnimation';
 import Link from 'next/link';
-import { MapPin, Calendar, User, ArrowLeft, Share2, Flag, Loader2 } from 'lucide-react';
+import { MapPin, Calendar, User, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import { FlagButton } from '@/components/posts/FlagButton';
 
 interface Post {
   id: string;
@@ -172,9 +173,9 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
               <Button variant="outline" size="sm">
                 <Share2 className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="sm">
-                <Flag className="w-4 h-4" />
-              </Button>
+              {session?.user && !isAuthor && (
+                <FlagButton postId={post.id} className="px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50" />
+              )}
             </div>
           </div>
 
