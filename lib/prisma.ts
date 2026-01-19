@@ -1,6 +1,5 @@
 import { PrismaClient } from './generated/prisma'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
+import { PrismaNeon } from '@prisma/adapter-neon'
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
@@ -18,11 +17,8 @@ function createPrismaClient(): PrismaClient {
   }
   
   try {
-    const pool = new Pool({ 
-      connectionString,
-      ssl: { rejectUnauthorized: false } // Required for Neon
-    })
-    const adapter = new PrismaPg(pool)
+    // Use Neon serverless driver for edge/serverless environments
+    const adapter = new PrismaNeon({ connectionString })
     return new PrismaClient({ adapter })
   } catch (error) {
     console.error('Failed to create Prisma client:', error)

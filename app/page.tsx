@@ -14,14 +14,6 @@ async function getLatestPosts() {
       return [];
     }
     const data = await response.json();
-    return data || [];
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    return [];
-  }
-}
-    
-    const data = await response.json();
     return data.posts || [];
   } catch (error) {
     console.error('Error fetching posts:', error);
