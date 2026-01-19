@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { Button } from '@/components/ui/Button';
 import { PostGrid } from '@/components/posts/PostGrid';
-import { Plus, Filter, Search } from 'lucide-react';
+import PostFilters from '@/components/posts/PostFilters';
+import { Plus } from 'lucide-react';
 
 interface PostsPageProps {
   searchParams: Promise<{
@@ -62,11 +63,11 @@ async function getDistricts() {
 function Pagination({ 
   currentPage, 
   totalPages, 
-  baseUrl 
+  searchParams 
 }: { 
   currentPage: number;
   totalPages: number;
-  baseUrl: string;
+  searchParams: Record<string, string>;
 }) {
   if (totalPages <= 1) return null;
 
@@ -79,17 +80,23 @@ function Pagination({
     pages.push(i);
   }
 
+  const createPageUrl = (page: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', page.toString());
+    return `/posts?${params.toString()}`;
+  };
+
   return (
     <div className="flex items-center justify-center gap-2 mt-8">
       {currentPage > 1 && (
-        <Link href={`${baseUrl}?page=${currentPage - 1}`}>
+        <Link href={createPageUrl(currentPage - 1)}>
           <Button variant="outline" size="sm">Previous</Button>
         </Link>
       )}
       
       {startPage > 1 && (
         <>
-          <Link href={`${baseUrl}?page=1`}>
+          <Link href={createPageUrl(1)}>
             <Button variant="outline" size="sm">1</Button>
           </Link>
           {startPage > 2 && <span className="px-2">...</span>}
@@ -97,7 +104,7 @@ function Pagination({
       )}
 
       {pages.map(page => (
-        <Link key={page} href={`${baseUrl}?page=${page}`}>
+        <Link key={page} href={createPageUrl(page)}>
           <Button 
             variant={page === currentPage ? "default" : "outline"} 
             size="sm"
@@ -110,14 +117,14 @@ function Pagination({
       {endPage < totalPages && (
         <>
           {endPage < totalPages - 1 && <span className="px-2">...</span>}
-          <Link href={`${baseUrl}?page=${totalPages}`}>
+          <Link href={createPageUrl(totalPages)}>
             <Button variant="outline" size="sm">{totalPages}</Button>
           </Link>
         </>
       )}
 
       {currentPage < totalPages && (
-        <Link href={`${baseUrl}?page=${currentPage + 1}`}>
+        <Link href={createPageUrl(currentPage + 1)}>
           <Button variant="outline" size="sm">Next</Button>
         </Link>
       )}
@@ -135,20 +142,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
   const currentPage = parseInt(params.page || '1');
   const { posts, pagination } = data;
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'PUBLISHED': return 'bg-green-100 text-green-800';
-      case 'COMPLETED': return 'bg-blue-100 text-blue-800';
-      case 'UNDER_REVIEW': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  const statusOptions = [
-    { value: 'PUBLISHED', label: 'Open', color: 'bg-green-500' },
-    { value: 'UNDER_REVIEW', label: 'In Progress', color: 'bg-yellow-500' },
-    { value: 'COMPLETED', label: 'Completed', color: 'bg-blue-500' },
-  ];
+  // Status options and getStatusColor moved to PostFilters component
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -173,39 +167,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
           </div>
 
           {/* Filters */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <Filter className="w-5 h-5 text-gray-500" />
-              <h3 className="font-semibold text-gray-900">Filter by Status</h3>
-            </div>
-            
-            <div className="flex flex-wrap gap-3">
-              <Link 
-                href="/posts"
-                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  !params.status 
-                    ? 'bg-gray-900 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                All Posts
-              </Link>
-              {statusOptions.map(option => (
-                <Link 
-                  key={option.value}
-                  href={`/posts?status=${option.value}`}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    params.status === option.value
-                      ? 'bg-primary text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  <div className={`w-2 h-2 rounded-full ${option.color}`} />
-                  {option.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <PostFilters className="mb-8" />
 
           {/* Posts Grid */}
           <PostGrid 
@@ -218,7 +180,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
           <Pagination 
             currentPage={currentPage}
             totalPages={pagination.pages}
-            baseUrl="/posts"
+            searchParams={params}
           />
 
           {/* Stats */}
