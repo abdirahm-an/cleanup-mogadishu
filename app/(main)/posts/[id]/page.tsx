@@ -1,55 +1,114 @@
-import { db } from '@/lib/db';
-import { notFound } from 'next/navigation';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { PhotoGallery } from '@/components/posts/PhotoGallery';
+import { StatusBadge } from '@/components/posts/StatusBadge';
+import { StatusUpdater } from '@/components/posts/StatusUpdater';
+import { CompletionUpload } from '@/components/posts/CompletionUpload';
+import { CelebrationAnimation } from '@/components/posts/CelebrationAnimation';
 import Link from 'next/link';
-import { MapPin, Calendar, User, ArrowLeft, Share2, Flag } from 'lucide-react';
+import { MapPin, Calendar, User, ArrowLeft, Share2, Flag, Loader2 } from 'lucide-react';
 
-interface PostDetailPageProps {
-  params: Promise<{ id: string }>;
+interface Post {
+  id: string;
+  title: string;
+  description: string;
+  photos: string;
+  status: string;
+  createdAt: string;
+  authorId: string;
+  author: {
+    id: string;
+    name: string;
+    email: string;
+  };
+  district?: {
+    id: string;
+    name: string;
+  } | null;
+  neighborhood?: {
+    id: string;
+    name: string;
+  } | null;
 }
 
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
-  const { id } = await params;
-  
-  const post = await db.post.findUnique({
-    where: { id },
-    include: {
-      author: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
+export default function PostDetailPage({ params }: { params: { id: string } }) {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [showCompletionUpload, setShowCompletionUpload] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(`/api/posts/${params.id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch post');
         }
-      },
-      district: true,
-      neighborhood: true,
-    }
-  });
+        const data = await response.json();
+        setPost(data.post);
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        router.push('/posts');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [params.id, router]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="flex items-center gap-2">
+          <Loader2 className="w-6 h-6 animate-spin" />
+          <span>Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
-    notFound();
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Post not found</h1>
+          <Link href="/posts">
+            <Button>Back to Posts</Button>
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   const photos = JSON.parse(post.photos || '[]') as string[];
-  
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'PUBLISHED': return 'bg-green-100 text-green-800 border-green-200';
-      case 'COMPLETED': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'UNDER_REVIEW': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+  const isAuthor = session?.user?.id === post.authorId;
+
+  const handleStatusUpdate = (newStatus: string) => {
+    setPost(prev => prev ? { ...prev, status: newStatus } : null);
+    
+    // Show celebration for completion
+    if (newStatus === 'COMPLETED') {
+      setShowCelebration(true);
     }
   };
 
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case 'PUBLISHED': return 'Open';
-      case 'COMPLETED': return 'Completed';
-      case 'UNDER_REVIEW': return 'In Progress';
-      default: return status;
-    }
+  const handleMarkCompleted = () => {
+    setShowCompletionUpload(true);
+  };
+
+  const handleCompletionUpload = () => {
+    setShowCompletionUpload(false);
+    setPost(prev => prev ? { ...prev, status: 'COMPLETED' } : null);
+    setShowCelebration(true);
+    router.refresh(); // Refresh the page data
   };
 
   const getRelativeTime = (dateString: string) => {
@@ -74,9 +133,28 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
       });
     }
   };
+
+  if (showCompletionUpload) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="container mx-auto px-4">
+          <CompletionUpload
+            postId={post.id}
+            onUploadComplete={handleCompletionUpload}
+            onCancel={() => setShowCompletionUpload(false)}
+          />
+        </div>
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen bg-gray-50">
+      <CelebrationAnimation 
+        isVisible={showCelebration} 
+        onComplete={() => setShowCelebration(false)} 
+      />
+      
       <div className="container mx-auto py-8 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Navigation */}
@@ -121,12 +199,44 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
                         </div>
                       </div>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(post.status)}`}>
-                      {getStatusText(post.status)}
-                    </span>
+                    <StatusBadge status={post.status} size="md" />
                   </div>
                 </CardHeader>
               </Card>
+
+              {/* Status Management (for authors) */}
+              {isAuthor && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Cleanup Status</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <StatusUpdater
+                        postId={post.id}
+                        currentStatus={post.status}
+                        isAuthor={isAuthor}
+                        onStatusUpdate={handleStatusUpdate}
+                      />
+                      
+                      {post.status === 'UNDER_REVIEW' && (
+                        <Button
+                          onClick={handleMarkCompleted}
+                          className="bg-green-600 hover:bg-green-700"
+                        >
+                          Mark as Completed
+                        </Button>
+                      )}
+                    </div>
+                    
+                    {post.status !== 'COMPLETED' && (
+                      <p className="text-sm text-gray-600 mt-3">
+                        Update the cleanup status to track progress. Mark as completed when the area is clean.
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Photos */}
               {photos.length > 0 && (
