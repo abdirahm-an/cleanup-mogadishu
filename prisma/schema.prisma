@@ -155,12 +155,13 @@ model Post {
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 
-  author       User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
-  neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
-  interests    PostInterest[]
-  events       Event[]
-  flags        Flag[]
+  author            User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  district          District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
+  neighborhood      Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+  interests         PostInterest[]
+  events            Event[]
+  flags             Flag[]
+  moderationActions ModerationAction[]
 
   @@map("posts")
 }
@@ -252,6 +253,7 @@ model Flag {
   userId    String
   reason    String   // "spam", "inappropriate", "misleading", "other"
   comment   String?  // Optional additional context
+  status    String   @default("PENDING") // "PENDING", "DISMISSED", "RESOLVED"
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -263,15 +265,17 @@ model Flag {
 }
 
 model ModerationAction {
-  id         String   @id @default(cuid())
-  targetId   String   // ID of the user being moderated
-  moderatorId String  // ID of the moderator taking action
-  action     String   // WARN, SUSPEND, PROMOTE, ACTIVATE
-  reason     String?  // Optional reason for the action
-  createdAt  DateTime @default(now())
+  id          String   @id @default(cuid())
+  targetId    String?  // ID of the user being moderated (optional)
+  postId      String?  // ID of the post being moderated (optional)
+  moderatorId String   // ID of the moderator taking action
+  action      String   // WARN, SUSPEND, PROMOTE, ACTIVATE, DISMISS_FLAG, HIDE_POST, DELETE_POST, NOTIFY_AUTHOR
+  reason      String?  // Optional reason for the action
+  createdAt   DateTime @default(now())
 
-  target    User @relation("ModerationTarget", fields: [targetId], references: [id], onDelete: Cascade)
-  moderator User @relation("ModerationModerator", fields: [moderatorId], references: [id], onDelete: Cascade)
+  target    User? @relation("ModerationTarget", fields: [targetId], references: [id], onDelete: Cascade)
+  post      Post? @relation(fields: [postId], references: [id], onDelete: Cascade)
+  moderator User  @relation("ModerationModerator", fields: [moderatorId], references: [id], onDelete: Cascade)
 
   @@map("moderation_actions")
 }

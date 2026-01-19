@@ -2493,12 +2493,14 @@ export namespace Prisma {
     interests: number
     events: number
     flags: number
+    moderationActions: number
   }
 
   export type PostCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     interests?: boolean | PostCountOutputTypeCountInterestsArgs
     events?: boolean | PostCountOutputTypeCountEventsArgs
     flags?: boolean | PostCountOutputTypeCountFlagsArgs
+    moderationActions?: boolean | PostCountOutputTypeCountModerationActionsArgs
   }
 
   // Custom InputTypes
@@ -2531,6 +2533,13 @@ export namespace Prisma {
    */
   export type PostCountOutputTypeCountFlagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FlagWhereInput
+  }
+
+  /**
+   * PostCountOutputType without action
+   */
+  export type PostCountOutputTypeCountModerationActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModerationActionWhereInput
   }
 
 
@@ -3478,6 +3487,7 @@ export namespace Prisma {
      * The data used to create many Countries.
      */
     data: CountryCreateManyInput | CountryCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -3496,6 +3506,7 @@ export namespace Prisma {
      * The data used to create many Countries.
      */
     data: CountryCreateManyInput | CountryCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -4556,6 +4567,7 @@ export namespace Prisma {
      * The data used to create many Cities.
      */
     data: CityCreateManyInput | CityCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -4574,6 +4586,7 @@ export namespace Prisma {
      * The data used to create many Cities.
      */
     data: CityCreateManyInput | CityCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -5650,6 +5663,7 @@ export namespace Prisma {
      * The data used to create many Districts.
      */
     data: DistrictCreateManyInput | DistrictCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -5668,6 +5682,7 @@ export namespace Prisma {
      * The data used to create many Districts.
      */
     data: DistrictCreateManyInput | DistrictCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -6788,6 +6803,7 @@ export namespace Prisma {
      * The data used to create many Neighborhoods.
      */
     data: NeighborhoodCreateManyInput | NeighborhoodCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -6806,6 +6822,7 @@ export namespace Prisma {
      * The data used to create many Neighborhoods.
      */
     data: NeighborhoodCreateManyInput | NeighborhoodCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -8002,6 +8019,7 @@ export namespace Prisma {
      * The data used to create many Users.
      */
     data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -8020,6 +8038,7 @@ export namespace Prisma {
      * The data used to create many Users.
      */
     data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -9441,6 +9460,7 @@ export namespace Prisma {
      * The data used to create many Accounts.
      */
     data: AccountCreateManyInput | AccountCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -9459,6 +9479,7 @@ export namespace Prisma {
      * The data used to create many Accounts.
      */
     data: AccountCreateManyInput | AccountCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -10510,6 +10531,7 @@ export namespace Prisma {
      * The data used to create many Sessions.
      */
     data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -10528,6 +10550,7 @@ export namespace Prisma {
      * The data used to create many Sessions.
      */
     data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -11501,6 +11524,7 @@ export namespace Prisma {
      * The data used to create many VerificationTokens.
      */
     data: VerificationTokenCreateManyInput | VerificationTokenCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -11519,6 +11543,7 @@ export namespace Prisma {
      * The data used to create many VerificationTokens.
      */
     data: VerificationTokenCreateManyInput | VerificationTokenCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -11870,6 +11895,7 @@ export namespace Prisma {
     interests?: boolean | Post$interestsArgs<ExtArgs>
     events?: boolean | Post$eventsArgs<ExtArgs>
     flags?: boolean | Post$flagsArgs<ExtArgs>
+    moderationActions?: boolean | Post$moderationActionsArgs<ExtArgs>
     _count?: boolean | PostCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["post"]>
 
@@ -11926,6 +11952,7 @@ export namespace Prisma {
     interests?: boolean | Post$interestsArgs<ExtArgs>
     events?: boolean | Post$eventsArgs<ExtArgs>
     flags?: boolean | Post$flagsArgs<ExtArgs>
+    moderationActions?: boolean | Post$moderationActionsArgs<ExtArgs>
     _count?: boolean | PostCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11948,6 +11975,7 @@ export namespace Prisma {
       interests: Prisma.$PostInterestPayload<ExtArgs>[]
       events: Prisma.$EventPayload<ExtArgs>[]
       flags: Prisma.$FlagPayload<ExtArgs>[]
+      moderationActions: Prisma.$ModerationActionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12360,6 +12388,7 @@ export namespace Prisma {
     interests<T extends Post$interestsArgs<ExtArgs> = {}>(args?: Subset<T, Post$interestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostInterestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     events<T extends Post$eventsArgs<ExtArgs> = {}>(args?: Subset<T, Post$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     flags<T extends Post$flagsArgs<ExtArgs> = {}>(args?: Subset<T, Post$flagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FlagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    moderationActions<T extends Post$moderationActionsArgs<ExtArgs> = {}>(args?: Subset<T, Post$moderationActionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModerationActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12628,6 +12657,7 @@ export namespace Prisma {
      * The data used to create many Posts.
      */
     data: PostCreateManyInput | PostCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -12646,6 +12676,7 @@ export namespace Prisma {
      * The data used to create many Posts.
      */
     data: PostCreateManyInput | PostCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -12900,6 +12931,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FlagScalarFieldEnum | FlagScalarFieldEnum[]
+  }
+
+  /**
+   * Post.moderationActions
+   */
+  export type Post$moderationActionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModerationAction
+     */
+    select?: ModerationActionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModerationAction
+     */
+    omit?: ModerationActionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModerationActionInclude<ExtArgs> | null
+    where?: ModerationActionWhereInput
+    orderBy?: ModerationActionOrderByWithRelationInput | ModerationActionOrderByWithRelationInput[]
+    cursor?: ModerationActionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModerationActionScalarFieldEnum | ModerationActionScalarFieldEnum[]
   }
 
   /**
@@ -13815,6 +13870,7 @@ export namespace Prisma {
      * The data used to create many PostInterests.
      */
     data: PostInterestCreateManyInput | PostInterestCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -13833,6 +13889,7 @@ export namespace Prisma {
      * The data used to create many PostInterests.
      */
     data: PostInterestCreateManyInput | PostInterestCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -14871,6 +14928,7 @@ export namespace Prisma {
      * The data used to create many Interests.
      */
     data: InterestCreateManyInput | InterestCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -14889,6 +14947,7 @@ export namespace Prisma {
      * The data used to create many Interests.
      */
     data: InterestCreateManyInput | InterestCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -15962,6 +16021,7 @@ export namespace Prisma {
      * The data used to create many UserInterests.
      */
     data: UserInterestCreateManyInput | UserInterestCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -15980,6 +16040,7 @@ export namespace Prisma {
      * The data used to create many UserInterests.
      */
     data: UserInterestCreateManyInput | UserInterestCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -17220,6 +17281,7 @@ export namespace Prisma {
      * The data used to create many Events.
      */
     data: EventCreateManyInput | EventCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -17238,6 +17300,7 @@ export namespace Prisma {
      * The data used to create many Events.
      */
     data: EventCreateManyInput | EventCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -18371,6 +18434,7 @@ export namespace Prisma {
      * The data used to create many EventAttendees.
      */
     data: EventAttendeeCreateManyInput | EventAttendeeCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -18389,6 +18453,7 @@ export namespace Prisma {
      * The data used to create many EventAttendees.
      */
     data: EventAttendeeCreateManyInput | EventAttendeeCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -18570,6 +18635,7 @@ export namespace Prisma {
     userId: string | null
     reason: string | null
     comment: string | null
+    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18580,6 +18646,7 @@ export namespace Prisma {
     userId: string | null
     reason: string | null
     comment: string | null
+    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18590,6 +18657,7 @@ export namespace Prisma {
     userId: number
     reason: number
     comment: number
+    status: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -18602,6 +18670,7 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18612,6 +18681,7 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18622,6 +18692,7 @@ export namespace Prisma {
     userId?: true
     reason?: true
     comment?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -18705,6 +18776,7 @@ export namespace Prisma {
     userId: string
     reason: string
     comment: string | null
+    status: string
     createdAt: Date
     updatedAt: Date
     _count: FlagCountAggregateOutputType | null
@@ -18732,6 +18804,7 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18744,6 +18817,7 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18756,6 +18830,7 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     post?: boolean | PostDefaultArgs<ExtArgs>
@@ -18768,11 +18843,12 @@ export namespace Prisma {
     userId?: boolean
     reason?: boolean
     comment?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FlagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "reason" | "comment" | "createdAt" | "updatedAt", ExtArgs["result"]["flag"]>
+  export type FlagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "userId" | "reason" | "comment" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["flag"]>
   export type FlagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     post?: boolean | PostDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -18798,6 +18874,7 @@ export namespace Prisma {
       userId: string
       reason: string
       comment: string | null
+      status: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["flag"]>
@@ -19230,6 +19307,7 @@ export namespace Prisma {
     readonly userId: FieldRef<"Flag", 'String'>
     readonly reason: FieldRef<"Flag", 'String'>
     readonly comment: FieldRef<"Flag", 'String'>
+    readonly status: FieldRef<"Flag", 'String'>
     readonly createdAt: FieldRef<"Flag", 'DateTime'>
     readonly updatedAt: FieldRef<"Flag", 'DateTime'>
   }
@@ -19461,6 +19539,7 @@ export namespace Prisma {
      * The data used to create many Flags.
      */
     data: FlagCreateManyInput | FlagCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -19479,6 +19558,7 @@ export namespace Prisma {
      * The data used to create many Flags.
      */
     data: FlagCreateManyInput | FlagCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -19657,6 +19737,7 @@ export namespace Prisma {
   export type ModerationActionMinAggregateOutputType = {
     id: string | null
     targetId: string | null
+    postId: string | null
     moderatorId: string | null
     action: string | null
     reason: string | null
@@ -19666,6 +19747,7 @@ export namespace Prisma {
   export type ModerationActionMaxAggregateOutputType = {
     id: string | null
     targetId: string | null
+    postId: string | null
     moderatorId: string | null
     action: string | null
     reason: string | null
@@ -19675,6 +19757,7 @@ export namespace Prisma {
   export type ModerationActionCountAggregateOutputType = {
     id: number
     targetId: number
+    postId: number
     moderatorId: number
     action: number
     reason: number
@@ -19686,6 +19769,7 @@ export namespace Prisma {
   export type ModerationActionMinAggregateInputType = {
     id?: true
     targetId?: true
+    postId?: true
     moderatorId?: true
     action?: true
     reason?: true
@@ -19695,6 +19779,7 @@ export namespace Prisma {
   export type ModerationActionMaxAggregateInputType = {
     id?: true
     targetId?: true
+    postId?: true
     moderatorId?: true
     action?: true
     reason?: true
@@ -19704,6 +19789,7 @@ export namespace Prisma {
   export type ModerationActionCountAggregateInputType = {
     id?: true
     targetId?: true
+    postId?: true
     moderatorId?: true
     action?: true
     reason?: true
@@ -19785,7 +19871,8 @@ export namespace Prisma {
 
   export type ModerationActionGroupByOutputType = {
     id: string
-    targetId: string
+    targetId: string | null
+    postId: string | null
     moderatorId: string
     action: string
     reason: string | null
@@ -19812,68 +19899,80 @@ export namespace Prisma {
   export type ModerationActionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     targetId?: boolean
+    postId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moderationAction"]>
 
   export type ModerationActionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     targetId?: boolean
+    postId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moderationAction"]>
 
   export type ModerationActionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     targetId?: boolean
+    postId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["moderationAction"]>
 
   export type ModerationActionSelectScalar = {
     id?: boolean
     targetId?: boolean
+    postId?: boolean
     moderatorId?: boolean
     action?: boolean
     reason?: boolean
     createdAt?: boolean
   }
 
-  export type ModerationActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetId" | "moderatorId" | "action" | "reason" | "createdAt", ExtArgs["result"]["moderationAction"]>
+  export type ModerationActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetId" | "postId" | "moderatorId" | "action" | "reason" | "createdAt", ExtArgs["result"]["moderationAction"]>
   export type ModerationActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ModerationActionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ModerationActionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    target?: boolean | UserDefaultArgs<ExtArgs>
+    target?: boolean | ModerationAction$targetArgs<ExtArgs>
+    post?: boolean | ModerationAction$postArgs<ExtArgs>
     moderator?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $ModerationActionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ModerationAction"
     objects: {
-      target: Prisma.$UserPayload<ExtArgs>
+      target: Prisma.$UserPayload<ExtArgs> | null
+      post: Prisma.$PostPayload<ExtArgs> | null
       moderator: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      targetId: string
+      targetId: string | null
+      postId: string | null
       moderatorId: string
       action: string
       reason: string | null
@@ -20272,7 +20371,8 @@ export namespace Prisma {
    */
   export interface Prisma__ModerationActionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    target<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    target<T extends ModerationAction$targetArgs<ExtArgs> = {}>(args?: Subset<T, ModerationAction$targetArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    post<T extends ModerationAction$postArgs<ExtArgs> = {}>(args?: Subset<T, ModerationAction$postArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     moderator<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -20305,6 +20405,7 @@ export namespace Prisma {
   interface ModerationActionFieldRefs {
     readonly id: FieldRef<"ModerationAction", 'String'>
     readonly targetId: FieldRef<"ModerationAction", 'String'>
+    readonly postId: FieldRef<"ModerationAction", 'String'>
     readonly moderatorId: FieldRef<"ModerationAction", 'String'>
     readonly action: FieldRef<"ModerationAction", 'String'>
     readonly reason: FieldRef<"ModerationAction", 'String'>
@@ -20538,6 +20639,7 @@ export namespace Prisma {
      * The data used to create many ModerationActions.
      */
     data: ModerationActionCreateManyInput | ModerationActionCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -20556,6 +20658,7 @@ export namespace Prisma {
      * The data used to create many ModerationActions.
      */
     data: ModerationActionCreateManyInput | ModerationActionCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -20703,6 +20806,44 @@ export namespace Prisma {
   }
 
   /**
+   * ModerationAction.target
+   */
+  export type ModerationAction$targetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * ModerationAction.post
+   */
+  export type ModerationAction$postArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PostInclude<ExtArgs> | null
+    where?: PostWhereInput
+  }
+
+  /**
    * ModerationAction without action
    */
   export type ModerationActionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20726,6 +20867,9 @@ export namespace Prisma {
    */
 
   export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
   };
 
@@ -20920,6 +21064,7 @@ export namespace Prisma {
     userId: 'userId',
     reason: 'reason',
     comment: 'comment',
+    status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -20930,6 +21075,7 @@ export namespace Prisma {
   export const ModerationActionScalarFieldEnum: {
     id: 'id',
     targetId: 'targetId',
+    postId: 'postId',
     moderatorId: 'moderatorId',
     action: 'action',
     reason: 'reason',
@@ -20945,6 +21091,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   export const NullsOrder: {
@@ -20968,6 +21122,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -20975,9 +21136,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -20992,6 +21167,13 @@ export namespace Prisma {
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -21577,6 +21759,7 @@ export namespace Prisma {
     interests?: PostInterestListRelationFilter
     events?: EventListRelationFilter
     flags?: FlagListRelationFilter
+    moderationActions?: ModerationActionListRelationFilter
   }
 
   export type PostOrderByWithRelationInput = {
@@ -21596,6 +21779,7 @@ export namespace Prisma {
     interests?: PostInterestOrderByRelationAggregateInput
     events?: EventOrderByRelationAggregateInput
     flags?: FlagOrderByRelationAggregateInput
+    moderationActions?: ModerationActionOrderByRelationAggregateInput
   }
 
   export type PostWhereUniqueInput = Prisma.AtLeast<{
@@ -21618,6 +21802,7 @@ export namespace Prisma {
     interests?: PostInterestListRelationFilter
     events?: EventListRelationFilter
     flags?: FlagListRelationFilter
+    moderationActions?: ModerationActionListRelationFilter
   }, "id">
 
   export type PostOrderByWithAggregationInput = {
@@ -22013,6 +22198,7 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
+    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
     post?: XOR<PostScalarRelationFilter, PostWhereInput>
@@ -22025,6 +22211,7 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrderInput | SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     post?: PostOrderByWithRelationInput
@@ -22041,6 +22228,7 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
+    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
     post?: XOR<PostScalarRelationFilter, PostWhereInput>
@@ -22053,6 +22241,7 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrderInput | SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FlagCountOrderByAggregateInput
@@ -22069,6 +22258,7 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Flag"> | string
     reason?: StringWithAggregatesFilter<"Flag"> | string
     comment?: StringNullableWithAggregatesFilter<"Flag"> | string | null
+    status?: StringWithAggregatesFilter<"Flag"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Flag"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Flag"> | Date | string
   }
@@ -22078,23 +22268,27 @@ export namespace Prisma {
     OR?: ModerationActionWhereInput[]
     NOT?: ModerationActionWhereInput | ModerationActionWhereInput[]
     id?: StringFilter<"ModerationAction"> | string
-    targetId?: StringFilter<"ModerationAction"> | string
+    targetId?: StringNullableFilter<"ModerationAction"> | string | null
+    postId?: StringNullableFilter<"ModerationAction"> | string | null
     moderatorId?: StringFilter<"ModerationAction"> | string
     action?: StringFilter<"ModerationAction"> | string
     reason?: StringNullableFilter<"ModerationAction"> | string | null
     createdAt?: DateTimeFilter<"ModerationAction"> | Date | string
-    target?: XOR<UserScalarRelationFilter, UserWhereInput>
+    target?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    post?: XOR<PostNullableScalarRelationFilter, PostWhereInput> | null
     moderator?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type ModerationActionOrderByWithRelationInput = {
     id?: SortOrder
-    targetId?: SortOrder
+    targetId?: SortOrderInput | SortOrder
+    postId?: SortOrderInput | SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     target?: UserOrderByWithRelationInput
+    post?: PostOrderByWithRelationInput
     moderator?: UserOrderByWithRelationInput
   }
 
@@ -22103,18 +22297,21 @@ export namespace Prisma {
     AND?: ModerationActionWhereInput | ModerationActionWhereInput[]
     OR?: ModerationActionWhereInput[]
     NOT?: ModerationActionWhereInput | ModerationActionWhereInput[]
-    targetId?: StringFilter<"ModerationAction"> | string
+    targetId?: StringNullableFilter<"ModerationAction"> | string | null
+    postId?: StringNullableFilter<"ModerationAction"> | string | null
     moderatorId?: StringFilter<"ModerationAction"> | string
     action?: StringFilter<"ModerationAction"> | string
     reason?: StringNullableFilter<"ModerationAction"> | string | null
     createdAt?: DateTimeFilter<"ModerationAction"> | Date | string
-    target?: XOR<UserScalarRelationFilter, UserWhereInput>
+    target?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    post?: XOR<PostNullableScalarRelationFilter, PostWhereInput> | null
     moderator?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type ModerationActionOrderByWithAggregationInput = {
     id?: SortOrder
-    targetId?: SortOrder
+    targetId?: SortOrderInput | SortOrder
+    postId?: SortOrderInput | SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrderInput | SortOrder
@@ -22129,7 +22326,8 @@ export namespace Prisma {
     OR?: ModerationActionScalarWhereWithAggregatesInput[]
     NOT?: ModerationActionScalarWhereWithAggregatesInput | ModerationActionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"ModerationAction"> | string
-    targetId?: StringWithAggregatesFilter<"ModerationAction"> | string
+    targetId?: StringNullableWithAggregatesFilter<"ModerationAction"> | string | null
+    postId?: StringNullableWithAggregatesFilter<"ModerationAction"> | string | null
     moderatorId?: StringWithAggregatesFilter<"ModerationAction"> | string
     action?: StringWithAggregatesFilter<"ModerationAction"> | string
     reason?: StringNullableWithAggregatesFilter<"ModerationAction"> | string | null
@@ -22759,6 +22957,7 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateInput = {
@@ -22775,6 +22974,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostUpdateInput = {
@@ -22791,6 +22991,7 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateInput = {
@@ -22807,6 +23008,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostCreateManyInput = {
@@ -23193,6 +23395,7 @@ export namespace Prisma {
     id?: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     post: PostCreateNestedOneWithoutFlagsInput
@@ -23205,6 +23408,7 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23213,6 +23417,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: PostUpdateOneRequiredWithoutFlagsNestedInput
@@ -23225,6 +23430,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23235,6 +23441,7 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23243,6 +23450,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23253,6 +23461,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23262,13 +23471,15 @@ export namespace Prisma {
     action: string
     reason?: string | null
     createdAt?: Date | string
-    target: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    target?: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    post?: PostCreateNestedOneWithoutModerationActionsInput
     moderator: UserCreateNestedOneWithoutModerationActionsAsModeratorInput
   }
 
   export type ModerationActionUncheckedCreateInput = {
     id?: string
-    targetId: string
+    targetId?: string | null
+    postId?: string | null
     moderatorId: string
     action: string
     reason?: string | null
@@ -23280,13 +23491,15 @@ export namespace Prisma {
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    target?: UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput
+    target?: UserUpdateOneWithoutModerationActionsAsTargetNestedInput
+    post?: PostUpdateOneWithoutModerationActionsNestedInput
     moderator?: UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput
   }
 
   export type ModerationActionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    targetId?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23295,7 +23508,8 @@ export namespace Prisma {
 
   export type ModerationActionCreateManyInput = {
     id?: string
-    targetId: string
+    targetId?: string | null
+    postId?: string | null
     moderatorId: string
     action: string
     reason?: string | null
@@ -23311,7 +23525,8 @@ export namespace Prisma {
 
   export type ModerationActionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    targetId?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23320,8 +23535,8 @@ export namespace Prisma {
 
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -23329,13 +23544,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -23379,8 +23595,8 @@ export namespace Prisma {
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -23388,6 +23604,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -23396,8 +23613,8 @@ export namespace Prisma {
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -23552,8 +23769,8 @@ export namespace Prisma {
 
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -23561,13 +23778,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -23694,8 +23912,8 @@ export namespace Prisma {
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -23703,6 +23921,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -23711,8 +23930,8 @@ export namespace Prisma {
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -23725,8 +23944,8 @@ export namespace Prisma {
 
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -23805,8 +24024,8 @@ export namespace Prisma {
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -24137,6 +24356,7 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24147,6 +24367,7 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -24157,13 +24378,20 @@ export namespace Prisma {
     userId?: SortOrder
     reason?: SortOrder
     comment?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
   }
 
   export type ModerationActionCountOrderByAggregateInput = {
     id?: SortOrder
     targetId?: SortOrder
+    postId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
@@ -24173,6 +24401,7 @@ export namespace Prisma {
   export type ModerationActionMaxOrderByAggregateInput = {
     id?: SortOrder
     targetId?: SortOrder
+    postId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
@@ -24182,6 +24411,7 @@ export namespace Prisma {
   export type ModerationActionMinOrderByAggregateInput = {
     id?: SortOrder
     targetId?: SortOrder
+    postId?: SortOrder
     moderatorId?: SortOrder
     action?: SortOrder
     reason?: SortOrder
@@ -25035,6 +25265,13 @@ export namespace Prisma {
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
   }
 
+  export type ModerationActionCreateNestedManyWithoutPostInput = {
+    create?: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput> | ModerationActionCreateWithoutPostInput[] | ModerationActionUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutPostInput | ModerationActionCreateOrConnectWithoutPostInput[]
+    createMany?: ModerationActionCreateManyPostInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+  }
+
   export type PostInterestUncheckedCreateNestedManyWithoutPostInput = {
     create?: XOR<PostInterestCreateWithoutPostInput, PostInterestUncheckedCreateWithoutPostInput> | PostInterestCreateWithoutPostInput[] | PostInterestUncheckedCreateWithoutPostInput[]
     connectOrCreate?: PostInterestCreateOrConnectWithoutPostInput | PostInterestCreateOrConnectWithoutPostInput[]
@@ -25054,6 +25291,13 @@ export namespace Prisma {
     connectOrCreate?: FlagCreateOrConnectWithoutPostInput | FlagCreateOrConnectWithoutPostInput[]
     createMany?: FlagCreateManyPostInputEnvelope
     connect?: FlagWhereUniqueInput | FlagWhereUniqueInput[]
+  }
+
+  export type ModerationActionUncheckedCreateNestedManyWithoutPostInput = {
+    create?: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput> | ModerationActionCreateWithoutPostInput[] | ModerationActionUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutPostInput | ModerationActionCreateOrConnectWithoutPostInput[]
+    createMany?: ModerationActionCreateManyPostInputEnvelope
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
   }
 
   export type UserUpdateOneRequiredWithoutPostsNestedInput = {
@@ -25126,6 +25370,20 @@ export namespace Prisma {
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
   }
 
+  export type ModerationActionUpdateManyWithoutPostNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput> | ModerationActionCreateWithoutPostInput[] | ModerationActionUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutPostInput | ModerationActionCreateOrConnectWithoutPostInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutPostInput | ModerationActionUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: ModerationActionCreateManyPostInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutPostInput | ModerationActionUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutPostInput | ModerationActionUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
+  }
+
   export type PostInterestUncheckedUpdateManyWithoutPostNestedInput = {
     create?: XOR<PostInterestCreateWithoutPostInput, PostInterestUncheckedCreateWithoutPostInput> | PostInterestCreateWithoutPostInput[] | PostInterestUncheckedCreateWithoutPostInput[]
     connectOrCreate?: PostInterestCreateOrConnectWithoutPostInput | PostInterestCreateOrConnectWithoutPostInput[]
@@ -25166,6 +25424,20 @@ export namespace Prisma {
     update?: FlagUpdateWithWhereUniqueWithoutPostInput | FlagUpdateWithWhereUniqueWithoutPostInput[]
     updateMany?: FlagUpdateManyWithWhereWithoutPostInput | FlagUpdateManyWithWhereWithoutPostInput[]
     deleteMany?: FlagScalarWhereInput | FlagScalarWhereInput[]
+  }
+
+  export type ModerationActionUncheckedUpdateManyWithoutPostNestedInput = {
+    create?: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput> | ModerationActionCreateWithoutPostInput[] | ModerationActionUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: ModerationActionCreateOrConnectWithoutPostInput | ModerationActionCreateOrConnectWithoutPostInput[]
+    upsert?: ModerationActionUpsertWithWhereUniqueWithoutPostInput | ModerationActionUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: ModerationActionCreateManyPostInputEnvelope
+    set?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    disconnect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    delete?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    connect?: ModerationActionWhereUniqueInput | ModerationActionWhereUniqueInput[]
+    update?: ModerationActionUpdateWithWhereUniqueWithoutPostInput | ModerationActionUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: ModerationActionUpdateManyWithWhereWithoutPostInput | ModerationActionUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutPostInterestsInput = {
@@ -25494,18 +25766,36 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type PostCreateNestedOneWithoutModerationActionsInput = {
+    create?: XOR<PostCreateWithoutModerationActionsInput, PostUncheckedCreateWithoutModerationActionsInput>
+    connectOrCreate?: PostCreateOrConnectWithoutModerationActionsInput
+    connect?: PostWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutModerationActionsAsModeratorInput = {
     create?: XOR<UserCreateWithoutModerationActionsAsModeratorInput, UserUncheckedCreateWithoutModerationActionsAsModeratorInput>
     connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsModeratorInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput = {
+  export type UserUpdateOneWithoutModerationActionsAsTargetNestedInput = {
     create?: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
     connectOrCreate?: UserCreateOrConnectWithoutModerationActionsAsTargetInput
     upsert?: UserUpsertWithoutModerationActionsAsTargetInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModerationActionsAsTargetInput, UserUpdateWithoutModerationActionsAsTargetInput>, UserUncheckedUpdateWithoutModerationActionsAsTargetInput>
+  }
+
+  export type PostUpdateOneWithoutModerationActionsNestedInput = {
+    create?: XOR<PostCreateWithoutModerationActionsInput, PostUncheckedCreateWithoutModerationActionsInput>
+    connectOrCreate?: PostCreateOrConnectWithoutModerationActionsInput
+    upsert?: PostUpsertWithoutModerationActionsInput
+    disconnect?: PostWhereInput | boolean
+    delete?: PostWhereInput | boolean
+    connect?: PostWhereUniqueInput
+    update?: XOR<XOR<PostUpdateToOneWithWhereWithoutModerationActionsInput, PostUpdateWithoutModerationActionsInput>, PostUncheckedUpdateWithoutModerationActionsInput>
   }
 
   export type UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput = {
@@ -25518,8 +25808,8 @@ export namespace Prisma {
 
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25532,8 +25822,8 @@ export namespace Prisma {
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -25543,8 +25833,8 @@ export namespace Prisma {
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25560,8 +25850,8 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -25571,8 +25861,8 @@ export namespace Prisma {
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -25585,8 +25875,8 @@ export namespace Prisma {
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25599,8 +25889,8 @@ export namespace Prisma {
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -25610,8 +25900,8 @@ export namespace Prisma {
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -25627,8 +25917,8 @@ export namespace Prisma {
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -25638,8 +25928,8 @@ export namespace Prisma {
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -25652,8 +25942,8 @@ export namespace Prisma {
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -25668,8 +25958,8 @@ export namespace Prisma {
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -25713,6 +26003,7 @@ export namespace Prisma {
 
   export type CityCreateManyCountryInputEnvelope = {
     data: CityCreateManyCountryInput | CityCreateManyCountryInput[]
+    skipDuplicates?: boolean
   }
 
   export type CityUpsertWithWhereUniqueWithoutCountryInput = {
@@ -25790,6 +26081,7 @@ export namespace Prisma {
 
   export type DistrictCreateManyCityInputEnvelope = {
     data: DistrictCreateManyCityInput | DistrictCreateManyCityInput[]
+    skipDuplicates?: boolean
   }
 
   export type CountryUpsertWithoutCitiesInput = {
@@ -25892,6 +26184,7 @@ export namespace Prisma {
 
   export type NeighborhoodCreateManyDistrictInputEnvelope = {
     data: NeighborhoodCreateManyDistrictInput | NeighborhoodCreateManyDistrictInput[]
+    skipDuplicates?: boolean
   }
 
   export type PostCreateWithoutDistrictInput = {
@@ -25907,6 +26200,7 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutDistrictInput = {
@@ -25922,6 +26216,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutDistrictInput = {
@@ -25931,6 +26226,7 @@ export namespace Prisma {
 
   export type PostCreateManyDistrictInputEnvelope = {
     data: PostCreateManyDistrictInput | PostCreateManyDistrictInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventCreateWithoutDistrictInput = {
@@ -25976,6 +26272,7 @@ export namespace Prisma {
 
   export type EventCreateManyDistrictInputEnvelope = {
     data: EventCreateManyDistrictInput | EventCreateManyDistrictInput[]
+    skipDuplicates?: boolean
   }
 
   export type CityUpsertWithoutDistrictsInput = {
@@ -26139,6 +26436,7 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutNeighborhoodInput = {
@@ -26154,6 +26452,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutNeighborhoodInput = {
@@ -26163,6 +26462,7 @@ export namespace Prisma {
 
   export type PostCreateManyNeighborhoodInputEnvelope = {
     data: PostCreateManyNeighborhoodInput | PostCreateManyNeighborhoodInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventCreateWithoutNeighborhoodInput = {
@@ -26208,6 +26508,7 @@ export namespace Prisma {
 
   export type EventCreateManyNeighborhoodInputEnvelope = {
     data: EventCreateManyNeighborhoodInput | EventCreateManyNeighborhoodInput[]
+    skipDuplicates?: boolean
   }
 
   export type DistrictUpsertWithoutNeighborhoodsInput = {
@@ -26286,6 +26587,7 @@ export namespace Prisma {
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutAuthorInput = {
@@ -26301,6 +26603,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutAuthorInput = {
@@ -26310,6 +26613,7 @@ export namespace Prisma {
 
   export type PostCreateManyAuthorInputEnvelope = {
     data: PostCreateManyAuthorInput | PostCreateManyAuthorInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventCreateWithoutOrganizerInput = {
@@ -26355,6 +26659,7 @@ export namespace Prisma {
 
   export type EventCreateManyOrganizerInputEnvelope = {
     data: EventCreateManyOrganizerInput | EventCreateManyOrganizerInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserInterestCreateWithoutUserInput = {
@@ -26376,6 +26681,7 @@ export namespace Prisma {
 
   export type UserInterestCreateManyUserInputEnvelope = {
     data: UserInterestCreateManyUserInput | UserInterestCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type PostInterestCreateWithoutUserInput = {
@@ -26401,6 +26707,7 @@ export namespace Prisma {
 
   export type PostInterestCreateManyUserInputEnvelope = {
     data: PostInterestCreateManyUserInput | PostInterestCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventAttendeeCreateWithoutUserInput = {
@@ -26422,6 +26729,7 @@ export namespace Prisma {
 
   export type EventAttendeeCreateManyUserInputEnvelope = {
     data: EventAttendeeCreateManyUserInput | EventAttendeeCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -26463,6 +26771,7 @@ export namespace Prisma {
 
   export type AccountCreateManyUserInputEnvelope = {
     data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type SessionCreateWithoutUserInput = {
@@ -26488,12 +26797,14 @@ export namespace Prisma {
 
   export type SessionCreateManyUserInputEnvelope = {
     data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type FlagCreateWithoutUserInput = {
     id?: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     post: PostCreateNestedOneWithoutFlagsInput
@@ -26504,6 +26815,7 @@ export namespace Prisma {
     postId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26515,6 +26827,7 @@ export namespace Prisma {
 
   export type FlagCreateManyUserInputEnvelope = {
     data: FlagCreateManyUserInput | FlagCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type ModerationActionCreateWithoutTargetInput = {
@@ -26522,11 +26835,13 @@ export namespace Prisma {
     action: string
     reason?: string | null
     createdAt?: Date | string
+    post?: PostCreateNestedOneWithoutModerationActionsInput
     moderator: UserCreateNestedOneWithoutModerationActionsAsModeratorInput
   }
 
   export type ModerationActionUncheckedCreateWithoutTargetInput = {
     id?: string
+    postId?: string | null
     moderatorId: string
     action: string
     reason?: string | null
@@ -26540,6 +26855,7 @@ export namespace Prisma {
 
   export type ModerationActionCreateManyTargetInputEnvelope = {
     data: ModerationActionCreateManyTargetInput | ModerationActionCreateManyTargetInput[]
+    skipDuplicates?: boolean
   }
 
   export type ModerationActionCreateWithoutModeratorInput = {
@@ -26547,12 +26863,14 @@ export namespace Prisma {
     action: string
     reason?: string | null
     createdAt?: Date | string
-    target: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    target?: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    post?: PostCreateNestedOneWithoutModerationActionsInput
   }
 
   export type ModerationActionUncheckedCreateWithoutModeratorInput = {
     id?: string
-    targetId: string
+    targetId?: string | null
+    postId?: string | null
     action: string
     reason?: string | null
     createdAt?: Date | string
@@ -26565,6 +26883,7 @@ export namespace Prisma {
 
   export type ModerationActionCreateManyModeratorInputEnvelope = {
     data: ModerationActionCreateManyModeratorInput | ModerationActionCreateManyModeratorInput[]
+    skipDuplicates?: boolean
   }
 
   export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
@@ -26768,6 +27087,7 @@ export namespace Prisma {
     userId?: StringFilter<"Flag"> | string
     reason?: StringFilter<"Flag"> | string
     comment?: StringNullableFilter<"Flag"> | string | null
+    status?: StringFilter<"Flag"> | string
     createdAt?: DateTimeFilter<"Flag"> | Date | string
     updatedAt?: DateTimeFilter<"Flag"> | Date | string
   }
@@ -26793,7 +27113,8 @@ export namespace Prisma {
     OR?: ModerationActionScalarWhereInput[]
     NOT?: ModerationActionScalarWhereInput | ModerationActionScalarWhereInput[]
     id?: StringFilter<"ModerationAction"> | string
-    targetId?: StringFilter<"ModerationAction"> | string
+    targetId?: StringNullableFilter<"ModerationAction"> | string | null
+    postId?: StringNullableFilter<"ModerationAction"> | string | null
     moderatorId?: StringFilter<"ModerationAction"> | string
     action?: StringFilter<"ModerationAction"> | string
     reason?: StringNullableFilter<"ModerationAction"> | string | null
@@ -27154,6 +27475,7 @@ export namespace Prisma {
 
   export type PostInterestCreateManyPostInputEnvelope = {
     data: PostInterestCreateManyPostInput | PostInterestCreateManyPostInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventCreateWithoutPostInput = {
@@ -27199,12 +27521,14 @@ export namespace Prisma {
 
   export type EventCreateManyPostInputEnvelope = {
     data: EventCreateManyPostInput | EventCreateManyPostInput[]
+    skipDuplicates?: boolean
   }
 
   export type FlagCreateWithoutPostInput = {
     id?: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFlagsInput
@@ -27215,6 +27539,7 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -27226,6 +27551,35 @@ export namespace Prisma {
 
   export type FlagCreateManyPostInputEnvelope = {
     data: FlagCreateManyPostInput | FlagCreateManyPostInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ModerationActionCreateWithoutPostInput = {
+    id?: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
+    target?: UserCreateNestedOneWithoutModerationActionsAsTargetInput
+    moderator: UserCreateNestedOneWithoutModerationActionsAsModeratorInput
+  }
+
+  export type ModerationActionUncheckedCreateWithoutPostInput = {
+    id?: string
+    targetId?: string | null
+    moderatorId: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type ModerationActionCreateOrConnectWithoutPostInput = {
+    where: ModerationActionWhereUniqueInput
+    create: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput>
+  }
+
+  export type ModerationActionCreateManyPostInputEnvelope = {
+    data: ModerationActionCreateManyPostInput | ModerationActionCreateManyPostInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutPostsInput = {
@@ -27393,6 +27747,22 @@ export namespace Prisma {
     data: XOR<FlagUpdateManyMutationInput, FlagUncheckedUpdateManyWithoutPostInput>
   }
 
+  export type ModerationActionUpsertWithWhereUniqueWithoutPostInput = {
+    where: ModerationActionWhereUniqueInput
+    update: XOR<ModerationActionUpdateWithoutPostInput, ModerationActionUncheckedUpdateWithoutPostInput>
+    create: XOR<ModerationActionCreateWithoutPostInput, ModerationActionUncheckedCreateWithoutPostInput>
+  }
+
+  export type ModerationActionUpdateWithWhereUniqueWithoutPostInput = {
+    where: ModerationActionWhereUniqueInput
+    data: XOR<ModerationActionUpdateWithoutPostInput, ModerationActionUncheckedUpdateWithoutPostInput>
+  }
+
+  export type ModerationActionUpdateManyWithWhereWithoutPostInput = {
+    where: ModerationActionScalarWhereInput
+    data: XOR<ModerationActionUpdateManyMutationInput, ModerationActionUncheckedUpdateManyWithoutPostInput>
+  }
+
   export type UserCreateWithoutPostInterestsInput = {
     id?: string
     email: string
@@ -27457,6 +27827,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     events?: EventCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutInterestsInput = {
@@ -27472,6 +27843,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     events?: EventUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutInterestsInput = {
@@ -27560,6 +27932,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutInterestsInput = {
@@ -27575,6 +27948,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type UserInterestCreateWithoutInterestInput = {
@@ -27596,6 +27970,7 @@ export namespace Prisma {
 
   export type UserInterestCreateManyInterestInputEnvelope = {
     data: UserInterestCreateManyInterestInput | UserInterestCreateManyInterestInput[]
+    skipDuplicates?: boolean
   }
 
   export type EventCreateWithoutInterestInput = {
@@ -27641,6 +28016,7 @@ export namespace Prisma {
 
   export type EventCreateManyInterestInputEnvelope = {
     data: EventCreateManyInterestInput | EventCreateManyInterestInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserInterestUpsertWithWhereUniqueWithoutInterestInput = {
@@ -27970,6 +28346,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     interests?: PostInterestCreateNestedManyWithoutPostInput
     flags?: FlagCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutEventsInput = {
@@ -27985,6 +28362,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutEventsInput = {
@@ -28011,6 +28389,7 @@ export namespace Prisma {
 
   export type EventAttendeeCreateManyEventInputEnvelope = {
     data: EventAttendeeCreateManyEventInput | EventAttendeeCreateManyEventInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutEventsInput = {
@@ -28183,6 +28562,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutEventsInput = {
@@ -28198,6 +28578,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type EventAttendeeUpsertWithWhereUniqueWithoutEventInput = {
@@ -28425,6 +28806,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
     interests?: PostInterestCreateNestedManyWithoutPostInput
     events?: EventCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionCreateNestedManyWithoutPostInput
   }
 
   export type PostUncheckedCreateWithoutFlagsInput = {
@@ -28440,6 +28822,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
     events?: EventUncheckedCreateNestedManyWithoutPostInput
+    moderationActions?: ModerationActionUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type PostCreateOrConnectWithoutFlagsInput = {
@@ -28522,6 +28905,7 @@ export namespace Prisma {
     neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutFlagsInput = {
@@ -28537,6 +28921,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type UserUpsertWithoutFlagsInput = {
@@ -28647,6 +29032,43 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutModerationActionsAsTargetInput, UserUncheckedCreateWithoutModerationActionsAsTargetInput>
   }
 
+  export type PostCreateWithoutModerationActionsInput = {
+    id?: string
+    title: string
+    description: string
+    photos?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    author: UserCreateNestedOneWithoutPostsInput
+    district?: DistrictCreateNestedOneWithoutPostsInput
+    neighborhood?: NeighborhoodCreateNestedOneWithoutPostsInput
+    interests?: PostInterestCreateNestedManyWithoutPostInput
+    events?: EventCreateNestedManyWithoutPostInput
+    flags?: FlagCreateNestedManyWithoutPostInput
+  }
+
+  export type PostUncheckedCreateWithoutModerationActionsInput = {
+    id?: string
+    title: string
+    description: string
+    photos?: string | null
+    status?: string
+    districtId?: string | null
+    neighborhoodId?: string | null
+    authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    interests?: PostInterestUncheckedCreateNestedManyWithoutPostInput
+    events?: EventUncheckedCreateNestedManyWithoutPostInput
+    flags?: FlagUncheckedCreateNestedManyWithoutPostInput
+  }
+
+  export type PostCreateOrConnectWithoutModerationActionsInput = {
+    where: PostWhereUniqueInput
+    create: XOR<PostCreateWithoutModerationActionsInput, PostUncheckedCreateWithoutModerationActionsInput>
+  }
+
   export type UserCreateWithoutModerationActionsAsModeratorInput = {
     id?: string
     email: string
@@ -28753,6 +29175,49 @@ export namespace Prisma {
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     flags?: FlagUncheckedUpdateManyWithoutUserNestedInput
     moderationActionsAsModerator?: ModerationActionUncheckedUpdateManyWithoutModeratorNestedInput
+  }
+
+  export type PostUpsertWithoutModerationActionsInput = {
+    update: XOR<PostUpdateWithoutModerationActionsInput, PostUncheckedUpdateWithoutModerationActionsInput>
+    create: XOR<PostCreateWithoutModerationActionsInput, PostUncheckedCreateWithoutModerationActionsInput>
+    where?: PostWhereInput
+  }
+
+  export type PostUpdateToOneWithWhereWithoutModerationActionsInput = {
+    where?: PostWhereInput
+    data: XOR<PostUpdateWithoutModerationActionsInput, PostUncheckedUpdateWithoutModerationActionsInput>
+  }
+
+  export type PostUpdateWithoutModerationActionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    photos?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    author?: UserUpdateOneRequiredWithoutPostsNestedInput
+    district?: DistrictUpdateOneWithoutPostsNestedInput
+    neighborhood?: NeighborhoodUpdateOneWithoutPostsNestedInput
+    interests?: PostInterestUpdateManyWithoutPostNestedInput
+    events?: EventUpdateManyWithoutPostNestedInput
+    flags?: FlagUpdateManyWithoutPostNestedInput
+  }
+
+  export type PostUncheckedUpdateWithoutModerationActionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    photos?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    districtId?: NullableStringFieldUpdateOperationsInput | string | null
+    neighborhoodId?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
+    events?: EventUncheckedUpdateManyWithoutPostNestedInput
+    flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type UserUpsertWithoutModerationActionsAsModeratorInput = {
@@ -28950,6 +29415,7 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutDistrictInput = {
@@ -28965,6 +29431,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutDistrictInput = {
@@ -29074,6 +29541,7 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutNeighborhoodInput = {
@@ -29089,6 +29557,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutNeighborhoodInput = {
@@ -29234,12 +29703,14 @@ export namespace Prisma {
     postId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type ModerationActionCreateManyTargetInput = {
     id?: string
+    postId?: string | null
     moderatorId: string
     action: string
     reason?: string | null
@@ -29248,7 +29719,8 @@ export namespace Prisma {
 
   export type ModerationActionCreateManyModeratorInput = {
     id?: string
-    targetId: string
+    targetId?: string | null
+    postId?: string | null
     action: string
     reason?: string | null
     createdAt?: Date | string
@@ -29267,6 +29739,7 @@ export namespace Prisma {
     interests?: PostInterestUpdateManyWithoutPostNestedInput
     events?: EventUpdateManyWithoutPostNestedInput
     flags?: FlagUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateWithoutAuthorInput = {
@@ -29282,6 +29755,7 @@ export namespace Prisma {
     interests?: PostInterestUncheckedUpdateManyWithoutPostNestedInput
     events?: EventUncheckedUpdateManyWithoutPostNestedInput
     flags?: FlagUncheckedUpdateManyWithoutPostNestedInput
+    moderationActions?: ModerationActionUncheckedUpdateManyWithoutPostNestedInput
   }
 
   export type PostUncheckedUpdateManyWithoutAuthorInput = {
@@ -29485,6 +29959,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     post?: PostUpdateOneRequiredWithoutFlagsNestedInput
@@ -29495,6 +29970,7 @@ export namespace Prisma {
     postId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -29504,6 +29980,7 @@ export namespace Prisma {
     postId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -29513,11 +29990,13 @@ export namespace Prisma {
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    post?: PostUpdateOneWithoutModerationActionsNestedInput
     moderator?: UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput
   }
 
   export type ModerationActionUncheckedUpdateWithoutTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29526,6 +30005,7 @@ export namespace Prisma {
 
   export type ModerationActionUncheckedUpdateManyWithoutTargetInput = {
     id?: StringFieldUpdateOperationsInput | string
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     moderatorId?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29537,12 +30017,14 @@ export namespace Prisma {
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    target?: UserUpdateOneRequiredWithoutModerationActionsAsTargetNestedInput
+    target?: UserUpdateOneWithoutModerationActionsAsTargetNestedInput
+    post?: PostUpdateOneWithoutModerationActionsNestedInput
   }
 
   export type ModerationActionUncheckedUpdateWithoutModeratorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    targetId?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29550,7 +30032,8 @@ export namespace Prisma {
 
   export type ModerationActionUncheckedUpdateManyWithoutModeratorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    targetId?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    postId?: NullableStringFieldUpdateOperationsInput | string | null
     action?: StringFieldUpdateOperationsInput | string
     reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29586,8 +30069,18 @@ export namespace Prisma {
     userId: string
     reason: string
     comment?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type ModerationActionCreateManyPostInput = {
+    id?: string
+    targetId?: string | null
+    moderatorId: string
+    action: string
+    reason?: string | null
+    createdAt?: Date | string
   }
 
   export type PostInterestUpdateWithoutPostInput = {
@@ -29671,6 +30164,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFlagsNestedInput
@@ -29681,6 +30175,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -29690,8 +30185,36 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     reason?: StringFieldUpdateOperationsInput | string
     comment?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModerationActionUpdateWithoutPostInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    target?: UserUpdateOneWithoutModerationActionsAsTargetNestedInput
+    moderator?: UserUpdateOneRequiredWithoutModerationActionsAsModeratorNestedInput
+  }
+
+  export type ModerationActionUncheckedUpdateWithoutPostInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    moderatorId?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModerationActionUncheckedUpdateManyWithoutPostInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    targetId?: NullableStringFieldUpdateOperationsInput | string | null
+    moderatorId?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserInterestCreateManyInterestInput = {
