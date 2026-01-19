@@ -37,10 +37,10 @@ export function PostGrid({
     if (!showEmpty) return null;
     
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-8 sm:py-12 px-4">
         <div className="text-gray-400 mb-4">
           <svg
-            className="w-16 h-16 mx-auto opacity-50"
+            className="w-12 h-12 sm:w-16 sm:h-16 mx-auto opacity-50"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -53,10 +53,10 @@ export function PostGrid({
             />
           </svg>
         </div>
-        <h3 className="text-lg font-semibold text-gray-600 mb-2">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-600 mb-2">
           {emptyMessage}
         </h3>
-        <p className="text-gray-500 max-w-md mx-auto">
+        <p className="text-sm sm:text-base text-gray-500 max-w-md mx-auto">
           Be the first to report a cleanup location in your area.
         </p>
       </div>
@@ -64,7 +64,7 @@ export function PostGrid({
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 px-2 sm:px-0">
       {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}

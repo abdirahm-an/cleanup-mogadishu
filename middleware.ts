@@ -35,12 +35,11 @@ export default withAuth(
 
 export const config = {
   matcher: [
-    // Protect these routes
+    // Protect specific routes only
     "/dashboard/:path*",
     "/profile/:path*",
     "/posts/new/:path*",
     "/moderator/:path*",
-    // Don't run middleware on these paths
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    // Don't run on api, _next, or static files
   ],
 }

@@ -37,11 +37,11 @@ const getRelativeTime = (dateString: string) => {
   
   if (diffInHours < 1) {
     const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
-    return diffInMinutes < 1 ? 'Just now' : `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    return diffInMinutes < 1 ? 'Just now' : `${diffInMinutes}m ago`;
   } else if (diffInHours < 24) {
-    return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    return `${diffInHours}h ago`;
   } else if (diffInDays < 7) {
-    return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+    return `${diffInDays}d ago`;
   } else {
     return date.toLocaleDateString('en-US', { 
       month: 'short', 
@@ -57,21 +57,21 @@ export function PostCard({ post }: PostCardProps) {
   
   return (
     <Link href={`/posts/${post.id}`} className="block group">
-      <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group-hover:border-primary/20">
+      <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group-hover:border-primary-20">
         <div className="relative">
           {/* Thumbnail */}
           {thumbnailPhoto ? (
-            <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+            <div className="relative h-40 sm:h-48 w-full overflow-hidden rounded-t-lg bg-gray-100">
               <Image
                 src={thumbnailPhoto}
                 alt={post.title}
                 fill
                 className="object-cover transition-transform duration-200 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           ) : (
-            <div className="h-48 w-full bg-gray-100 rounded-t-lg flex items-center justify-center">
+            <div className="h-40 sm:h-48 w-full bg-gray-100 rounded-t-lg flex items-center justify-center">
               <div className="text-gray-400 text-center">
                 <MapPin className="w-8 h-8 mx-auto mb-2 opacity-50" />
                 <p className="text-sm">No photo</p>
@@ -80,36 +80,36 @@ export function PostCard({ post }: PostCardProps) {
           )}
           
           {/* Status Badge */}
-          <div className="absolute top-3 right-3">
+          <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
             <StatusBadge status={post.status} size="sm" />
           </div>
         </div>
 
-        <CardHeader className="pb-2">
-          <div className="space-y-2">
-            <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
+        <CardHeader className="pb-2 sm:pb-2 px-3 sm:px-6 pt-3 sm:pt-4">
+          <div className="space-y-1.5 sm:space-y-2">
+            <h3 className="font-semibold text-base sm:text-lg leading-tight line-clamp-2 group-hover:text-primary-600 transition-colors">
               {post.title}
             </h3>
-            <p className="text-gray-600 text-sm line-clamp-2">
+            <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed">
               {post.description}
             </p>
           </div>
         </CardHeader>
 
-        <CardContent className="pt-0">
-          <div className="space-y-3">
+        <CardContent className="pt-0 px-3 sm:px-6 pb-3 sm:pb-4">
+          <div className="space-y-2.5 sm:space-y-3">
             {/* Location */}
             {location && (
-              <div className="flex items-center gap-1 text-sm text-gray-600">
-                <MapPin className="w-4 h-4 flex-shrink-0" />
+              <div className="flex items-center gap-1.5 text-sm text-gray-600">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="line-clamp-1">{location}</span>
               </div>
             )}
 
             {/* Author and Date */}
             <div className="flex items-center justify-between text-xs text-gray-500">
-              <div className="flex items-center gap-1">
-                <User className="w-3 h-3" />
+              <div className="flex items-center gap-1 min-w-0">
+                <User className="w-3 h-3 flex-shrink-0" />
                 <span className="line-clamp-1">{post.author.name}</span>
               </div>
               <div className="flex items-center gap-1 flex-shrink-0">
