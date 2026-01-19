@@ -108,7 +108,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "medium",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
@@ -209,7 +209,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "low",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
