@@ -1,0 +1,190 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Enums
+enum UserRole {
+  USER
+  MODERATOR
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  UNDER_REVIEW
+  COMPLETED
+  ARCHIVED
+}
+
+enum EventStatus {
+  PLANNED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+// Location hierarchy models
+model Country {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  code      String   @unique // e.g., "SO" for Somalia
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  cities City[]
+
+  @@map("countries")
+}
+
+model City {
+  id        String   @id @default(cuid())
+  name      String
+  countryId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  country   Country    @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  districts District[]
+
+  @@unique([name, countryId])
+  @@map("cities")
+}
+
+model District {
+  id        String   @id @default(cuid())
+  name      String
+  cityId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  city          City           @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  neighborhoods Neighborhood[]
+  posts         Post[]
+  events        Event[]
+
+  @@unique([name, cityId])
+  @@map("districts")
+}
+
+model Neighborhood {
+  id         String   @id @default(cuid())
+  name       String
+  districtId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  district District @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  posts    Post[]
+  events   Event[]
+
+  @@unique([name, districtId])
+  @@map("neighborhoods")
+}
+
+// Core models
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts         Post[]
+  events        Event[]
+  interests     UserInterest[]
+  eventAttendee EventAttendee[]
+
+  @@map("users")
+}
+
+model Post {
+  id             String     @id @default(cuid())
+  title          String
+  description    String
+  photos         String? // JSON array of photo URLs/paths
+  status         PostStatus @default(DRAFT)
+  districtId     String?
+  neighborhoodId String?
+  authorId       String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  author       User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
+  neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+
+  @@map("posts")
+}
+
+model Interest {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userInterests UserInterest[]
+  events        Event[]
+
+  @@map("interests")
+}
+
+model UserInterest {
+  id         String   @id @default(cuid())
+  userId     String
+  interestId String
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  interest Interest @relation(fields: [interestId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, interestId])
+  @@map("user_interests")
+}
+
+model Event {
+  id             String      @id @default(cuid())
+  title          String
+  description    String
+  startDate      DateTime
+  endDate        DateTime?
+  status         EventStatus @default(PLANNED)
+  maxAttendees   Int?
+  districtId     String?
+  neighborhoodId String?
+  organizerId    String
+  interestId     String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  organizer    User            @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+  district     District?       @relation(fields: [districtId], references: [id], onDelete: SetNull)
+  neighborhood Neighborhood?   @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+  interest     Interest?       @relation(fields: [interestId], references: [id], onDelete: SetNull)
+  attendees    EventAttendee[]
+
+  @@map("events")
+}
+
+model EventAttendee {
+  id        String   @id @default(cuid())
+  eventId   String
+  userId    String
+  createdAt DateTime @default(now())
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@map("event_attendees")
+}
