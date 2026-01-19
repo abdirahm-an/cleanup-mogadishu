@@ -2,6 +2,22 @@ import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import { db } from "@/lib/db"
+import { getEnvUrl } from "@/lib/env-config"
+
+export const authOptions: NextAuthOptions = {
+  session: {
+    strategy: "jwt",
+  },
+  providers: [
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+import bcrypt from "bcryptjs"
+import { db } from "@/lib/db"
+import { getEnvUrl } from "@/lib/env-config"
 
 export const authOptions: NextAuthOptions = {
   session: {
