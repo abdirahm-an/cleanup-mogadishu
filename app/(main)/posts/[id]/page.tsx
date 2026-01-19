@@ -6,21 +6,12 @@ import { useRouter } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { PhotoGallery } from '@/components/posts/PhotoGallery';
-<<<<<<< HEAD
-import { InterestButton } from '@/components/posts/InterestButton';
-import { InterestedUsers } from '@/components/posts/InterestedUsers';
-import Link from 'next/link';
-import { MapPin, Calendar, User, ArrowLeft, Share2, Flag } from 'lucide-react';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
-=======
 import { StatusBadge } from '@/components/posts/StatusBadge';
 import { StatusUpdater } from '@/components/posts/StatusUpdater';
 import { CompletionUpload } from '@/components/posts/CompletionUpload';
 import { CelebrationAnimation } from '@/components/posts/CelebrationAnimation';
 import Link from 'next/link';
 import { MapPin, Calendar, User, ArrowLeft, Share2, Flag, Loader2 } from 'lucide-react';
->>>>>>> origin/ralph/US-014
 
 interface Post {
   id: string;
@@ -43,40 +34,9 @@ interface Post {
     id: string;
     name: string;
   } | null;
+  interestCount?: number;
 }
 
-<<<<<<< HEAD
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
-  const { id } = await params;
-  const session = await getServerSession(authOptions);
-  
-  const post: any = await db.post.findUnique({
-    where: { id },
-    include: {
-      author: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-        }
-      },
-      district: true,
-      neighborhood: true,
-      // interests: {
-      //   include: {
-      //     user: {
-      //       select: {
-      //         id: true,
-      //         name: true,
-      //         email: true,
-      //         phone: true,
-      //       }
-      //     }
-      //   }
-      // }
-    }
-  });
-=======
 export default function PostDetailPage({ params }: { params: { id: string } }) {
   const { data: session } = useSession();
   const router = useRouter();
@@ -115,7 +75,6 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
       </div>
     );
   }
->>>>>>> origin/ralph/US-014
 
   if (!post) {
     return (
@@ -130,14 +89,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     );
   }
 
-  // Check if current user is interested
-  const interests = post.interests || [];
-  const currentUserInterest = session?.user 
-    ? interests.find((interest: any) => interest.userId === session.user.id)
-    : null;
-
-  const interestCount = interests.length;
-  const isCurrentUserInterested = !!currentUserInterest;
+  const interestCount = post.interestCount || 0;
 
   const photos = JSON.parse(post.photos || '[]') as string[];
   const isAuthor = session?.user?.id === post.authorId;
@@ -331,41 +283,19 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              {/* Interest Section */}
+              {/* Community Interest */}
               {post.status === 'PUBLISHED' && (
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-lg">Help Out</CardTitle>
+                    <CardTitle className="text-lg">Community Interest</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <p className="text-sm text-gray-600 mb-3">
-                        Want to help clean up this location? Let the reporter know you're interested!
-                      </p>
-                      <InterestButton
-                        postId={post.id}
-                        initialIsInterested={isCurrentUserInterested}
-                        initialCount={interestCount}
-                      />
+                  <CardContent>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <span className="text-lg font-semibold">{interestCount}</span>
+                      <span>people interested in helping</span>
                     </div>
                   </CardContent>
                 </Card>
-              )}
-
-              {/* Interested Users (for post author) */}
-              {post.status === 'PUBLISHED' && interestCount > 0 && (
-                <InterestedUsers
-                  postId={post.id}
-                  authorId={post.author.id}
-                  initialUsers={interests.map((interest: any) => ({
-                    id: interest.user.id,
-                    name: interest.user.name,
-                    email: interest.user.email,
-                    phone: interest.user.phone,
-                    shareContactInfo: interest.shareContactInfo,
-                    createdAt: interest.createdAt.toISOString()
-                  }))}
-                />
               )}
 
               {/* Location Details */}
