@@ -54,7 +54,7 @@ export async function PATCH(
     // Start a transaction to ensure data consistency
     await db.$transaction(async (tx) => {
       // Log the moderator action
-      await tx.moderatorAction.create({
+      await tx.moderationAction.create({
         data: {
           postId,
           moderatorId: session.user.id,
@@ -129,7 +129,7 @@ export async function PATCH(
 
       // If notifyAuthor is true, log a notification action
       if (notifyAuthor && action !== "NOTIFY_AUTHOR") {
-        await tx.moderatorAction.create({
+        await tx.moderationAction.create({
           data: {
             postId: action === "DELETE_POST" ? null : postId,
             moderatorId: session.user.id,
