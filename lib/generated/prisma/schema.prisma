@@ -77,26 +77,27 @@ model User {
   email         String    @unique
   name          String
   phone         String?
-  password      String? // For credentials auth
+  password      String?   // For credentials auth
   role          String    @default("USER") // USER, MODERATOR
   emailVerified DateTime?
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  posts         Post[]
-  events        Event[]
-  interests     UserInterest[]
-  eventAttendee EventAttendee[]
-  accounts      Account[]
-  sessions      Session[]
+  posts          Post[]
+  events         Event[]
+  interests      UserInterest[]
+  postInterests  PostInterest[]
+  eventAttendee  EventAttendee[]
+  accounts       Account[]
+  sessions       Session[]
 
   @@map("users")
 }
 
 // NextAuth models
 model Account {
-  id                String   @id @default(cuid())
+  id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
@@ -140,22 +141,38 @@ model VerificationToken {
 }
 
 model Post {
-  id             String   @id @default(cuid())
+  id             String     @id @default(cuid())
   title          String
   description    String
   photos         String? // JSON array of photo URLs/paths
-  status         String   @default("DRAFT") // DRAFT, PUBLISHED, UNDER_REVIEW, COMPLETED, ARCHIVED
+  status         String     @default("DRAFT") // DRAFT, PUBLISHED, UNDER_REVIEW, COMPLETED, ARCHIVED
   districtId     String?
   neighborhoodId String?
   authorId       String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 
   author       User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
   district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
   neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+  interests    PostInterest[]
 
   @@map("posts")
+}
+
+model PostInterest {
+  id                String   @id @default(cuid())
+  userId            String
+  postId            String
+  shareContactInfo  Boolean  @default(false) // User consent for sharing contact info
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, postId])
+  @@map("post_interests")
 }
 
 model Interest {
@@ -185,24 +202,24 @@ model UserInterest {
 }
 
 model Event {
-  id             String    @id @default(cuid())
+  id             String      @id @default(cuid())
   title          String
   description    String
   startDate      DateTime
   endDate        DateTime?
-  status         String    @default("PLANNED") // PLANNED, ACTIVE, COMPLETED, CANCELLED
+  status         String      @default("PLANNED") // PLANNED, ACTIVE, COMPLETED, CANCELLED
   maxAttendees   Int?
   districtId     String?
   neighborhoodId String?
   organizerId    String
   interestId     String?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
 
-  organizer    User            @relation(fields: [organizerId], references: [id], onDelete: Cascade)
-  district     District?       @relation(fields: [districtId], references: [id], onDelete: SetNull)
-  neighborhood Neighborhood?   @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
-  interest     Interest?       @relation(fields: [interestId], references: [id], onDelete: SetNull)
+  organizer    User          @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+  district     District?     @relation(fields: [districtId], references: [id], onDelete: SetNull)
+  neighborhood Neighborhood? @relation(fields: [neighborhoodId], references: [id], onDelete: SetNull)
+  interest     Interest?     @relation(fields: [interestId], references: [id], onDelete: SetNull)
   attendees    EventAttendee[]
 
   @@map("events")

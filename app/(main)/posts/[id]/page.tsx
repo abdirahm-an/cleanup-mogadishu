@@ -3,8 +3,12 @@ import { notFound } from 'next/navigation';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { PhotoGallery } from '@/components/posts/PhotoGallery';
+import { InterestButton } from '@/components/posts/InterestButton';
+import { InterestedUsers } from '@/components/posts/InterestedUsers';
 import Link from 'next/link';
 import { MapPin, Calendar, User, ArrowLeft, Share2, Flag } from 'lucide-react';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/lib/auth';
 
 interface PostDetailPageProps {
   params: Promise<{ id: string }>;
@@ -12,8 +16,9 @@ interface PostDetailPageProps {
 
 export default async function PostDetailPage({ params }: PostDetailPageProps) {
   const { id } = await params;
+  const session = await getServerSession(authOptions);
   
-  const post = await db.post.findUnique({
+  const post: any = await db.post.findUnique({
     where: { id },
     include: {
       author: {
@@ -25,12 +30,33 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
       },
       district: true,
       neighborhood: true,
+      // interests: {
+      //   include: {
+      //     user: {
+      //       select: {
+      //         id: true,
+      //         name: true,
+      //         email: true,
+      //         phone: true,
+      //       }
+      //     }
+      //   }
+      // }
     }
   });
 
   if (!post) {
     notFound();
   }
+
+  // Check if current user is interested
+  const interests = post.interests || [];
+  const currentUserInterest = session?.user 
+    ? interests.find((interest: any) => interest.userId === session.user.id)
+    : null;
+
+  const interestCount = interests.length;
+  const isCurrentUserInterested = !!currentUserInterest;
 
   const photos = JSON.parse(post.photos || '[]') as string[];
   
@@ -169,6 +195,43 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Interest Section */}
+              {post.status === 'PUBLISHED' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Help Out</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <p className="text-sm text-gray-600 mb-3">
+                        Want to help clean up this location? Let the reporter know you're interested!
+                      </p>
+                      <InterestButton
+                        postId={post.id}
+                        initialIsInterested={isCurrentUserInterested}
+                        initialCount={interestCount}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Interested Users (for post author) */}
+              {post.status === 'PUBLISHED' && interestCount > 0 && (
+                <InterestedUsers
+                  postId={post.id}
+                  authorId={post.author.id}
+                  initialUsers={interests.map((interest: any) => ({
+                    id: interest.user.id,
+                    name: interest.user.name,
+                    email: interest.user.email,
+                    phone: interest.user.phone,
+                    shareContactInfo: interest.shareContactInfo,
+                    createdAt: interest.createdAt.toISOString()
+                  }))}
+                />
+              )}
 
               {/* Location Details */}
               <Card>
