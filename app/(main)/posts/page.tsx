@@ -174,14 +174,18 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
 
           {/* Filters */}
           <div className="mb-8">
-            <PostFilters />
+            <Suspense fallback={<div className="h-12 bg-gray-100 rounded-lg animate-pulse" />}>
+              <PostFilters />
+            </Suspense>
           </div>
 
           {/* Posts View Toggle (Map/List) */}
-          <PostsViewToggle 
-            posts={transformedPosts} 
-            initialView={currentView}
-          />
+          <Suspense fallback={<div className="h-96 bg-gray-100 rounded-lg animate-pulse" />}>
+            <PostsViewToggle 
+              posts={transformedPosts} 
+              initialView={currentView}
+            />
+          </Suspense>
 
           {/* Pagination */}
           <Pagination 

@@ -1,6 +1,13 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { Navigation } from './Navigation';
 import { SearchInput } from '@/components/search/SearchInput';
+
+function SearchFallback() {
+  return (
+    <div className="w-full h-10 bg-gray-100 rounded-md animate-pulse" />
+  );
+}
 
 export function Header() {
   return (
@@ -17,7 +24,9 @@ export function Header() {
 
         {/* Search Bar - Desktop */}
         <div className="hidden md:flex flex-1 max-w-md mx-4">
-          <SearchInput placeholder="Search cleanup posts..." />
+          <Suspense fallback={<SearchFallback />}>
+            <SearchInput placeholder="Search cleanup posts..." />
+          </Suspense>
         </div>
 
         {/* Desktop Navigation */}
@@ -35,7 +44,9 @@ export function Header() {
       
       {/* Mobile Search Bar */}
       <div className="md:hidden px-4 pb-3">
-        <SearchInput placeholder="Search cleanup posts..." />
+        <Suspense fallback={<SearchFallback />}>
+          <SearchInput placeholder="Search cleanup posts..." />
+        </Suspense>
       </div>
     </header>
   );
