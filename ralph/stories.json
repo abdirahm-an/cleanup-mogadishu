@@ -1,0 +1,552 @@
+{
+  "project": "cleanup-mogadishu",
+  "description": "Community cleanup coordination platform for Mogadishu",
+  "branchPrefix": "ralph",
+  "mainBranch": "main",
+  "techStack": {
+    "framework": "Next.js 14",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS",
+    "database": "PostgreSQL",
+    "orm": "Prisma",
+    "auth": "NextAuth.js",
+    "hosting": "Vercel"
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "name": "Core Platform Foundation",
+      "description": "Essential infrastructure and authentication"
+    },
+    {
+      "id": "phase-2",
+      "name": "Content Creation & Management",
+      "description": "Post creation and location features"
+    },
+    {
+      "id": "phase-3",
+      "name": "Community Engagement",
+      "description": "Volunteer coordination features"
+    },
+    {
+      "id": "phase-4",
+      "name": "Discovery & Organization",
+      "description": "Search, filtering, and maps"
+    },
+    {
+      "id": "phase-5",
+      "name": "Platform Management",
+      "description": "Moderation and admin tools"
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Initialize Next.js project with TypeScript and Tailwind",
+      "description": "Set up the base Next.js 14 project with TypeScript, Tailwind CSS, and essential configuration",
+      "phase": "phase-1",
+      "priority": 1,
+      "dependencies": [],
+      "acceptanceCriteria": [
+        "Next.js 14 project initialized with App Router",
+        "TypeScript configured with strict mode",
+        "Tailwind CSS installed and configured",
+        "ESLint and Prettier configured",
+        "Basic folder structure created (app, components, lib, types)",
+        "Project runs with `npm run dev`",
+        "Typecheck passes with `npm run typecheck`"
+      ],
+      "estimatedComplexity": "low",
+      "status": "completed",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Set up Prisma with PostgreSQL schema",
+      "description": "Configure Prisma ORM with PostgreSQL and define the core database schema",
+      "phase": "phase-1",
+      "priority": 2,
+      "dependencies": [
+        "US-001"
+      ],
+      "acceptanceCriteria": [
+        "Prisma installed and configured",
+        "Database schema defined with models: User, Post, Location (District, Neighborhood), Event, Interest",
+        "User model includes: id, email, name, phone, role (USER/MODERATOR), createdAt",
+        "Post model includes: id, title, description, photos, status, locationId, authorId, createdAt",
+        "Location models support hierarchy: Country > City > District > Neighborhood",
+        "Prisma migrations generated successfully",
+        "Prisma client generated",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": "Use SQLite for local dev, PostgreSQL for production"
+    },
+    {
+      "id": "US-003",
+      "title": "Implement NextAuth.js authentication",
+      "description": "Set up user authentication with NextAuth.js supporting email/password",
+      "phase": "phase-1",
+      "priority": 3,
+      "dependencies": [
+        "US-002"
+      ],
+      "acceptanceCriteria": [
+        "NextAuth.js installed and configured",
+        "Credentials provider set up for email/password",
+        "Registration endpoint created",
+        "Login/logout functionality working",
+        "Session management configured",
+        "Auth middleware protecting routes",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Create basic UI layout and components",
+      "description": "Build the core UI layout with navigation, header, and reusable components",
+      "phase": "phase-1",
+      "priority": 2,
+      "dependencies": [
+        "US-001"
+      ],
+      "acceptanceCriteria": [
+        "Root layout with header and navigation",
+        "Responsive mobile-first design",
+        "Navigation component with links to main pages",
+        "Footer component",
+        "Button, Input, Card components created",
+        "Loading and error states",
+        "Tailwind theme configured with brand colors",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Build user profile management",
+      "description": "Create user profile pages with view and edit functionality",
+      "phase": "phase-1",
+      "priority": 4,
+      "dependencies": [
+        "US-003",
+        "US-004"
+      ],
+      "acceptanceCriteria": [
+        "Profile page showing user info",
+        "Edit profile form (name, phone, neighborhood)",
+        "Profile picture placeholder",
+        "API routes for profile CRUD",
+        "Form validation",
+        "Success/error feedback",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Implement photo upload infrastructure",
+      "description": "Set up image upload, storage, and optimization",
+      "phase": "phase-1",
+      "priority": 3,
+      "dependencies": [
+        "US-001"
+      ],
+      "acceptanceCriteria": [
+        "Image upload component with drag-and-drop",
+        "Image preview before upload",
+        "Image compression/optimization",
+        "Cloud storage integration (Cloudinary or similar)",
+        "Multiple image upload support",
+        "Upload progress indicator",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": "Can use local storage initially, cloud later"
+    },
+    {
+      "id": "US-007",
+      "title": "Seed location data for Mogadishu",
+      "description": "Create seed data for Mogadishu districts and neighborhoods",
+      "phase": "phase-2",
+      "priority": 1,
+      "dependencies": [
+        "US-002"
+      ],
+      "acceptanceCriteria": [
+        "Seed script for Somalia > Mogadishu",
+        "All major Mogadishu districts added (Hodan, Wardhigley, Abdiaziz, Hamar Weyne, etc.)",
+        "Key neighborhoods within each district",
+        "Seed script runnable via npm command",
+        "Data includes coordinates where available",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "low",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Build post creation form",
+      "description": "Create the form for submitting cleanup location posts",
+      "phase": "phase-2",
+      "priority": 2,
+      "dependencies": [
+        "US-006",
+        "US-007",
+        "US-003"
+      ],
+      "acceptanceCriteria": [
+        "Post creation page with form",
+        "Photo upload integration (required)",
+        "Description text field (required)",
+        "Location selector (District > Neighborhood dropdown)",
+        "Optional specific address/landmark field",
+        "Form validation",
+        "Submit creates post in database",
+        "Redirect to post detail on success",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Create post listing and detail pages",
+      "description": "Build pages to browse and view individual cleanup posts",
+      "phase": "phase-2",
+      "priority": 3,
+      "dependencies": [
+        "US-008"
+      ],
+      "acceptanceCriteria": [
+        "Home page showing latest posts",
+        "Post cards with photo thumbnail, title, location, date",
+        "Post detail page with full info",
+        "Photo gallery/carousel on detail page",
+        "Author info displayed",
+        "Responsive grid layout",
+        "Pagination or infinite scroll",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Implement basic location filtering",
+      "description": "Add ability to filter posts by district and neighborhood",
+      "phase": "phase-2",
+      "priority": 4,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Filter UI on post listing page",
+        "Filter by district dropdown",
+        "Filter by neighborhood (dependent on district)",
+        "Filters persist in URL params",
+        "Clear filters option",
+        "Post count per filter shown",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Add 'I'm Interested' functionality",
+      "description": "Allow users to express interest in helping with a cleanup",
+      "phase": "phase-3",
+      "priority": 1,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Interest button on post detail page",
+        "Toggle interest on/off",
+        "Show count of interested users",
+        "List of interested users visible to post author",
+        "Contact info sharing consent",
+        "Database model for Interest",
+        "API routes for interest CRUD",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Build event creation for organized cleanups",
+      "description": "Allow users to create organized cleanup events for posts",
+      "phase": "phase-3",
+      "priority": 2,
+      "dependencies": [
+        "US-011"
+      ],
+      "acceptanceCriteria": [
+        "Create event button on post detail",
+        "Event form: date, time, meeting point, description",
+        "Optional: required tools, max volunteers",
+        "Event displayed on post detail page",
+        "Event model in database",
+        "API routes for event CRUD",
+        "Only post author or interested users can create events",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Implement event participation",
+      "description": "Allow users to join/leave cleanup events",
+      "phase": "phase-3",
+      "priority": 3,
+      "dependencies": [
+        "US-012"
+      ],
+      "acceptanceCriteria": [
+        "Join event button",
+        "Leave event option",
+        "Participant list visible",
+        "Participant count shown",
+        "Event full indicator if max reached",
+        "Notification to event creator on new participant",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Add post status tracking",
+      "description": "Track cleanup status: open, in-progress, completed",
+      "phase": "phase-3",
+      "priority": 4,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Status field on posts (open/in-progress/completed)",
+        "Status badge displayed on post cards and detail",
+        "Post author can update status",
+        "Before/after photo upload for completion",
+        "Completion celebration UI",
+        "Filter by status",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "low",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Integrate map visualization",
+      "description": "Add interactive map showing cleanup locations",
+      "phase": "phase-4",
+      "priority": 1,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Map component using Leaflet or similar",
+        "Posts displayed as markers on map",
+        "Click marker to see post preview",
+        "Map centered on Mogadishu",
+        "Marker clustering for dense areas",
+        "Map/list toggle view",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "high",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": "Use OpenStreetMap tiles"
+    },
+    {
+      "id": "US-016",
+      "title": "Build search functionality",
+      "description": "Add text search for posts",
+      "phase": "phase-4",
+      "priority": 2,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Search input in header",
+        "Search by title and description",
+        "Search results page",
+        "Highlight matching terms",
+        "No results state",
+        "Search persists in URL",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-017",
+      "title": "Add advanced filtering options",
+      "description": "Extend filtering with status, date range, and sorting",
+      "phase": "phase-4",
+      "priority": 3,
+      "dependencies": [
+        "US-010",
+        "US-014"
+      ],
+      "acceptanceCriteria": [
+        "Filter by status (open/in-progress/completed)",
+        "Filter by date range",
+        "Sort by: newest, oldest, most interested",
+        "Combined filters work together",
+        "Filter panel UI (collapsible on mobile)",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-018",
+      "title": "Implement content flagging system",
+      "description": "Allow users to flag inappropriate content",
+      "phase": "phase-5",
+      "priority": 1,
+      "dependencies": [
+        "US-009"
+      ],
+      "acceptanceCriteria": [
+        "Flag/report button on posts",
+        "Flag reason selection",
+        "Flag stored in database",
+        "User can only flag once per post",
+        "Confirmation message",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "low",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-019",
+      "title": "Build moderator dashboard",
+      "description": "Create admin interface for content moderation",
+      "phase": "phase-5",
+      "priority": 2,
+      "dependencies": [
+        "US-018",
+        "US-003"
+      ],
+      "acceptanceCriteria": [
+        "Moderator-only route/page",
+        "List of flagged posts",
+        "View flag details and reasons",
+        "Actions: dismiss flag, hide post, delete post",
+        "Moderator action logged",
+        "Post author notification option",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    },
+    {
+      "id": "US-020",
+      "title": "Add user management for moderators",
+      "description": "Allow moderators to manage user accounts",
+      "phase": "phase-5",
+      "priority": 3,
+      "dependencies": [
+        "US-019"
+      ],
+      "acceptanceCriteria": [
+        "User list in moderator dashboard",
+        "Search users by name/email",
+        "View user profile and activity",
+        "Warn user action",
+        "Suspend user action",
+        "Promote to moderator (admin only)",
+        "Action history logged",
+        "Typecheck passes"
+      ],
+      "estimatedComplexity": "medium",
+      "status": "pending",
+      "assignedTo": null,
+      "retries": 0,
+      "branch": null,
+      "notes": ""
+    }
+  ]
+}
