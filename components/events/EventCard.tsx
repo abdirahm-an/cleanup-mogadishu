@@ -14,6 +14,7 @@ import {
   UserX
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import { ParticipantList } from './ParticipantList';
 
 interface Event {
   id: string;
@@ -156,14 +157,13 @@ export function EventCard({ event, onEventUpdate }: EventCardProps) {
           <span>Organized by <span className="font-medium">{event.organizer.name}</span></span>
         </div>
 
-        {/* Attendees */}
-        <div className="flex items-center gap-2 text-gray-600">
-          <Users className="w-4 h-4" />
-          <span>
-            {attendeeCount} volunteer{attendeeCount !== 1 ? 's' : ''}
-            {event.maxAttendees && ` (max ${event.maxAttendees})`}
-          </span>
-        </div>
+        {/* Participant List */}
+        <ParticipantList 
+          participants={event.attendees}
+          maxAttendees={event.maxAttendees}
+          isCompact={true}
+          showTitle={true}
+        />
 
         {/* Required Tools */}
         {event.requiredTools && (
@@ -207,21 +207,6 @@ export function EventCard({ event, onEventUpdate }: EventCardProps) {
                 This event has reached maximum capacity
               </p>
             )}
-          </div>
-        )}
-
-        {/* Attendee List (for organizers) */}
-        {isOrganizer && event.attendees.length > 0 && (
-          <div className="pt-4 border-t">
-            <h4 className="font-medium text-gray-900 mb-2">Volunteers Registered:</h4>
-            <div className="space-y-1">
-              {event.attendees.map((attendee) => (
-                <div key={attendee.id} className="flex items-center gap-2 text-sm text-gray-600">
-                  <UserCheck className="w-3 h-3" />
-                  <span>{attendee.user.name}</span>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 

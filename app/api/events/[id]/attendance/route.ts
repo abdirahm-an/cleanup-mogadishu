@@ -72,6 +72,13 @@ export async function POST(request: NextRequest, { params }: Params) {
       }
     });
 
+    // TODO: Implement notifications to event organizer when new participants join
+    // This would require adding a notification system to the database schema
+    // For now, logging the notification that would be sent
+    if (event.organizerId !== session.user.id) {
+      console.log(`Notification: ${session.user.name || session.user.email} joined event "${event.title}" organized by ${event.organizerId}`);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error joining event:', error);
