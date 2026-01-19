@@ -7,9 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL") // Optional: for connection pooling (Neon, Supabase)
+  provider = "postgresql"
 }
 
 // Using strings for status/role fields for flexibility
