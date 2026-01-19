@@ -341,7 +341,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "medium",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
@@ -416,7 +416,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "high",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
@@ -441,7 +441,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "medium",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
@@ -466,7 +466,7 @@
         "Typecheck passes"
       ],
       "estimatedComplexity": "medium",
-      "status": "pending",
+      "status": "completed",
       "assignedTo": null,
       "retries": 0,
       "branch": null,
