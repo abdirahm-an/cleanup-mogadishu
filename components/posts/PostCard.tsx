@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
+import { StatusBadge } from '@/components/posts/StatusBadge';
 import { MapPin, Calendar, User } from 'lucide-react';
 
 interface PostCardProps {
@@ -26,36 +27,6 @@ interface PostCardProps {
     } | null;
   };
 }
-
-const getStatusColor = (status: string) => {
-  switch (status) {
-    case 'PUBLISHED':
-      return 'bg-green-100 text-green-800 border-green-200';
-    case 'COMPLETED':
-      return 'bg-blue-100 text-blue-800 border-blue-200';
-    case 'UNDER_REVIEW':
-      return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    case 'DRAFT':
-      return 'bg-gray-100 text-gray-800 border-gray-200';
-    default:
-      return 'bg-gray-100 text-gray-800 border-gray-200';
-  }
-};
-
-const getStatusText = (status: string) => {
-  switch (status) {
-    case 'PUBLISHED':
-      return 'Open';
-    case 'COMPLETED':
-      return 'Completed';
-    case 'UNDER_REVIEW':
-      return 'In Progress';
-    case 'DRAFT':
-      return 'Draft';
-    default:
-      return status;
-  }
-};
 
 const getRelativeTime = (dateString: string) => {
   const date = new Date(dateString);
@@ -110,9 +81,7 @@ export function PostCard({ post }: PostCardProps) {
           
           {/* Status Badge */}
           <div className="absolute top-3 right-3">
-            <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(post.status)}`}>
-              {getStatusText(post.status)}
-            </span>
+            <StatusBadge status={post.status} size="sm" />
           </div>
         </div>
 
