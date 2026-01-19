@@ -11,7 +11,7 @@ const flagSchema = z.object({
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions)
@@ -22,7 +22,7 @@ export async function POST(
       )
     }
 
-    const postId = params.id
+    const postId = (await params).id
     if (!postId) {
       return NextResponse.json(
         { error: 'Post ID is required' },

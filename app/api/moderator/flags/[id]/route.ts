@@ -12,7 +12,7 @@ interface ModeratorActionRequest {
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions)
@@ -31,7 +31,7 @@ export async function PATCH(
       )
     }
 
-    const postId = params.id
+    const postId = (await params).id
     const body: ModeratorActionRequest = await request.json()
     const { action, flagIds, reason, notifyAuthor = false } = body
 
