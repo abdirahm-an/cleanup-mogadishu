@@ -109,10 +109,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '10');
-    const districtId = searchParams.get('districtId');
-    const neighborhoodId = searchParams.get('neighborhoodId');
+    const districtId = searchParams.get('district') || searchParams.get('districtId'); // Support both for compatibility
+    const neighborhoodId = searchParams.get('neighborhood') || searchParams.get('neighborhoodId'); // Support both for compatibility
     const status = searchParams.get('status');
-    const searchQuery = searchParams.get('q');
+    const dateFrom = searchParams.get('dateFrom');
+    const dateTo = searchParams.get('dateTo');
+    const sortBy = searchParams.get('sort') || 'newest';
     
     const skip = (page - 1) * limit;
 
@@ -133,22 +135,30 @@ export async function GET(request: NextRequest) {
       where.neighborhoodId = neighborhoodId;
     }
 
-    // Add search functionality
-    if (searchQuery && searchQuery.trim()) {
-      where.OR = [
-        {
-          title: {
-            contains: searchQuery.trim(),
-            mode: 'insensitive'
-          }
-        },
-        {
-          description: {
-            contains: searchQuery.trim(),
-            mode: 'insensitive'
-          }
-        }
-      ];
+    // Date range filtering
+    if (dateFrom || dateTo) {
+      where.createdAt = {};
+      if (dateFrom) {
+        where.createdAt.gte = new Date(dateFrom);
+      }
+      if (dateTo) {
+        // Add 1 day to include the entire end date
+        const endDate = new Date(dateTo);
+        endDate.setDate(endDate.getDate() + 1);
+        where.createdAt.lt = endDate;
+      }
+    }
+
+    // Build orderBy clause based on sort parameter
+    let orderBy: any;
+    switch (sortBy) {
+      case 'oldest':
+        orderBy = { createdAt: 'asc' };
+        break;
+      case 'newest':
+      default:
+        orderBy = { createdAt: 'desc' };
+        break;
     }
 
     const [posts, total] = await Promise.all([
@@ -165,7 +175,7 @@ export async function GET(request: NextRequest) {
           district: true,
           neighborhood: true,
         },
-        orderBy: { createdAt: 'desc' },
+        orderBy,
         skip,
         take: limit,
       }),
@@ -175,6 +185,7 @@ export async function GET(request: NextRequest) {
     const postsWithParsedPhotos = posts.map(post => ({
       ...post,
       photos: JSON.parse(post.photos || '[]'),
+      interestCount: 0, // Default to 0 for now, can be implemented later when interest system is ready
     }));
 
     return NextResponse.json({

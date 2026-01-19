@@ -34,6 +34,7 @@ interface Post {
     id: string;
     name: string;
   } | null;
+  interestCount?: number;
 }
 
 export default function PostDetailPage({ params }: { params: { id: string } }) {
@@ -88,14 +89,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
     );
   }
 
-  // Check if current user is interested
-  const interests = post.interests || [];
-  const currentUserInterest = session?.user 
-    ? interests.find((interest: any) => interest.userId === session.user.id)
-    : null;
-
-  const interestCount = interests.length;
-  const isCurrentUserInterested = !!currentUserInterest;
+  const interestCount = post.interestCount || 0;
 
   const photos = JSON.parse(post.photos || '[]') as string[];
   const isAuthor = session?.user?.id === post.authorId;
@@ -289,41 +283,19 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              {/* Interest Section */}
+              {/* Community Interest */}
               {post.status === 'PUBLISHED' && (
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-lg">Help Out</CardTitle>
+                    <CardTitle className="text-lg">Community Interest</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <p className="text-sm text-gray-600 mb-3">
-                        Want to help clean up this location? Let the reporter know you're interested!
-                      </p>
-                      <InterestButton
-                        postId={post.id}
-                        initialIsInterested={isCurrentUserInterested}
-                        initialCount={interestCount}
-                      />
+                  <CardContent>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <span className="text-lg font-semibold">{interestCount}</span>
+                      <span>people interested in helping</span>
                     </div>
                   </CardContent>
                 </Card>
-              )}
-
-              {/* Interested Users (for post author) */}
-              {post.status === 'PUBLISHED' && interestCount > 0 && (
-                <InterestedUsers
-                  postId={post.id}
-                  authorId={post.author.id}
-                  initialUsers={interests.map((interest: any) => ({
-                    id: interest.user.id,
-                    name: interest.user.name,
-                    email: interest.user.email,
-                    phone: interest.user.phone,
-                    shareContactInfo: interest.shareContactInfo,
-                    createdAt: interest.createdAt.toISOString()
-                  }))}
-                />
               )}
 
               {/* Location Details */}
