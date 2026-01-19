@@ -10,7 +10,7 @@ const updateStatusSchema = z.object({
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
@@ -34,7 +34,7 @@ export async function PATCH(
     }
 
     const { status } = result.data;
-    const postId = params.id;
+    const { id: postId } = await params;
 
     // Check if post exists and user is the author
     const post = await db.post.findUnique({

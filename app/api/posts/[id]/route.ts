@@ -3,13 +3,13 @@ import { db } from '@/lib/db';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const postId = params.id;
+    const { id } = await params;
 
     const post = await db.post.findUnique({
-      where: { id: postId },
+      where: { id },
       include: {
         author: {
           select: {
